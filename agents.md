@@ -64,8 +64,10 @@ Reference implementation: `20260912ECprelim2.html` (also applied to
 6. **Projected rows** (a CMU team that did not take part but whose result is
    estimated): insert a `class="cmu"` row at the median of the teams with the
    same solve count, with an empty rank and empty penalty/dirt cells. Problems
-   deemed solved but not actually submitted get an accepted-coloured cell with
-   `&nbsp;<br>&nbsp;` instead of `+`/time. Append
+   deemed solved but not actually submitted get `<td class="ac proj">PROJ</td>`:
+   accepted colour, the text `PROJ` instead of `+`/time, and a diagonal X drawn
+   across the whole cell (the `td.proj` rule in the `<style>` block, two
+   `linear-gradient` layers over `#dfffdf`). Append
    `<span class="tag">(projected, ...)</span>` to the team name explaining
    what was actually done and what is assumed. Projected rows do not shift
    anyone's rank (they were never in the original ranklist).
