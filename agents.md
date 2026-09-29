@@ -4,18 +4,38 @@ Static site: `index.html` (season schedule + list of finished contests) plus one
 scoreboard per contest, named `YYYYMMDD<Contest>.html` (or `.pdf` for older ones).
 No build step; edit the HTML directly.
 
+## Scoreboard files
+
+Scoreboards are rewritten into the compact markup of `20260912ECprelim2.html`
+rather than saved as raw QOJ pages (a raw save is ~3.5 MB; compact is ~0.1–0.3 MB):
+
+- one inline `<style>` block (copy it from prelim2), `<h1>` contest name,
+  `<title>QOJ<id> - <contest name></title>`;
+- `<thead>`: `<th>Rank.</th><th>Username</th>`, one `<th class="p">` per
+  problem (`class="p0"` if nobody solved it) with `Letter<br>solved/submits`,
+  then `<th>Solved</th><th>Penalty</th><th>Dirt</th>`;
+- one `<tr>` per team, one line each, cells `td.rk` (rank), `td.nm` (name),
+  per problem `td.ac` (accepted, `+k<br>h:mm`), `td.fs` (first solve),
+  `td.wa` (rejected, `-k<br>h:mm`) or `td.na` (`-`, not attempted), then
+  three `td.st` (solved, penalty, dirt);
+- no per-row `title=` tooltips / registration data; team names are
+  `<School>-<team> (First Last, ...)` as text only;
+- only the top of the ranklist is kept: cut at a solve-count boundary so
+  that every team within one solve of the weakest CMU team is included
+  (prelim1: all teams with >= 6 solves, 613 of 2643 rows), and say so in the
+  footnote (`Rows shown: QOJ ranks 1–N ...`).
+
 ## How CMU teams are displayed in a scoreboard
 
 Reference implementation: `20260912ECprelim2.html` (also applied to
 `20260907ECprelim1.html`). Any new scoreboard must follow these rules.
 
-1. **Row marker.** Every CMU row gets `class="cmu"` on the `<tr>` (replacing any
-   other row class such as `stand0x`/`solver`). Keep existing `id`s
-   (`cmu-team-01`, `cmu-toad`, ...) so deep links keep working.
+1. **Row marker.** Every CMU row gets `class="cmu"` on the `<tr>` (other rows
+   have no class). Keep existing `id`s (`cmu-team-01`, `cmu-toad`, ...) so
+   deep links keep working.
 
-2. **Unnumbered.** The rank cell of a CMU row is empty (`<td class="rk"></td>`,
-   or `<td class="stnd"></td>` in the raw-QOJ layout). CMU teams never carry a
-   rank, official or not.
+2. **Unnumbered.** The rank cell of a CMU row is empty (`<td class="rk"></td>`).
+   CMU teams never carry a rank, official or not.
 
 3. **Other ranks exclude CMU teams and preserve the original ties.** Ranks are
    competition-style (rank = 1 + number of teams strictly better), so for every
@@ -31,12 +51,9 @@ Reference implementation: `20260912ECprelim2.html` (also applied to
    (Solved / Penalty / Dirt). Per-problem result cells keep their normal
    accepted / first-solve / rejected colours so the row is still readable.
 
-       /* prelim2-style layout */
        tbody tr.cmu td.rk, tbody tr.cmu td.nm, tbody tr.cmu td.st, tbody tr.cmu td.na { background: #d2a679; }
-       /* raw QOJ layout (td.stnd = rank, name, "-" cells, stats) */
-       tr.cmu td.stnd { background: #d2a679; }
 
-   Do not colour the whole row (the old `class="solver"` approach).
+   Do not colour the whole row.
 
 5. **Team name format.** `CMU-<team> (First Last, First Last, First Last)` —
    prefix `CMU-`, a space before the opening parenthesis, members in English
@@ -62,7 +79,9 @@ Reference implementation: `20260912ECprelim2.html` (also applied to
 ## index.html
 
 Under "Finished Contests", each contest is a `<li>` in reverse chronological
-order: `Mon D, YYYY, *<A HREF="<file>">Name</A>::: S1 (R1), S2 (R2), ...` where
-`S` = problems solved and `R` = the rank position in the original ranklist.
-`+` after a rank means the team was unofficial (virtual / multi-keyboard) and
-was mixed into the original ranks; `(projected, R+)` marks an estimated row.
+order: `Mon D, YYYY, *<A HREF="<file>">Name</A>::: S1 (R1), S2 (R2), ...`, one
+entry per CMU team, where `S` = problems solved and `R` = the team's rank in
+the original (QOJ) ranklist, i.e. before CMU teams are unnumbered. `+` after
+a rank means the team was not physically present at the contest (online /
+virtual participation); `(projected, R+)` marks an estimated row. Example:
+prelim1 = `9 (55+), 7 (144+), 7 (145+)`.
