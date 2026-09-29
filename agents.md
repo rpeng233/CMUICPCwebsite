@@ -25,6 +25,24 @@ rather than saved as raw QOJ pages (a raw save is ~3.5 MB; compact is ~0.1–0.3
   (prelim1: all teams with >= 6 solves, 613 of 2643 rows), and say so in the
   footnote (`Rows shown: QOJ ranks 1–N ...`).
 
+### Scoreboards that come as official + unofficial PDFs (BOCA, e.g. LAC)
+
+Merge both into one file (`20260307LAC26.html`) in the same compact markup and
+delete the PDFs:
+
+- one ranklist ordered by solved desc, then penalty asc; official teams keep
+  their official rank in `td.rk`, unofficial teams get an empty rank cell and
+  no other marker (no `[CCL]`/"unofficial" tag, no class) — only CMU rows get
+  `class="cmu"` and the highlight;
+- official team names stay as in the source (`[School] team`); unofficial
+  names drop the division tag, CMU teams become `CMU-Team N (First Last, ...)`
+  (rosters are not in the PDFs; take them from index.html / the coach);
+- BOCA cell `k/t` -> `td.ac` `+(k-1)<br>h:mm`, `k/-` -> `td.wa` `-k` (no time
+  is available for rejected runs); penalty is copied from the source total,
+  first-solve marks and header `solved/submits` are computed from the rows
+  shown; say so in the footnote, together with the team counts of each
+  source and the scoreboard URL.
+
 ## How CMU teams are displayed in a scoreboard
 
 Reference implementation: `20260912ECprelim2.html` (also applied to
@@ -89,6 +107,11 @@ tied with the CMU team). Other CMU teams are never counted, so two CMU teams
 adjacent in the ranklist get the same `R`. `+` after a rank means the team
 was not physically present at the contest (online / virtual participation);
 `(projected, R+)` marks an estimated row.
+
+When a row has no displayed rank (an unofficial team in a merged
+official+unofficial scoreboard), it is skipped when looking for the last
+ranked row above the CMU team: LAC26 = `*6 (6+), *6 (8+)` (CMU-Team 1 sits
+between official ranks 6 and 7, CMU-Team 5 between 8 and 9).
 
 Examples: prelim2 = `7 (49+), 6 (69+), 6 (projected, 80+)` (rows sit between
 displayed ranks 49/50, 69/70 and 80/81); prelim1 = `9 (54+), 7 (142+), 7 (142+)`
