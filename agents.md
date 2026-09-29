@@ -80,8 +80,16 @@ Reference implementation: `20260912ECprelim2.html` (also applied to
 
 Under "Finished Contests", each contest is a `<li>` in reverse chronological
 order: `Mon D, YYYY, *<A HREF="<file>">Name</A>::: S1 (R1), S2 (R2), ...`, one
-entry per CMU team, where `S` = problems solved and `R` = the team's rank in
-the original (QOJ) ranklist, i.e. before CMU teams are unnumbered. `+` after
-a rank means the team was not physically present at the contest (online /
-virtual participation); `(projected, R+)` marks an estimated row. Example:
-prelim1 = `9 (55+), 7 (144+), 7 (145+)`.
+entry per CMU team, where `S` = problems solved and `R` = the number of
+non-CMU teams that finished strictly ahead of that team, i.e. the rank shown
+on the last non-CMU row above it in the scoreboard (one less if that row is
+tied with the CMU team). Other CMU teams are never counted, so two CMU teams
+adjacent in the ranklist get the same `R`. `+` after a rank means the team
+was not physically present at the contest (online / virtual participation);
+`(projected, R+)` marks an estimated row.
+
+Examples: prelim2 = `7 (49+), 6 (69+), 6 (projected, 80+)` (rows sit between
+displayed ranks 49/50, 69/70 and 80/81); prelim1 = `9 (54+), 7 (142+), 7 (142+)`
+(QOJ ranks 55 — tied with the row above at 55 —, 144 and 145; the 145 team has
+one non-CMU team fewer ahead than its QOJ rank suggests because rank 55 was CMU,
+and the CMU team at 144 is not counted).
