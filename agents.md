@@ -35,7 +35,8 @@ delete the PDFs:
   no other marker (no `[CCL]`/"unofficial" tag, no class) — only CMU rows get
   `class="cmu"` and the highlight;
 - official team names stay as in the source (`[School] team`); unofficial
-  names drop the division tag, CMU teams become `CMU-Team N`;
+  names drop the division tag, CMU teams become `CMU-Team N (First Last, ...)`
+  (rosters are not in the PDFs; take them from index.html / the coach);
 - BOCA cell `k/t` -> `td.ac` `+(k-1)<br>h:mm`, `k/-` -> `td.wa` `-k` (no time
   is available for rejected runs); penalty is copied from the source total,
   first-solve marks and header `solved/submits` are computed from the rows
