@@ -110,6 +110,36 @@ Reference implementation: `20260912ECprelim2.html` (also applied to
    ties."; the range of rows shown (`Rows shown: QOJ ranks 1–N.`); and the
    source (`Source: qoj.ac/results/QOJ<id>.`).
 
+## Team index (`CHNTeamIndex26.html`) and team labels on scoreboards
+
+`CHNTeamIndex26.html` is one table of all teams from Chinese universities that
+appear on any of the four 2026 scoreboards (EC prelim 1/2, CCPC prelim,
+UCup 5-3): abbreviation, school (English + Chinese), registered/displayed
+name(s), members, English translation, and one rank column per contest
+(EC1/EC2 = official rank in `2026090[7|12]ECprelim[1|2]official.pdf`,
+CCPC/UCup = QOJ rank; linked to the team's row, `†` when the row is below the
+compact scoreboard's cut). Rows are sorted by abbreviation.
+
+- **Identity.** School + registered team name come from the official EC PDFs
+  (matched to the QOJ rows by solved/penalty, disambiguated by the school in
+  the QOJ handle) and from the `school - team - members` CCPC/UCup handles.
+  Instances are merged into one team when they share >= 2 members (same
+  school) or an identical registered name; a merge is refused if both appear
+  in the same contest. Never merge on score alone.
+- **Abbreviation** = school abbreviation (`Tsinghua`, `PKU`, `SJTU`,
+  `CUHKSZ`, ...; one per school, no collisions) + number, numbered
+  alphabetically by the pinyin of the team's first registered name
+  (`Tsinghua1`, `Tsinghua2`, ...). Abbreviations are stable: when a new
+  scoreboard adds teams to a school, append numbers, do not renumber.
+- **Scoreboards.** Every non-CMU row whose team is in the index has its name
+  cell replaced by
+  `<a id="<Abbr>" href="CHNTeamIndex26.html#<Abbr>" title="<name as previously displayed>"><Abbr></a>`;
+  rows not in the index (foreign teams, handles whose school is unknown) keep
+  their translated name. The `<style>` block gets
+  `td.nm a, td.ab a { color: inherit; text-decoration: none; border-bottom: 1px dotted #888; }`
+  and the footnote gets, before `Rows shown:`, the sentence explaining the
+  labels and pointing to the index. CMU rows are never relabelled.
+
 ## index.html
 
 Under "Finished Contests", each contest is a `<li>` in reverse chronological
