@@ -118,11 +118,20 @@ UCup 5-3): GeoMeanRank (geometric mean of the team's ranks over the
 contests it appears in, 3 decimals), team label (one line, column wide
 enough for the longest label), members, Chinese university name in grey
 followed by the registered/displayed name(s), English translation, and one
-rank column per contest. Member names of the top teams are linked to the
-member's OIerDb profile (`https://oierdb.com/oier/<uid>`, `<a class="oi"
-title="OIerDb: <Chinese name>">`); link only a profile identified by the
-Chinese name plus a school/graduation year consistent with the university,
-never by score or pinyin alone
+rank column per contest; members stay on one line (`td.mb` nowrap). Member
+names of the top teams link to the member's row in `OIERindex.html`
+(`<a class="oi" href="OIERindex.html#oier<uid>">`).
+
+`OIERindex.html` lists those members sorted by family name: name (linked to
+the OIerDb profile `https://oierdb.com/oier/<uid>`, Chinese name in grey),
+team label, latest high school, IOI result (linked to
+`https://stats.ioinformatics.org/people/<id>`), then per year 2020–present
+one cell each for NOI, NOIP and APIO with `score<br>#rank`, coloured by
+award (gold/silver/bronze, NOIP first prize). Data comes from the OIerDb
+result dump (`https://oier.api.baoshuo.dev/result.<sha7>.txt`, record
+`contest:school:score:rank:province:level`, level 0–5 = 金/银/铜/一/二/三).
+Match a profile only by the Chinese name plus a school/graduation year
+consistent with the university, never by score or pinyin alone
 (EC1/EC2 = official rank in `2026090[7|12]ECprelim[1|2]official.pdf`,
 CCPC/UCup = QOJ rank; linked to the team's row, `†` when the row is below the
 compact scoreboard's cut). Rows are sorted by GeoMeanRank, increasing.
@@ -133,14 +142,18 @@ compact scoreboard's cut). Rows are sorted by GeoMeanRank, increasing.
   Instances are merged into one team when they share >= 2 members (same
   school) or an identical registered name; a merge is refused if both appear
   in the same contest. Never merge on score alone.
-- **Team label** = full English university name in CamelCase with no
-  spaces, apostrophes or punctuation (`TsinghuaUniversity`,
-  `XiAnJiaotongUniversity`, `SunYatSenUniversity`,
-  `ChineseUniversityOfHongKongShenzhen`; one per school, no collisions)
-  + number, numbered alphabetically by the pinyin of the team's first
-  registered name (`TsinghuaUniversity1`, `TsinghuaUniversity2`, ...).
-  Labels are stable: when a new scoreboard adds teams to a school, append
-  numbers, do not renumber.
+- **Team label** = university abbreviation + number (`THU18`, `PKU7`,
+  `XJTU3`, `CUHKSZ7`). Use the abbreviation the university itself uses
+  (domain / official English acronym: `SJTU`, `HUST`, `SUSTech`, `Tongji`,
+  `ShanghaiTech`, `PolyU`); one per school, no collisions (Jinan = `JNU`,
+  Jiangnan = `Jiangnan`; Tianjin = `TJU`, Tongji = `Tongji`). Numbers are
+  assigned alphabetically by the pinyin of the team's first registered name
+  (`THU1`, `THU2`, ...) and are stable: when a new scoreboard adds teams to a
+  school, append numbers, do not renumber. The bottom of the index
+  (`<h2 id="schools">Universities</h2>`) lists every abbreviation with the
+  number of teams, the full English name linked to its Wikipedia article
+  (Chinese Wikipedia when there is no English article) and the Chinese name;
+  each row has `id="<Abbr>"`.
 - **Scoreboards.** Every non-CMU row whose team is in the index has its name
   cell replaced by
   `<a id="<Label>" href="CHNTeamIndex26.html#<Label>" title="<name as previously displayed>"><Label></a>`;
