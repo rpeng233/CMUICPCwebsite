@@ -142,14 +142,18 @@ compact scoreboard's cut). Rows are sorted by GeoMeanRank, increasing.
   Instances are merged into one team when they share >= 2 members (same
   school) or an identical registered name; a merge is refused if both appear
   in the same contest. Never merge on score alone.
-- **Team label** = full English university name in CamelCase with no
-  spaces, apostrophes or punctuation (`TsinghuaUniversity`,
-  `XiAnJiaotongUniversity`, `SunYatSenUniversity`,
-  `ChineseUniversityOfHongKongShenzhen`; one per school, no collisions)
-  + number, numbered alphabetically by the pinyin of the team's first
-  registered name (`TsinghuaUniversity1`, `TsinghuaUniversity2`, ...).
-  Labels are stable: when a new scoreboard adds teams to a school, append
-  numbers, do not renumber.
+- **Team label** = university abbreviation + number (`THU18`, `PKU7`,
+  `XJTU3`, `CUHKSZ7`). Use the abbreviation the university itself uses
+  (domain / official English acronym: `SJTU`, `HUST`, `SUSTech`, `Tongji`,
+  `ShanghaiTech`, `PolyU`); one per school, no collisions (Jinan = `JNU`,
+  Jiangnan = `Jiangnan`; Tianjin = `TJU`, Tongji = `Tongji`). Numbers are
+  assigned alphabetically by the pinyin of the team's first registered name
+  (`THU1`, `THU2`, ...) and are stable: when a new scoreboard adds teams to a
+  school, append numbers, do not renumber. The bottom of the index
+  (`<h2 id="schools">Universities</h2>`) lists every abbreviation with the
+  number of teams, the full English name linked to its Wikipedia article
+  (Chinese Wikipedia when there is no English article) and the Chinese name;
+  each row has `id="<Abbr>"`.
 - **Scoreboards.** Every non-CMU row whose team is in the index has its name
   cell replaced by
   `<a id="<Label>" href="CHNTeamIndex26.html#<Label>" title="<name as previously displayed>"><Label></a>`;
