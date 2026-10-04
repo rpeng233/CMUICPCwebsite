@@ -128,9 +128,9 @@ names only in `title=` tooltips): name as plain text (no OIerDb link; `<sup
 class="lk">?</sup>` marks a likely match), `(IOI <year>)` linking to
 `https://stats.ioinformatics.org/people/<id>` for IOI participants, team
 label, latest high school in English linked to its Wikipedia article
-(Chinese Wikipedia when there is no English article), then per year, newest
-first, one cell each for NOI, NOIP and APIO with `score / #rank` on one
-line (APIO 2026: score only, ranks not final); no award colours (the award
+(Chinese Wikipedia when there is no English article), then per year 2025 → 2020
+(no 2026 columns), one cell each for NOI, NOIP and APIO with
+`score / #rank` on one line; no award colours (the award
 is in the tooltip). Data comes from the OIerDb
 result dump (`https://oier.api.baoshuo.dev/result.<sha7>.txt`, record
 `contest:school:score:rank:province:level`, level 0–5 = 金/银/铜/一/二/三).
