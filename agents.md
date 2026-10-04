@@ -122,12 +122,15 @@ rank column per contest; members stay on one line (`td.mb` nowrap). Member
 names of the top teams link to the member's row in `OIERindex.html`
 (`<a class="oi" href="OIERindex.html#oier<uid>">`).
 
-`OIERindex.html` lists those members sorted by family name: name (linked to
-the OIerDb profile `https://oierdb.com/oier/<uid>`, Chinese name in grey),
-team label, latest high school, IOI result (linked to
-`https://stats.ioinformatics.org/people/<id>`), then per year 2020–present
-one cell each for NOI, NOIP and APIO with `score<br>#rank`, coloured by
-award (gold/silver/bronze, NOIP first prize). Data comes from the OIerDb
+`OIERindex.html` lists those members sorted by family name, everything in
+English (Chinese names only in `title=` tooltips): name (linked to the
+OIerDb profile `https://oierdb.com/oier/<uid>`, followed by an `IOI <year>
+<medal>` link to `https://stats.ioinformatics.org/people/<id>` for IOI
+participants), team label, latest high school in English linked to its
+Wikipedia article (Chinese Wikipedia when there is no English article),
+then per year, newest first, one cell each for NOI, NOIP and APIO with
+`score / #rank` on one line; no award colours (the award is in the
+tooltip). Data comes from the OIerDb
 result dump (`https://oier.api.baoshuo.dev/result.<sha7>.txt`, record
 `contest:school:score:rank:province:level`, level 0–5 = 金/银/铜/一/二/三).
 Match a profile only by the Chinese name plus a school/graduation year
@@ -149,11 +152,10 @@ compact scoreboard's cut). Rows are sorted by GeoMeanRank, increasing.
   Jiangnan = `Jiangnan`; Tianjin = `TJU`, Tongji = `Tongji`). Numbers are
   assigned alphabetically by the pinyin of the team's first registered name
   (`THU1`, `THU2`, ...) and are stable: when a new scoreboard adds teams to a
-  school, append numbers, do not renumber. The bottom of the index
-  (`<h2 id="schools">Universities</h2>`) lists every abbreviation with the
-  number of teams, the full English name linked to its Wikipedia article
-  (Chinese Wikipedia when there is no English article) and the Chinese name;
-  each row has `id="<Abbr>"`.
+  school, append numbers, do not renumber. In the index the label is
+  `<a class="wk" href="<Wikipedia URL>" title="<full English name>"><Label></a>`
+  linking to the university's Wikipedia article (Chinese Wikipedia when
+  there is no English article); there is no separate list of universities.
 - **Scoreboards.** Every non-CMU row whose team is in the index has its name
   cell replaced by
   `<a id="<Label>" href="CHNTeamIndex26.html#<Label>" title="<name as previously displayed>"><Label></a>`;
