@@ -122,15 +122,16 @@ rank column per contest; members stay on one line (`td.mb` nowrap). Member
 names of the top teams link to the member's row in `OIERindex.html`
 (`<a class="oi" href="OIERindex.html#oier<uid>">`).
 
-`OIERindex.html` lists those members sorted by family name, everything in
-English (Chinese names only in `title=` tooltips): name (linked to the
-OIerDb profile `https://oierdb.com/oier/<uid>`, followed by an `IOI <year>
-<medal>` link to `https://stats.ioinformatics.org/people/<id>` for IOI
-participants), team label, latest high school in English linked to its
-Wikipedia article (Chinese Wikipedia when there is no English article),
-then per year, newest first, one cell each for NOI, NOIP and APIO with
-`score / #rank` on one line; no award colours (the award is in the
-tooltip). Data comes from the OIerDb
+`OIERindex.html` lists the members (with an OIerDb record) of the top 30
+teams by GeoMeanRank, sorted by family name, everything in English (Chinese
+names only in `title=` tooltips): name as plain text (no OIerDb link; `<sup
+class="lk">?</sup>` marks a likely match), `(IOI <year>)` linking to
+`https://stats.ioinformatics.org/people/<id>` for IOI participants, team
+label, latest high school in English linked to its Wikipedia article
+(Chinese Wikipedia when there is no English article), then per year, newest
+first, one cell each for NOI, NOIP and APIO with `score / #rank` on one
+line (APIO 2026: score only, ranks not final); no award colours (the award
+is in the tooltip). Data comes from the OIerDb
 result dump (`https://oier.api.baoshuo.dev/result.<sha7>.txt`, record
 `contest:school:score:rank:province:level`, level 0–5 = 金/银/铜/一/二/三).
 Match a profile only by the Chinese name plus a school/graduation year
