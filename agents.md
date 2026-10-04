@@ -149,11 +149,10 @@ compact scoreboard's cut). Rows are sorted by GeoMeanRank, increasing.
   Jiangnan = `Jiangnan`; Tianjin = `TJU`, Tongji = `Tongji`). Numbers are
   assigned alphabetically by the pinyin of the team's first registered name
   (`THU1`, `THU2`, ...) and are stable: when a new scoreboard adds teams to a
-  school, append numbers, do not renumber. The bottom of the index
-  (`<h2 id="schools">Universities</h2>`) lists every abbreviation with the
-  number of teams, the full English name linked to its Wikipedia article
-  (Chinese Wikipedia when there is no English article) and the Chinese name;
-  each row has `id="<Abbr>"`.
+  school, append numbers, do not renumber. In the index the label is
+  `<a class="wk" href="<Wikipedia URL>" title="<full English name>"><Label></a>`
+  linking to the university's Wikipedia article (Chinese Wikipedia when
+  there is no English article); there is no separate list of universities.
 - **Scoreboards.** Every non-CMU row whose team is in the index has its name
   cell replaced by
   `<a id="<Label>" href="CHNTeamIndex26.html#<Label>" title="<name as previously displayed>"><Label></a>`;
