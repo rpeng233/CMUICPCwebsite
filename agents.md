@@ -61,8 +61,13 @@ Reference implementation: `20260912ECprelim2.html` (also applied to
    have no class). Keep existing `id`s (`cmu-team-01`, `cmu-toad`, ...) so
    deep links keep working.
 
-2. **Unnumbered.** The rank cell of a CMU row is empty (`<td class="rk"></td>`).
-   CMU teams never carry a rank, official or not.
+2. **Unnumbered when unofficial.** When CMU took part unofficially (online
+   qualifiers it cannot advance in, virtual/multi-keyboard runs, projected
+   rows) the rank cell of a CMU row is empty (`<td class="rk"></td>`) and
+   rule 3 applies. When CMU took part officially (UCup stages, onsite
+   regionals) every row keeps its source rank, CMU rows included; only the
+   `class="cmu"` highlight marks them, and the footnote says "CMU teams took
+   part officially and keep their QOJ ranks" (UCup 5-3).
 
 3. **Other ranks exclude CMU teams and preserve the original ties.** Ranks are
    competition-style (rank = 1 + number of teams strictly better), so for every
@@ -122,11 +127,10 @@ official+unofficial scoreboard), it is skipped when looking for the last
 ranked row above the CMU team: LAC26 = `*6 (6+), *6 (8+)` (CMU-Team 1 sits
 between official ranks 6 and 7, CMU-Team 5 between 8 and 9).
 
-Online contests (EC/CCPC preliminaries, UCup stages) always get `+`; `*`
-(cannot advance) is kept for official qualifiers CMU is not eligible for, not
-for UCup. UCup 5-3 = `5 (66+), 4 (108+)`: CMU-Team 1 at QOJ 68 sits below two
-teams tied at 66; CMU-Team 2 at QOJ 110 is tied with the row above (110), so
-that row counts as 108, not 109.
+Official participations (UCup stages, onsite regionals) list the source rank
+with no `+`: UCup 5-3 = `5 (68), 4 (110)`. `+` and the row-above rule are for
+unofficial rows only; `*` (cannot advance) is kept for qualifiers CMU is not
+eligible for (EC/CCPC preliminaries).
 
 Examples: prelim2 = `7 (49+), 6 (69+), 6 (projected, 80+)` (rows sit between
 displayed ranks 49/50, 69/70 and 80/81); prelim1 = `9 (54+), 7 (142+), 7 (142+)`
