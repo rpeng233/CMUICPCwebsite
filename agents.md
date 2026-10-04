@@ -115,9 +115,10 @@ Reference implementation: `20260912ECprelim2.html` (also applied to
 `CHNTeamIndex26.html` is one table of all teams from Chinese universities that
 appear on any of the four 2026 scoreboards (EC prelim 1/2, CCPC prelim,
 UCup 5-3): GeoMeanRank (geometric mean of the team's ranks over the
-contests it appears in, 3 decimals), team label (with the Chinese university
-name in grey below it), registered/displayed name(s), members, English
-translation, and one rank column per contest
+contests it appears in, 3 decimals), team label (one line, column wide
+enough for the longest label), members, Chinese university name in grey
+followed by the registered/displayed name(s), English translation, and one
+rank column per contest
 (EC1/EC2 = official rank in `2026090[7|12]ECprelim[1|2]official.pdf`,
 CCPC/UCup = QOJ rank; linked to the team's row, `†` when the row is below the
 compact scoreboard's cut). Rows are sorted by GeoMeanRank, increasing.
