@@ -20,6 +20,15 @@ rather than saved as raw QOJ pages (a raw save is ~3.5 MB; compact is ~0.1–0.3
   three `td.st` (solved, penalty, dirt);
 - no per-row `title=` tooltips / registration data; team names are
   `<School>-<team> (First Last, ...)` as text only;
+- team names are translated: Chinese QOJ handles
+  `学校 - 队名 - 姓名, 姓名, 姓名` become `<School>-<Team name in English>
+  (Given Surname, ...)` (school = usual English name/abbreviation, team name
+  translated, members in pinyin, English order); handles in other scripts
+  (Japanese, Russian) are translated too, Latin-script handles are kept.
+  Say "Team names translated/transliterated from the QOJ handles" in the
+  footnote (CCPC prelim, UCup 5-3);
+- a browser "save page" (`<name>.htm` + `<name>_files/` with QOJ's css/js) is
+  only the raw input: convert it and delete both, never commit them;
 - only the top of the ranklist is kept: cut at a solve-count boundary so
   that every team within one solve of the weakest CMU team is included
   (prelim1: all teams with >= 6 solves, 613 of 2643 rows), and say so in the
@@ -112,6 +121,12 @@ When a row has no displayed rank (an unofficial team in a merged
 official+unofficial scoreboard), it is skipped when looking for the last
 ranked row above the CMU team: LAC26 = `*6 (6+), *6 (8+)` (CMU-Team 1 sits
 between official ranks 6 and 7, CMU-Team 5 between 8 and 9).
+
+Online contests (EC/CCPC preliminaries, UCup stages) always get `+`; `*`
+(cannot advance) is kept for official qualifiers CMU is not eligible for, not
+for UCup. UCup 5-3 = `5 (66+), 4 (108+)`: CMU-Team 1 at QOJ 68 sits below two
+teams tied at 66; CMU-Team 2 at QOJ 110 is tied with the row above (110), so
+that row counts as 108, not 109.
 
 Examples: prelim2 = `7 (49+), 6 (69+), 6 (projected, 80+)` (rows sit between
 displayed ranks 49/50, 69/70 and 80/81); prelim1 = `9 (54+), 7 (142+), 7 (142+)`
