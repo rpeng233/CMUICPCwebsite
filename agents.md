@@ -114,11 +114,13 @@ Reference implementation: `20260912ECprelim2.html` (also applied to
 
 `CHNTeamIndex26.html` is one table of all teams from Chinese universities that
 appear on any of the four 2026 scoreboards (EC prelim 1/2, CCPC prelim,
-UCup 5-3): abbreviation, school (English + Chinese), registered/displayed
-name(s), members, English translation, and one rank column per contest
+UCup 5-3): GeoMeanRank (geometric mean of the team's ranks over the
+contests it appears in, 3 decimals), team label (with the Chinese university
+name in grey below it), registered/displayed name(s), members, English
+translation, and one rank column per contest
 (EC1/EC2 = official rank in `2026090[7|12]ECprelim[1|2]official.pdf`,
 CCPC/UCup = QOJ rank; linked to the team's row, `†` when the row is below the
-compact scoreboard's cut). Rows are sorted by abbreviation.
+compact scoreboard's cut). Rows are sorted by GeoMeanRank, increasing.
 
 - **Identity.** School + registered team name come from the official EC PDFs
   (matched to the QOJ rows by solved/penalty, disambiguated by the school in
@@ -126,14 +128,17 @@ compact scoreboard's cut). Rows are sorted by abbreviation.
   Instances are merged into one team when they share >= 2 members (same
   school) or an identical registered name; a merge is refused if both appear
   in the same contest. Never merge on score alone.
-- **Abbreviation** = school abbreviation (`Tsinghua`, `PKU`, `SJTU`,
-  `CUHKSZ`, ...; one per school, no collisions) + number, numbered
-  alphabetically by the pinyin of the team's first registered name
-  (`Tsinghua1`, `Tsinghua2`, ...). Abbreviations are stable: when a new
-  scoreboard adds teams to a school, append numbers, do not renumber.
+- **Team label** = full English university name in CamelCase with no
+  spaces, apostrophes or punctuation (`TsinghuaUniversity`,
+  `XiAnJiaotongUniversity`, `SunYatSenUniversity`,
+  `ChineseUniversityOfHongKongShenzhen`; one per school, no collisions)
+  + number, numbered alphabetically by the pinyin of the team's first
+  registered name (`TsinghuaUniversity1`, `TsinghuaUniversity2`, ...).
+  Labels are stable: when a new scoreboard adds teams to a school, append
+  numbers, do not renumber.
 - **Scoreboards.** Every non-CMU row whose team is in the index has its name
   cell replaced by
-  `<a id="<Abbr>" href="CHNTeamIndex26.html#<Abbr>" title="<name as previously displayed>"><Abbr></a>`;
+  `<a id="<Label>" href="CHNTeamIndex26.html#<Label>" title="<name as previously displayed>"><Label></a>`;
   rows not in the index (foreign teams, handles whose school is unknown) keep
   their translated name. The `<style>` block gets
   `td.nm a, td.ab a { color: inherit; text-decoration: none; border-bottom: 1px dotted #888; }`
