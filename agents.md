@@ -131,7 +131,10 @@ label, latest high school in English linked to its Wikipedia article
 (Chinese Wikipedia when there is no English article), then per year 2025 → 2020
 (no 2026 columns), one cell each for NOI, NOIP and APIO with
 `score / #rank` on one line; no award colours (the award
-is in the tooltip). Data comes from the OIerDb
+is in the tooltip). Each `<tr>` carries `id="oier<uid>"` and
+`data-team="<label>"`; the row reached via the URL hash is bright yellow
+(`tr:target`, `#ff0`) and a small script marks the rows with the same
+`data-team` as `tr.mate` (orange `#ffa500`) so the teammates stand out. Data comes from the OIerDb
 result dump (`https://oier.api.baoshuo.dev/result.<sha7>.txt`, record
 `contest:school:score:rank:province:level`, level 0–5 = 金/银/铜/一/二/三).
 Match a profile only by the Chinese name plus a school/graduation year
