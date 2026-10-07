@@ -9,7 +9,8 @@ No build step; edit the HTML directly.
 Scoreboards are rewritten into the compact markup of `20260912ECprelim2.html`
 rather than saved as raw QOJ pages (a raw save is ~3.5 MB; compact is ~0.1–0.3 MB):
 
-- one inline `<style>` block (copy it from prelim2), `<h1>` contest name,
+- one inline `<style>` block (copy it from prelim2), `<h1>` contest name
+  followed by the subtitle `<p class="sub">scoreboard relabeled using Devin.AI</p>`,
   `<title>QOJ<id> - <contest name></title>`;
 - `<thead>`: `<th>Rank.</th><th>Username</th>`, one `<th class="p">` per
   problem (`class="p0"` if nobody solved it) with `Letter<br>solved/submits`,
