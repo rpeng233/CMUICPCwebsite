@@ -118,30 +118,45 @@ UCup 5-3): GeoMeanRank (geometric mean of the team's ranks over the
 contests it appears in, 3 decimals), team label (one line, column wide
 enough for the longest label), members, Chinese university name in grey
 followed by the registered/displayed name(s), English translation, and one
-rank column per contest; members stay on one line (`td.mb` nowrap). Member
-names of the top teams link to the member's row in `OIERindex.html`
-(`<a class="oi" href="OIERindex.html#oier<uid>">`).
+rank column per contest (EC1/EC2 = official rank in
+`2026090[7|12]ECprelim[1|2]official.pdf`, CCPC/UCup = QOJ rank; linked to
+the team's row, `†` when the row is below the compact scoreboard's cut);
+members stay on one line (`td.mb` nowrap) and every member with an OIerDb
+record links to their row in `OIERindex.html`
+(`<a class="oi" href="OIERindex.html#oier<uid>">`). Rows are sorted by
+GeoMeanRank, increasing.
 
-`OIERindex.html` lists the members (with an OIerDb record) of the top 30
-teams by GeoMeanRank, sorted by family name, everything in English (Chinese
-names only in `title=` tooltips): name as plain text (no OIerDb link; `<sup
-class="lk">?</sup>` marks a likely match), `(IOI <year>)` linking to
+`OIERindex.html` lists the members (with an OIerDb record) of every team in
+the index that has a roster (EC-only teams have none), sorted by family
+name, everything in English (Chinese names only in `title=` tooltips): name
+as plain text (no OIerDb link; `<sup class="lk">?</sup>` marks a likely
+match), `(IOI <year>)` linking to
 `https://stats.ioinformatics.org/people/<id>` for IOI participants, team
-label, latest high school in English linked to its Wikipedia article
-(Chinese Wikipedia when there is no English article), then per year 2025 → 2020
-(no 2026 columns), one cell each for NOI, NOIP and APIO with
-`score / #rank` on one line; no award colours (the award
-is in the tooltip). Each `<tr>` carries `id="oier<uid>"` and
-`data-team="<label>"`; the row reached via the URL hash is bright yellow
-(`tr:target`, `#ff0`) and a small script marks the rows with the same
-`data-team` as `tr.mate` (orange `#ffa500`) so the teammates stand out. Data comes from the OIerDb
-result dump (`https://oier.api.baoshuo.dev/result.<sha7>.txt`, record
+label(s), latest high school in English linked to its Wikipedia article
+(Chinese Wikipedia when there is no English article, plain text when there
+is neither), then per year 2025 → 2020 (no 2026 columns), one cell each for
+NOI, NOIP and APIO with `score / #rank` on one line; no award colours (the
+award is in the tooltip). One row per person: a member who played for
+several teams (e.g. a different EC-prelim and CCPC line-up) gets all labels
+in the team cell and in `data-team`, space-separated. Each `<tr>` carries
+`id="oier<uid>"` and `data-team="<labels>"`; the row reached via the URL
+hash is bright yellow (`tr:target`, `#ff0`) and a small script marks the
+rows sharing a label with it as `tr.mate` (orange `#ffa500`) so the
+teammates stand out. Data comes from the OIerDb result dump
+(`https://oier.api.baoshuo.dev/result.<sha7>.txt`, record
 `contest:school:score:rank:province:level`, level 0–5 = 金/银/铜/一/二/三).
 Match a profile only by the Chinese name plus a school/graduation year
-consistent with the university, never by score or pinyin alone
-(EC1/EC2 = official rank in `2026090[7|12]ECprelim[1|2]official.pdf`,
-CCPC/UCup = QOJ rank; linked to the team's row, `†` when the row is below the
-compact scoreboard's cut). Rows are sorted by GeoMeanRank, increasing.
+consistent with the university, never by score alone: a unique Chinese-name
+hit with a cohort (OIerDb junior-high entry year 2014–2020) consistent with
+a 2026 undergraduate counts as a match; namesakes and pinyin-only handles
+are resolved by cohort/school/external evidence (provincial standings,
+admission lists) and marked `?` (likely); members with no plausible record
+are left out rather than guessed; when the same profile is claimed by teams
+of two universities, keep the certain claim and drop the likely one. The
+helper scripts live outside the repo (`~/chn`: `extract_all.py`,
+`cands_all.py`, `build_oier_full.py`, `gen_oier.py`, `render.py`);
+high-school English names and Wikipedia links come from the zh.wikipedia
+API (`hs_zh.json`) with hand-written fallbacks (`hs_manual.json`).
 
 - **Identity.** School + registered team name come from the official EC PDFs
   (matched to the QOJ rows by solved/penalty, disambiguated by the school in
