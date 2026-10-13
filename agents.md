@@ -132,10 +132,13 @@ name, everything in English (Chinese names only in `title=` tooltips): name
 as plain text (no OIerDb link; `<sup class="lk">?</sup>` marks a likely
 match), `(IOI <year>)` linking to
 `https://stats.ioinformatics.org/people/<id>` for IOI participants, team
-label(s), latest high school in English linked to its Wikipedia article
+label(s), latest high school in English (without the campus/branch part:
+`杭州学军中学海创园学校` → `Hangzhou Xuejun High School`) linked to its Wikipedia article
 (Chinese Wikipedia when there is no English article, plain text when there
 is neither), then per year 2025 → 2020 (no 2026 columns), one cell each for
-NOI, NOIP and APIO with `score / #rank` on one line; no award colours (the
+NOI, NOIP and APIO with `score / #rank` on one line, a 3px black left border (`.yb`) on the
+first column of every year group; both header rows are `position: sticky`
+(the second row's `top` is set by script to the first row's height); no award colours (the
 award is in the tooltip). One row per person: a member who played for
 several teams (e.g. a different EC-prelim and CCPC line-up) gets all labels
 in the team cell and in `data-team`, space-separated. Each `<tr>` carries
