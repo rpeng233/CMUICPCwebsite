@@ -1,0 +1,709 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,booktabs,geometry,verbatim}
+\usepackage{multirow}
+\usepackage{CJKutf8}
+\geometry{margin=1in}
+
+\newcommand{\cn}[1]{\begin{CJK}{UTF8}{gbsn}#1\end{CJK}}
+
+\title{CSP-S 2025 (Senior)}
+\date{2025-10-25, 14:30--18:30 (4 hours)}
+
+\begin{document}
+\maketitle
+
+\noindent
+2025 CCF Certified Software Professional, CSP-J/S 2025, second round,
+Senior level (CSP-S).
+Four problems, in contest order.
+Each problem reads from and writes to the named files.
+Time and memory limits are those shown on the QOJ problem pages.
+
+\section*{Problem 1: Club Recruitment (\cn{社团招新}, \texttt{club})}
+
+\noindent
+Time limit: 1 s. \quad Memory limit: 512 MB. \quad Total points: 100.
+
+\subsection*{Problem description}
+
+Little L is a member of the school's algorithm society.
+In this year's school club recruitment, Little L recruited $n$ new members
+in total, where $n$ is \textbf{even}.
+Now Little L wants to assign them to different departments of the society.
+
+The algorithm society has three departments.
+The satisfaction of the $i$-th ($1 \le i \le n$) new member with the
+$j$-th ($1 \le j \le 3$) department is $a_{i,j}$.
+The satisfaction of an assignment is defined as the sum, over all new
+members, of their satisfaction with the department they are assigned to.
+That is, if the $i$-th ($1 \le i \le n$) new member is assigned to the
+$d_i$-th department, where $d_i \in \{1,2,3\}$, then the satisfaction of
+the assignment is $\sum_{i=1}^{n} a_{i,d_i}$.
+
+Little L does not want any single department to have too many new members.
+Specifically, he requires that in the assignment \textbf{there is no}
+department that is assigned \textbf{more than} $\frac{n}{2}$ new members.
+You need to help Little L find the maximum satisfaction of an assignment
+that satisfies his requirement.
+
+\subsection*{Input}
+
+Read the data from the file \texttt{club.in}.
+
+\textbf{This problem contains multiple test cases.}
+
+The first line of the input contains a positive integer $t$, the number of
+test cases.
+
+Then the test cases follow one after another.
+For each test case:
+\begin{itemize}
+\item The first line contains a positive integer $n$, the number of new
+  members.
+\item Line $i+1$ ($1 \le i \le n$) contains three non-negative integers
+  $a_{i,1}, a_{i,2}, a_{i,3}$, the satisfaction of the $i$-th new member
+  with departments $1, 2, 3$ respectively.
+\end{itemize}
+
+\subsection*{Output}
+
+Write the output to the file \texttt{club.out}.
+
+For each test case, output one line containing one non-negative integer,
+the maximum satisfaction of an assignment that satisfies Little L's
+requirement.
+
+\subsection*{Sample 1 input}
+
+\begin{verbatim}
+3
+4
+4 2 1
+3 2 4
+5 3 4
+3 5 1
+4
+0 1 0
+0 1 0
+0 2 0
+0 2 0
+2
+10 9 8
+4 0 0
+\end{verbatim}
+
+\subsection*{Sample 1 output}
+
+\begin{verbatim}
+18
+4
+13
+\end{verbatim}
+
+\subsection*{Explanation of sample 1}
+
+This sample contains three test cases.
+
+For the first test case, the four new members can be assigned to
+departments $1, 3, 1, 2$ respectively.
+Then the numbers of new members in the three departments are $2, 1, 1$,
+none exceeding $\frac{4}{2} = 2$, and the satisfaction is
+$4 + 4 + 5 + 5 = 18$.
+
+For the second test case, the four new members can be assigned to
+departments $1, 1, 2, 2$ respectively.
+Then the numbers of new members in the three departments are $2, 2, 0$,
+none exceeding $\frac{4}{2} = 2$, and the satisfaction is
+$0 + 0 + 2 + 2 = 4$.
+
+For the third test case, the two new members can be assigned to
+departments $2, 1$ respectively.
+Then the numbers of new members in the three departments are $1, 1, 0$,
+none exceeding $\frac{2}{2} = 1$, and the satisfaction is $9 + 4 = 13$.
+
+\subsection*{Sample 2}
+
+See \texttt{club/club2.in} and \texttt{club/club2.ans} in the contestant's
+directory.
+
+This sample satisfies the constraints of test cases $3, 4$.
+
+\subsection*{Sample 3}
+
+See \texttt{club/club3.in} and \texttt{club/club3.ans} in the contestant's
+directory.
+
+This sample satisfies the constraints of test cases $5 \sim 8$.
+
+\subsection*{Sample 4}
+
+See \texttt{club/club4.in} and \texttt{club/club4.ans} in the contestant's
+directory.
+
+This sample satisfies the constraints of test case $9$.
+
+\subsection*{Sample 5}
+
+See \texttt{club/club5.in} and \texttt{club/club5.ans} in the contestant's
+directory.
+
+This sample satisfies the constraints of test cases $15, 16$.
+
+\subsection*{Constraints}
+
+For all test data, it is guaranteed that:
+\begin{itemize}
+\item $1 \le t \le 5$;
+\item $2 \le n \le 10^5$, and $n$ is even;
+\item for all $1 \le i \le n$, $1 \le j \le 3$, we have
+  $0 \le a_{i,j} \le 2 \times 10^4$.
+\end{itemize}
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Test case no. & $n =$ & Special property \\
+\hline
+$1$ & $2$ & \multirow{4}{*}{None} \\
+\cline{1-2}
+$2$ & $4$ & \\
+\cline{1-2}
+$3, 4$ & $10$ & \\
+\cline{1-2}
+$5 \sim 8$ & $30$ & \\
+\hline
+$9$ & \multirow{2}{*}{$200$} & B \\
+\cline{1-1}\cline{3-3}
+$10, 11$ & & None \\
+\hline
+$12$ & \multirow{4}{*}{$10^5$} & A \\
+\cline{1-1}\cline{3-3}
+$13, 14$ & & B \\
+\cline{1-1}\cline{3-3}
+$15, 16$ & & C \\
+\cline{1-1}\cline{3-3}
+$17 \sim 20$ & & None \\
+\hline
+\end{tabular}
+\end{center}
+
+Special property A: for all $1 \le i \le n$, we have $a_{i,2} = a_{i,3} = 0$.
+
+Special property B: for all $1 \le i \le n$, we have $a_{i,3} = 0$.
+
+Special property C: for all $1 \le i \le n$, $1 \le j \le 3$, each $a_{i,j}$
+is generated \textbf{independently and uniformly at random} in
+$[0, 2 \times 10^4]$.
+
+\clearpage
+\section*{Problem 2: Road Repair (\cn{道路修复}, \texttt{road})}
+
+\noindent
+Time limit: 1 s. \quad Memory limit: 512 MB. \quad Total points: 100.
+
+\subsection*{Problem description}
+
+The transportation system of Country C consists of $n$ cities and $m$
+bidirectional roads, each connecting two cities.
+The $i$-th ($1 \le i \le m$) road connects cities $u_i$ and $v_i$.
+\textbf{Any two cities can reach each other through some of the roads.}
+
+However, recently, because of a major earthquake, all $m$ roads were
+destroyed, and the cost of repairing the $i$-th ($1 \le i \le m$) road is
+$w_i$.
+At the same time, Country C also has $k$ towns that are prepared to undergo
+urbanization.
+For the $j$-th ($1 \le j \le k$) town, the cost for Country C to urbanize it
+is $c_j$.
+After the $j$-th ($1 \le j \le k$) town has been urbanized, several roads may
+be built between this town and the original $n$ cities, where the cost of
+building a road between it and the $i$-th ($1 \le i \le n$) city is
+$a_{j,i}$.
+Country C may choose \textbf{any number} of these $k$ towns to urbanize, and
+may also choose not to urbanize any town.
+
+To restore the traffic between the cities as soon as possible, the
+government of Country C wants to connect the \textbf{original} $n$ cities
+pairwise at the lowest cost, that is, any two of the original cities can
+reach each other through some of the repaired or newly built roads.
+You need to help them find the minimum cost of connecting the original $n$
+cities pairwise.
+
+\subsection*{Input}
+
+Read the data from the file \texttt{road.in}.
+
+The first line of the input contains three non-negative integers $n, m, k$,
+the number of original cities, the number of roads, and the number of towns
+prepared to undergo urbanization, respectively.
+
+Line $i+1$ ($1 \le i \le m$) of the input contains three non-negative
+integers $u_i, v_i, w_i$, the two cities connected by the $i$-th road and
+the cost of repairing this road.
+
+Line $j+m+1$ ($1 \le j \le k$) of the input contains $n+1$ non-negative
+integers $c_j, a_{j,1}, a_{j,2}, \dots, a_{j,n}$, the cost of urbanizing
+the $j$-th town and the costs of building roads between this town and the
+original cities, respectively.
+
+\subsection*{Output}
+
+Write the output to the file \texttt{road.out}.
+
+Output one line containing one non-negative integer, the minimum cost of
+connecting the original $n$ cities pairwise.
+
+\subsection*{Sample 1 input}
+
+\begin{verbatim}
+4 4 2
+1 4 6
+2 3 7
+4 2 5
+4 3 4
+1 1 8 2 4
+100 1 3 2 4
+\end{verbatim}
+
+\subsection*{Sample 1 output}
+
+\begin{verbatim}
+13
+\end{verbatim}
+
+\subsection*{Explanation of sample 1}
+
+The government of Country C can choose to repair the $3$rd and $4$th roads,
+then urbanize the $1$st town and build the roads between it and cities
+$1, 3$.
+The total cost is $5 + 4 + 1 + 1 + 2 = 13$.
+It can be shown that there is no cost smaller than $13$ that connects the
+original $4$ cities pairwise.
+
+\subsection*{Sample 2}
+
+See \texttt{road/road2.in} and \texttt{road/road2.ans} in the contestant's
+directory.
+
+This sample satisfies the constraints of test cases $11, 12$.
+
+\subsection*{Sample 3}
+
+See \texttt{road/road3.in} and \texttt{road/road3.ans} in the contestant's
+directory.
+
+This sample satisfies the constraints of test cases $13, 14$.
+
+\subsection*{Sample 4}
+
+See \texttt{road/road4.in} and \texttt{road/road4.ans} in the contestant's
+directory.
+
+This sample satisfies the constraints of test cases $15, 16$.
+
+\subsection*{Constraints}
+
+For all test data, it is guaranteed that:
+\begin{itemize}
+\item $1 \le n \le 10^4$, $1 \le m \le 10^6$, $0 \le k \le 10$;
+\item for all $1 \le i \le m$, we have $1 \le u_i, v_i \le n$, $u_i \ne v_i$
+  and $0 \le w_i \le 10^9$;
+\item for all $1 \le j \le k$, we have $0 \le c_j \le 10^9$;
+\item for all $1 \le j \le k$, $1 \le i \le n$, we have
+  $0 \le a_{j,i} \le 10^9$;
+\item any two of the original cities can reach each other through some of
+  the original roads.
+\end{itemize}
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Test case no. & $n \le$ & $m \le$ & $k \le$ & Special property \\
+\hline
+$1 \sim 4$ & $10^4$ & $10^6$ & $0$ & None \\
+\hline
+$5, 6$ & \multirow{6}{*}{$10^3$} & \multirow{2}{*}{$10^5$}
+  & \multirow{4}{*}{$5$} & A \\
+\cline{1-1}\cline{5-5}
+$7, 8$ & & & & None \\
+\cline{1-1}\cline{3-3}\cline{5-5}
+$9, 10$ & & \multirow{7}{*}{$10^6$} & & A \\
+\cline{1-1}\cline{5-5}
+$11, 12$ & & & & None \\
+\cline{1-1}\cline{4-5}
+$13, 14$ & & & \multirow{2}{*}{$10$} & A \\
+\cline{1-1}\cline{5-5}
+$15, 16$ & & & & None \\
+\cline{1-2}\cline{4-5}
+$17, 18$ & \multirow{3}{*}{$10^4$} & & \multirow{2}{*}{$5$} & A \\
+\cline{1-1}\cline{5-5}
+$19, 20$ & & & & \multirow{2}{*}{None} \\
+\cline{1-1}\cline{4-4}
+$21 \sim 25$ & & & $10$ & \\
+\hline
+\end{tabular}
+\end{center}
+
+Special property A: for all $1 \le j \le k$, we have $c_j = 0$, and there
+exists $1 \le i \le n$ such that $a_{j,i} = 0$.
+
+\clearpage
+\section*{Problem 3: Homophonic Replacement (\cn{谐音替换}, \texttt{replace})}
+
+\noindent
+Time limit: 1 s. \quad Memory limit: 2048 MB. \quad Total points: 100.
+
+\subsection*{Problem description}
+
+Little W is a competitive programmer who likes linguistics.
+In linguistics, homophonic replacement means replacing original words by
+words with the same or a similar pronunciation.
+Little W found that the process of homophonic replacement can be described
+with strings.
+Specifically, Little W defines homophonic replacement as the following
+string problem.
+
+Given $n$ pairs of strings, the $i$-th ($1 \le i \le n$) pair of strings is
+$(s_{i,1}, s_{i,2})$, satisfying $|s_{i,1}| = |s_{i,2}|$, where $|s|$
+denotes the length of the string $s$.
+
+For a string $s$, a \textbf{replacement} of $s$ is defined as follows:
+\begin{itemize}
+\item For some substring $y$ of $s$, if there exists $1 \le i \le n$ such
+  that $y = s_{i,1}$, then replace $y$ by $y' = s_{i,2}$.
+  Specifically, let $s = x + y + z$, where $x$ and $z$ may be empty and
+  ``$+$'' denotes string concatenation; then the replacement of $s$ yields
+  the string $s' = x + y' + z$.
+\end{itemize}
+
+Little W poses $q$ questions.
+The $j$-th ($1 \le j \le m$) question gives two \textbf{distinct} strings
+$t_{j,1}, t_{j,2}$, and she wants to know how many replacements of the
+string $t_{j,1}$ yield the string $t_{j,2}$.
+Two replacements of $s$ are different if and only if
+\textbf{the position of the substring $y$ is different or the pair
+$(s_{i,1}, s_{i,2})$ used for the replacement is different}, that is,
+$x, z$ are different or $i$ is different.
+You need to answer all the questions posed by Little W.
+
+\subsection*{Input}
+
+Read the data from the file \texttt{replace.in}.
+
+The first line of the input contains two positive integers $n, q$, the
+number of pairs of strings and the number of questions posed by Little W,
+respectively.
+
+Line $i+1$ ($1 \le i \le n$) of the input contains two strings
+$s_{i,1}, s_{i,2}$, the $i$-th pair of strings.
+
+Line $j+n+1$ ($1 \le j \le q$) of the input contains two strings
+$t_{j,1}, t_{j,2}$, the $j$-th question posed by Little W.
+
+\subsection*{Output}
+
+Write the output to the file \texttt{replace.out}.
+
+Output $q$ lines, where the $j$-th ($1 \le j \le q$) line contains one
+non-negative integer, the number of replacements of the string $t_{j,1}$
+that yield the string $t_{j,2}$.
+
+\subsection*{Sample 1 input}
+
+\begin{verbatim}
+4 2
+xabcx xadex
+ab cd
+bc de
+aa bb
+xabcx xadex
+aaaa bbbb
+\end{verbatim}
+
+\subsection*{Sample 1 output}
+
+\begin{verbatim}
+2
+0
+\end{verbatim}
+
+\subsection*{Explanation of sample 1}
+
+For Little W's first query, there are $2$ replacements of $t_{1,1}$ that
+yield $t_{1,2}$:
+\begin{enumerate}
+\item Let $x, z$ both be the empty string, $y = \texttt{xabcx}$, $i = 1$;
+  then $y' = \texttt{xadex}$, and the replacement yields \texttt{xadex};
+\item Let $x = \texttt{xa}$, $y = \texttt{bc}$, $z = \texttt{x}$, $i = 3$;
+  then $y' = \texttt{de}$, and the replacement yields \texttt{xadex}.
+\end{enumerate}
+
+\subsection*{Sample 2 input}
+
+\begin{verbatim}
+3 4
+a b
+b c
+c d
+aa bb
+aa b
+a c
+b a
+\end{verbatim}
+
+\subsection*{Sample 2 output}
+
+\begin{verbatim}
+0
+0
+0
+0
+\end{verbatim}
+
+\subsection*{Sample 3}
+
+See \texttt{replace/replace3.in} and \texttt{replace/replace3.ans} in the
+contestant's directory.
+
+This sample satisfies the constraints of test cases $11, 12$.
+
+\subsection*{Sample 4}
+
+See \texttt{replace/replace4.in} and \texttt{replace/replace4.ans} in the
+contestant's directory.
+
+This sample satisfies the constraints of test cases $15, 16$.
+
+\subsection*{Constraints}
+
+Let $L_1 = \sum_{i=1}^{n} |s_{i,1}| + |s_{i,2}|$ and
+$L_2 = \sum_{j=1}^{q} |t_{j,1}| + |t_{j,2}|$.
+For all test data, it is guaranteed that:
+\begin{itemize}
+\item $1 \le n, q \le 2 \times 10^5$;
+\item $2 \le L_1, L_2 \le 5 \times 10^6$;
+\item for all $1 \le i \le n$, $s_{i,1}, s_{i,2}$ consist only of lowercase
+  English letters, and $|s_{i,1}| = |s_{i,2}|$;
+\item for all $1 \le j \le q$, $t_{j,1}, t_{j,2}$ consist only of lowercase
+  English letters, and $t_{j,1} \ne t_{j,2}$.
+\end{itemize}
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Test case no. & $n, q \le$ & $L_1, L_2 \le$ & Special property \\
+\hline
+$1, 2$ & $10^2$ & $200$ & \multirow{2}{*}{None} \\
+\cline{1-3}
+$3 \sim 5$ & \multirow{2}{*}{$10^3$} & $2{,}000$ & \\
+\cline{1-1}\cline{3-4}
+$6$ & & \multirow{3}{*}{$10^6$} & AB \\
+\cline{1-2}\cline{4-4}
+$7, 8$ & $10^4$ & & A \\
+\cline{1-2}\cline{4-4}
+$9, 10$ & \multirow{5}{*}{$2 \times 10^5$} & & B \\
+\cline{1-1}\cline{3-4}
+$11, 12$ & & $2 \times 10^6$ & None \\
+\cline{1-1}\cline{3-4}
+$13, 14$ & & \multirow{3}{*}{$5 \times 10^6$} & A \\
+\cline{1-1}\cline{4-4}
+$15, 16$ & & & B \\
+\cline{1-1}\cline{4-4}
+$17 \sim 20$ & & & None \\
+\hline
+\end{tabular}
+\end{center}
+
+Special property A: $q = 1$.
+
+Special property B: define a string $s$ to be \textbf{special} if and only if
+$s$ consists only of the characters \texttt{a} and \texttt{b}, and the
+character \texttt{b} occurs \textbf{exactly} once in $s$.
+For all $1 \le i \le n$, $s_{i,1}, s_{i,2}$ are special, and for all
+$1 \le j \le q$, $t_{j,1}, t_{j,2}$ are special.
+
+\clearpage
+\section*{Problem 4: Employee Recruitment (\cn{员工招聘}, \texttt{employ})}
+
+\noindent
+Time limit: 1 s. \quad Memory limit: 512 MB. \quad Total points: 100.
+
+\subsection*{Problem description}
+
+Little Z and Little H want to start a company together.
+A total of $n$ people, numbered $1 \sim n$, have come to apply.
+Little Z and Little H want to hire at least $m$ people.
+
+Little H is the interviewer and will interview one person per day over the
+next $n$ days.
+Little Z is in charge of deciding the order in which the applicants come
+for their interviews.
+Specifically, Little Z may choose a permutation $p$ of $1 \sim n$, and then
+on day $i$ ($1 \le i \le n$) notify the person numbered $p_i$ to come for
+an interview.
+
+Little H has prepared $n$ sets of interview questions of varying difficulty.
+Since the $n$ applicants are of roughly the same ability, for the same set
+of questions, the results of all people are identical.
+Specifically, the difficulty of the interview questions on day $i$
+($1 \le i \le n$) is $s_i \in \{0, 1\}$, where $s_i = 0$ means that this
+set is hard and nobody can solve it, and $s_i = 1$ means that this set is
+easy and everybody can solve it.
+Little H decides whether to hire according to the interviewee's result,
+that is, if the interviewee does not solve the questions, they are
+rejected; otherwise they are hired.
+
+However, everybody's patience has a certain limit; if too many people were
+not hired before their own interview, they will simply give up on attending
+the interview.
+Specifically, the patience limit of the person numbered $i$
+($1 \le i \le n$) is described by a non-negative integer $c_i$:
+if \textbf{at least} $c_i$ people before them have been rejected or have
+given up on attending the interview, then they will also give up on
+attending the interview.
+
+Little Z wants to know how many interview orders $p$ in total allow them to
+hire at least $m$ people.
+You need to help Little Z find the number of permutations $p$ for which at
+least $m$ people are hired.
+Since the answer may be large, you only need to find the answer modulo
+$998{,}244{,}353$.
+
+\subsection*{Input}
+
+Read the data from the file \texttt{employ.in}.
+
+The first line of the input contains two positive integers $n, m$, the
+number of applicants and the number of people they want to hire,
+respectively.
+
+The second line of the input contains a string $s_1 \dots s_n$ of length
+$n$, the difficulty of the interview questions on each day.
+
+The third line of the input contains $n$ non-negative integers
+$c_1, c_2, \dots, c_n$, the patience limit of each person.
+
+\subsection*{Output}
+
+Write the output to the file \texttt{employ.out}.
+
+Output one line containing one non-negative integer, the number of
+permutations $p$ for which at least $m$ people are hired, modulo
+$998{,}244{,}353$.
+
+\subsection*{Sample 1 input}
+
+\begin{verbatim}
+3 2
+101
+1 1 2
+\end{verbatim}
+
+\subsection*{Sample 1 output}
+
+\begin{verbatim}
+2
+\end{verbatim}
+
+\subsection*{Explanation of sample 1}
+
+There are the following $2$ interview orders $p$ that allow Little Z and
+Little H to hire at least $2$ people:
+\begin{enumerate}
+\item $p = [1, 2, 3]$, hiring the person numbered $1$ and then the person
+  numbered $3$;
+\item $p = [2, 1, 3]$, hiring the person numbered $2$ and then the person
+  numbered $3$.
+\end{enumerate}
+
+\subsection*{Sample 2 input}
+
+\begin{verbatim}
+10 5
+1101111011
+6 0 4 2 1 2 5 4 3 3
+\end{verbatim}
+
+\subsection*{Sample 2 output}
+
+\begin{verbatim}
+2204128
+\end{verbatim}
+
+\subsection*{Sample 3}
+
+See \texttt{employ/employ3.in} and \texttt{employ/employ3.ans} in the
+contestant's directory.
+
+This sample satisfies the constraints of test cases $6 \sim 8$.
+
+\subsection*{Sample 4}
+
+See \texttt{employ/employ4.in} and \texttt{employ/employ4.ans} in the
+contestant's directory.
+
+This sample satisfies the constraints of test cases $12 \sim 14$.
+
+\subsection*{Sample 5}
+
+See \texttt{employ/employ5.in} and \texttt{employ/employ5.ans} in the
+contestant's directory.
+
+This sample satisfies the constraints of test cases $18 \sim 21$.
+
+\subsection*{Constraints}
+
+For all test data, it is guaranteed that:
+\begin{itemize}
+\item $1 \le m \le n \le 500$;
+\item for all $1 \le i \le n$, we have $s_i \in \{0, 1\}$;
+\item for all $1 \le i \le n$, we have $0 \le c_i \le n$.
+\end{itemize}
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Test case no. & $n \le$ & $m$ & Special property \\
+\hline
+$1, 2$ & $10$ & \multirow{4}{*}{$\le n$} & \multirow{2}{*}{None} \\
+\cline{1-2}
+$3 \sim 5$ & $18$ & & \\
+\cline{1-2}\cline{4-4}
+$6 \sim 8$ & \multirow{2}{*}{$10^2$} & & \multirow{2}{*}{A} \\
+\cline{1-1}
+$9 \sim 11$ & & & \\
+\hline
+$12 \sim 14$ & \multirow{5}{*}{$500$} & $= 1$ & \multirow{2}{*}{None} \\
+\cline{1-1}\cline{3-3}
+$15$ & & $= n$ & \\
+\cline{1-1}\cline{3-4}
+$16, 17$ & & \multirow{3}{*}{$\le n$} & A \\
+\cline{1-1}\cline{4-4}
+$18 \sim 21$ & & & B \\
+\cline{1-1}\cline{4-4}
+$22 \sim 25$ & & & None \\
+\hline
+\end{tabular}
+\end{center}
+
+Special property A: for all $1 \le i \le n$, we have $s_i = 1$.
+
+Special property B: among $s_1, s_2, \dots, s_n$ at most $18$ take the
+value $1$, that is, $\sum_{i=1}^{n} s_i \le 18$.
+
+\section*{Source}
+
+CSP-S 2025 (CCF CSP-J/S 2025 second round, Senior level), held 2025-10-25.
+The statements were taken from the official statement PDFs embedded on the
+QOJ problem pages.
+Contest page: \texttt{https://qoj.ac/contest/2571}.
+Problem pages:
+\begin{itemize}
+\item Problem 1: \texttt{https://qoj.ac/problem/14597}
+\item Problem 2: \texttt{https://qoj.ac/problem/14598}
+\item Problem 3: \texttt{https://qoj.ac/problem/14599}
+\item Problem 4: \texttt{https://qoj.ac/problem/14600}
+\end{itemize}
+
+\end{document}

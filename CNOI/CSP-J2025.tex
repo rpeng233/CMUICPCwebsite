@@ -1,0 +1,640 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,booktabs,geometry,verbatim}
+\usepackage{CJKutf8}
+\geometry{margin=1in}
+
+\renewcommand{\labelitemi}{$\bullet$}
+\newcommand{\cn}[1]{\begin{CJK}{UTF8}{gbsn}#1\end{CJK}}
+
+\title{CSP-J 2025 (Junior)}
+\date{2025-10-25, 8:30--12:00 (3.5 hours)}
+
+\begin{document}
+\maketitle
+
+\noindent
+In every subtask table, a cell that reads ``as above'' repeats the entry of
+the row above it (the original tables merge such cells).
+
+\section*{Problem 1: Forming a Number (\cn{拼数})}
+
+\noindent
+Time limit: 1.0 s.
+Memory limit: 512 MB.
+
+\medskip
+\noindent
+Little R is learning string processing.
+Little X gives Little R a string $s$,
+which consists only of lowercase English letters and digits,
+and which \textbf{contains at least one digit among $1 \sim 9$}.
+Little X wants Little R to take any number of digits of $s$ and
+concatenate them, in any order, into a positive integer.
+\textbf{Note: Little R may choose equal digits of $s$,
+but every digit (character) of $s$ may be used at most once.}
+For example, if $s$ is \texttt{1a01b},
+then Little R may choose the 1st, 3rd and 4th characters simultaneously,
+which are $1, 0, 1$ respectively, and form the positive integer $101$ or
+the positive integer $110$;
+but Little R cannot form the positive integer $111$,
+because $s$ contains only two digits $1$.
+Little R wants to know which of all the positive integers he can form is
+the largest.
+You need to help Little R find the maximum positive integer he can form.
+
+\subsection*{Input}
+
+The first line of input contains a string $s$,
+the string Little X gave to Little R.
+
+\subsection*{Output}
+
+Output one line with one positive integer,
+the maximum positive integer that Little R can form.
+
+\subsection*{Sample 1 input}
+\begin{verbatim}
+5
+\end{verbatim}
+
+\subsection*{Sample 1 output}
+\begin{verbatim}
+5
+\end{verbatim}
+
+\subsection*{Sample 2 input}
+\begin{verbatim}
+290es1q0
+\end{verbatim}
+
+\subsection*{Sample 2 output}
+\begin{verbatim}
+92100
+\end{verbatim}
+
+\subsection*{Explanation of sample 2}
+
+The string $s$ contains the digits $2, 9, 0, 1, 0$.
+It can be shown that the maximum positive integer Little R can form is
+$92100$.
+
+\subsection*{Sample 3}
+
+See the files \texttt{number/number3.in} and \texttt{number/number3.ans}
+in the contestant's directory.
+This sample satisfies the constraints of test cases $9 \sim 11$.
+
+\subsection*{Sample 4}
+
+See the files \texttt{number/number4.in} and \texttt{number/number4.ans}
+in the contestant's directory.
+This sample satisfies the constraints of test case $20$.
+
+\subsection*{Constraints}
+
+Let $|s|$ denote the length of the string $s$.
+For all test data it is guaranteed that:
+\begin{itemize}
+\item $1 \leq |s| \leq 10^6$;
+\item $s$ consists only of lowercase English letters and digits,
+and contains at least one digit among $1 \sim 9$.
+\end{itemize}
+
+\begin{center}
+\begin{tabular}{ccc}
+\toprule
+Test case & $|s| \leq$ & Special property \\
+\midrule
+$1$ & $1$ & A \\
+$2$ & $2$ & as above \\
+$3$ & as above & none \\
+$4$ & $10$ & A \\
+$5, 6$ & as above & none \\
+$7, 8$ & $10^2$ & A \\
+$9 \sim 11$ & as above & none \\
+$12$ & $10^3$ & A \\
+$13, 14$ & as above & none \\
+$15$ & $10^5$ & A \\
+$16, 17$ & as above & B \\
+$18, 19$ & as above & none \\
+$20$ & $10^6$ & A \\
+$21, 22$ & as above & B \\
+$23 \sim 25$ & as above & none \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{itemize}
+\item Special property A: $s$ consists only of digits.
+\item Special property B: $s$ contains at most $10^3$ digits.
+\end{itemize}
+
+\section*{Problem 2: Seats (\cn{座位})}
+
+\noindent
+Time limit: 1.0 s.
+Memory limit: 512 MB.
+
+\medskip
+\noindent
+The second round of CSP-J 2025 is in progress.
+The examination room of Little R has $n \times m$ contestants in total,
+and the CSP-J 2025 first-round scores of all contestants are
+\textbf{pairwise distinct}.
+All $n \times m$ contestants are assigned seats according to their
+CSP-J 2025 first-round scores,
+\textbf{from high to low in a snake-like order},
+arranged in $n$ \textbf{rows} and $m$ \textbf{columns}.
+Concretely, let the scores of all contestants in Little R's examination
+room, \textbf{from high to low}, be $s_1 > s_2 > \dots > s_{n \times m}$.
+Then the contestant with score $s_1$ sits in \textbf{column} $1$,
+\textbf{row} $1$;
+the contestant with score $s_2$ sits in \textbf{column} $1$,
+\textbf{row} $2$;
+$\dots$;
+the contestant with score $s_n$ sits in \textbf{column} $1$,
+\textbf{row} $n$;
+the contestant with score $s_{n+1}$ sits in \textbf{column} $2$,
+\textbf{row} $n$;
+$\dots$;
+the contestant with score $s_{2n}$ sits in \textbf{column} $2$,
+\textbf{row} $1$;
+the contestant with score $s_{2n+1}$ sits in \textbf{column} $3$,
+\textbf{row} $1$;
+and so on.
+
+For example, if $n = 4, m = 5$,
+then all $4 \times 5 = 20$ contestants are assigned seats in decreasing
+order of their CSP-J 2025 first-round scores,
+following the arrows in the figure below.
+
+\begin{center}
+\setlength{\unitlength}{1mm}
+\begin{picture}(130,92)(0,0)
+\put(29,88){\makebox(0,0){Column 1}}
+\put(51,88){\makebox(0,0){Column 2}}
+\put(73,88){\makebox(0,0){Column 3}}
+\put(95,88){\makebox(0,0){Column 4}}
+\put(117,88){\makebox(0,0){Column 5}}
+\put(0,73){\makebox(0,0)[l]{Row 1}}
+\put(0,51){\makebox(0,0)[l]{Row 2}}
+\put(0,29){\makebox(0,0)[l]{Row 3}}
+\put(0,7){\makebox(0,0)[l]{Row 4}}
+\multiput(22,0)(22,0){5}{\multiput(0,0)(0,22){4}{\framebox(14,14){}}}
+\put(29,73){\line(0,-1){66}}
+\put(29,7){\line(1,0){22}}
+\put(51,7){\line(0,1){66}}
+\put(51,73){\line(1,0){22}}
+\put(73,73){\line(0,-1){66}}
+\put(73,7){\line(1,0){22}}
+\put(95,7){\line(0,1){66}}
+\put(95,73){\line(1,0){22}}
+\put(117,73){\vector(0,-1){64}}
+\end{picture}
+\end{center}
+
+Given the number of \textbf{rows} $n$ and the number of \textbf{columns}
+$m$ of the seats in Little R's examination room,
+together with the CSP-J 2025 first-round scores
+$a_1, a_2, \dots, a_{n \times m}$ of all contestants in Little R's
+examination room, where $a_1$ is the CSP-J 2025 first-round score of
+Little R,
+you need to help Little R find out in which \textbf{column} and which
+\textbf{row} his seat is.
+
+\subsection*{Input}
+
+The first line of input contains two positive integers $n, m$,
+the number of \textbf{rows} and the number of \textbf{columns} of the seats
+in Little R's examination room.
+
+The second line of input contains $n \times m$ positive integers
+$a_1, a_2, \dots, a_{n \times m}$,
+the CSP-J 2025 first-round scores of all contestants in Little R's
+examination room, where $a_1$ is the CSP-J 2025 first-round score of
+Little R.
+
+\subsection*{Output}
+
+Output one line with two positive integers $c, r$,
+meaning that Little R's seat is in \textbf{column} $c$, \textbf{row} $r$.
+
+\subsection*{Sample 1 input}
+\begin{verbatim}
+2 2
+99 100 97 98
+\end{verbatim}
+
+\subsection*{Sample 1 output}
+\begin{verbatim}
+1 2
+\end{verbatim}
+
+\subsection*{Explanation of sample 1}
+
+In decreasing order of score,
+the contestant with score $100$ sits in \textbf{column} $1$,
+\textbf{row} $1$;
+the contestant with score $99$ sits in \textbf{column} $1$,
+\textbf{row} $2$;
+the contestant with score $98$ sits in \textbf{column} $2$,
+\textbf{row} $2$;
+the contestant with score $97$ sits in \textbf{column} $2$,
+\textbf{row} $1$.
+Little R's score is $99$,
+so his seat is in \textbf{column} $1$, \textbf{row} $2$.
+
+\subsection*{Sample 2 input}
+\begin{verbatim}
+2 2
+98 99 100 97
+\end{verbatim}
+
+\subsection*{Sample 2 output}
+\begin{verbatim}
+2 2
+\end{verbatim}
+
+\subsection*{Explanation of sample 2}
+
+In decreasing order of score,
+the contestant with score $100$ sits in \textbf{column} $1$,
+\textbf{row} $1$;
+the contestant with score $99$ sits in \textbf{column} $1$,
+\textbf{row} $2$;
+the contestant with score $98$ sits in \textbf{column} $2$,
+\textbf{row} $2$;
+the contestant with score $97$ sits in \textbf{column} $2$,
+\textbf{row} $1$.
+Little R's score is $98$,
+so his seat is in \textbf{column} $2$, \textbf{row} $2$.
+
+\subsection*{Sample 3 input}
+\begin{verbatim}
+3 3
+94 95 96 97 98 99 100 93 92
+\end{verbatim}
+
+\subsection*{Sample 3 output}
+\begin{verbatim}
+3 1
+\end{verbatim}
+
+\subsection*{Constraints}
+
+For all test data it is guaranteed that:
+\begin{itemize}
+\item $1 \leq n \leq 10$, $1 \leq m \leq 10$;
+\item for all $1 \leq i \leq n \times m$ we have $1 \leq a_i \leq 100$,
+and $a_1, a_2, \dots, a_{n \times m}$ are pairwise distinct.
+\end{itemize}
+
+\begin{center}
+\begin{tabular}{cccc}
+\toprule
+Test case & $n \leq$ & $m \leq$ & Special property \\
+\midrule
+$1$ & $1$ & $1$ & AB \\
+$2, 3$ & as above & $10$ & none \\
+$4, 5$ & $10$ & $1$ & as above \\
+$6$ & $2$ & $2$ & A \\
+$7$ & as above & as above & B \\
+$8, 9$ & as above & as above & none \\
+$10$ & as above & $10$ & A \\
+$11$ & as above & as above & B \\
+$12 \sim 14$ & as above & as above & none \\
+$15 \sim 17$ & $10$ & $2$ & as above \\
+$18 \sim 20$ & as above & $10$ & as above \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Special property A: for all $1 \leq i \leq n \times m$ we have $a_i = i$.
+
+Special property B: for all $1 \leq i \leq n \times m$ we have
+$a_i = n \times m - i + 1$.
+
+\section*{Problem 3: XOR Sum (\cn{异或和})}
+
+\noindent
+Time limit: 1.0 s.
+Memory limit: 512 MB.
+
+\medskip
+\noindent
+Little R has a sequence of $n$ non-negative integers $a_1, a_2, \dots, a_n$.
+The weight of an interval $[l, r]$ ($1 \leq l \leq r \leq n$) is defined
+as the bitwise XOR of $a_l, a_{l+1}, \dots, a_r$,
+that is, $a_l \oplus a_{l+1} \oplus \dots \oplus a_r$,
+where $\oplus$ denotes bitwise exclusive or in binary.
+
+Little X gives Little R a non-negative integer $k$.
+Little X wants Little R to choose as many \textbf{pairwise disjoint}
+intervals of the sequence as possible,
+such that the weight of every chosen interval equals $k$.
+Two intervals $[l_1, r_1], [l_2, r_2]$ intersect if and only if they
+both contain at least one common index,
+that is, there exists $1 \leq i \leq n$ with $l_1 \leq i \leq r_1$ and
+$l_2 \leq i \leq r_2$.
+
+For example, for the sequence $[2, 1, 0, 3]$,
+if $k = 2$, then Little R may choose the interval $[1, 1]$ and the
+interval $[2, 4]$, whose weights are $2$ and $1 \oplus 0 \oplus 3 = 2$
+respectively;
+if $k = 3$, then Little R may choose the interval $[1, 2]$ and the
+interval $[4, 4]$, whose weights are $1 \oplus 2 = 3$ and $3$
+respectively.
+
+You need to help Little R find the maximum number of intervals he can
+choose.
+
+\subsection*{Input}
+
+The first line of input contains two non-negative integers $n, k$,
+the length of Little R's sequence and the non-negative integer that
+Little X gave to Little R.
+
+The second line of input contains $n$ non-negative integers
+$a_1, a_2, \dots, a_n$, Little R's sequence.
+
+\subsection*{Output}
+
+Output one line with one non-negative integer,
+the maximum number of intervals that Little R can choose.
+
+\subsection*{Sample 1 input}
+\begin{verbatim}
+4 2
+2 1 0 3
+\end{verbatim}
+
+\subsection*{Sample 1 output}
+\begin{verbatim}
+2
+\end{verbatim}
+
+\subsection*{Explanation of sample 1}
+
+Little R may choose the interval $[1, 1]$ and the interval $[2, 4]$,
+whose XOR sums are $2$ and $1 \oplus 0 \oplus 3 = 2$ respectively.
+It can be shown that the maximum number of intervals Little R can choose
+is $2$.
+
+\subsection*{Sample 2 input}
+\begin{verbatim}
+4 3
+2 1 0 3
+\end{verbatim}
+
+\subsection*{Sample 2 output}
+\begin{verbatim}
+2
+\end{verbatim}
+
+\subsection*{Explanation of sample 2}
+
+Little R may choose the interval $[1, 2]$ and the interval $[4, 4]$,
+whose XOR sums are $1 \oplus 2 = 3$ and $3$ respectively.
+It can be shown that the maximum number of intervals Little R can choose
+is $2$.
+
+\subsection*{Sample 3 input}
+\begin{verbatim}
+4 0
+2 1 0 3
+\end{verbatim}
+
+\subsection*{Sample 3 output}
+\begin{verbatim}
+1
+\end{verbatim}
+
+\subsection*{Explanation of sample 3}
+
+Little R may choose the interval $[3, 3]$, whose XOR sum is $0$.
+It can be shown that the maximum number of intervals Little R can choose
+is $1$.
+Note: Little R cannot choose the interval $[3, 3]$ and the interval
+$[1, 4]$ at the same time, because both intervals contain the index $3$.
+
+\subsection*{Sample 4}
+
+See the files \texttt{xor/xor4.in} and \texttt{xor/xor4.ans} in the
+contestant's directory.
+
+This sample satisfies the constraints of test cases $4, 5$.
+
+\subsection*{Sample 5}
+
+See the files \texttt{xor/xor5.in} and \texttt{xor/xor5.ans} in the
+contestant's directory.
+
+This sample satisfies the constraints of test cases $9, 10$.
+
+\subsection*{Sample 6}
+
+See the files \texttt{xor/xor6.in} and \texttt{xor/xor6.ans} in the
+contestant's directory.
+
+This sample satisfies the constraints of test cases $14, 15$.
+
+\subsection*{Constraints}
+
+For all test data it is guaranteed that:
+\begin{itemize}
+\item $1 \leq n \leq 5 \times 10^5$, $0 \leq k < 2^{20}$;
+\item for all $1 \leq i \leq n$ we have $0 \leq a_i < 2^{20}$.
+\end{itemize}
+
+\begin{center}
+\begin{tabular}{cccc}
+\toprule
+Test case & $n \leq$ & $k$ & Special property \\
+\midrule
+$1$ & $2$ & $= 0$ & A \\
+$2$ & $10$ & $\leq 1$ & B \\
+$3$ & $10^2$ & $= 0$ & A \\
+$4, 5$ & as above & $\leq 1$ & B \\
+$6 \sim 8$ & as above & $\leq 255$ & C \\
+$9, 10$ & $10^3$ & as above & as above \\
+$11, 12$ & as above & $< 2^{20}$ & none \\
+$13$ & $2 \times 10^5$ & $\leq 1$ & B \\
+$14, 15$ & as above & $\leq 255$ & C \\
+$16$ & as above & $< 2^{20}$ & none \\
+$17$ & $5 \times 10^5$ & $\leq 255$ & C \\
+$18 \sim 20$ & as above & $< 2^{20}$ & none \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Special property A: for all $1 \leq i \leq n$ we have $a_i = 1$.
+
+Special property B: for all $1 \leq i \leq n$ we have $0 \leq a_i \leq 1$.
+
+Special property C: for all $1 \leq i \leq n$ we have $0 \leq a_i \leq 255$.
+
+\section*{Problem 4: Polygon (\cn{多边形})}
+
+\noindent
+Time limit: 1.0 s.
+Memory limit: 512 MB.
+
+\medskip
+\noindent
+Little R likes playing with small sticks.
+Little R has $n$ sticks, and the $i$-th ($1 \leq i \leq n$) stick has
+length $a_i$.
+
+Little X wants Little R to choose some of these $n$ sticks and join them
+end to end, in any order, into a polygon.
+Little R does not know the condition under which sticks can form a
+polygon, so Little X tells him the condition directly:
+$m$ sticks of lengths $l_1, l_2, \dots, l_m$ can form a polygon if and
+only if $m \geq 3$ and the sum of the lengths of all the sticks is
+\textbf{strictly greater than} twice the maximum length of the sticks,
+that is, $\sum_{i=1}^{m} l_i > 2 \times \max_{i=1}^{m} l_i$.
+
+Now that Little R knows the condition for sticks to form a polygon,
+Little X poses a harder question:
+how many ways are there to choose sticks such that the chosen sticks
+can form a polygon?
+You need to help Little R count the number of ways to choose sticks such
+that the chosen sticks can form a polygon.
+Two ways are different if and only if the \textbf{sets of indices} of the
+chosen sticks are different,
+that is, there exists $1 \leq i \leq n$ such that one of the ways chooses
+the $i$-th stick but the other does not.
+Since the answer may be large, you only need to output the answer modulo
+$998,244,353$.
+
+\subsection*{Input}
+
+The first line of input contains a positive integer $n$,
+the number of Little R's sticks.
+
+The second line of input contains $n$ positive integers
+$a_1, a_2, \dots, a_n$, the lengths of Little R's sticks.
+
+\subsection*{Output}
+
+Output one line with one non-negative integer,
+the number of ways to choose sticks such that the chosen sticks can form
+a polygon, modulo $998,244,353$.
+
+\subsection*{Sample 1 input}
+\begin{verbatim}
+5
+1 2 3 4 5
+\end{verbatim}
+
+\subsection*{Sample 1 output}
+\begin{verbatim}
+9
+\end{verbatim}
+
+\subsection*{Explanation of sample 1}
+
+There are the following $9$ ways to choose sticks such that the chosen
+sticks can form a polygon:
+\begin{enumerate}
+\item choose sticks $2, 3, 4$; the total length is $2 + 3 + 4 = 9$ and
+the maximum length is $4$;
+\item choose sticks $2, 4, 5$; the total length is $2 + 4 + 5 = 11$ and
+the maximum length is $5$;
+\item choose sticks $3, 4, 5$; the total length is $3 + 4 + 5 = 12$ and
+the maximum length is $5$;
+\item choose sticks $1, 2, 3, 4$; the total length is $1 + 2 + 3 + 4 = 10$
+and the maximum length is $4$;
+\item choose sticks $1, 2, 3, 5$; the total length is $1 + 2 + 3 + 5 = 11$
+and the maximum length is $5$;
+\item choose sticks $1, 2, 4, 5$; the total length is $1 + 2 + 4 + 5 = 12$
+and the maximum length is $5$;
+\item choose sticks $1, 3, 4, 5$; the total length is $1 + 3 + 4 + 5 = 13$
+and the maximum length is $5$;
+\item choose sticks $2, 3, 4, 5$; the total length is $2 + 3 + 4 + 5 = 14$
+and the maximum length is $5$;
+\item choose sticks $1, 2, 3, 4, 5$; the total length is
+$1 + 2 + 3 + 4 + 5 = 15$ and the maximum length is $5$.
+\end{enumerate}
+
+\subsection*{Sample 2 input}
+\begin{verbatim}
+5
+2 2 3 8 10
+\end{verbatim}
+
+\subsection*{Sample 2 output}
+\begin{verbatim}
+6
+\end{verbatim}
+
+\subsection*{Explanation of sample 2}
+
+There are the following $6$ ways to choose sticks such that the chosen
+sticks can form a polygon:
+\begin{enumerate}
+\item choose sticks $1, 2, 3$; the total length is $2 + 2 + 3 = 7$ and
+the maximum length is $3$;
+\item choose sticks $3, 4, 5$; the total length is $3 + 8 + 10 = 21$ and
+the maximum length is $10$;
+\item choose sticks $1, 2, 4, 5$; the total length is $2 + 2 + 8 + 10 = 22$
+and the maximum length is $10$;
+\item choose sticks $1, 3, 4, 5$; the total length is $2 + 3 + 8 + 10 = 23$
+and the maximum length is $10$;
+\item choose sticks $2, 3, 4, 5$; the total length is $2 + 3 + 8 + 10 = 23$
+and the maximum length is $10$;
+\item choose sticks $1, 2, 3, 4, 5$; the total length is
+$2 + 2 + 3 + 8 + 10 = 25$ and the maximum length is $10$.
+\end{enumerate}
+
+\subsection*{Sample 3}
+
+See the files \texttt{polygon/polygon3.in} and
+\texttt{polygon/polygon3.ans} in the contestant's directory.
+
+This sample satisfies the constraints of test cases $7 \sim 10$.
+
+\subsection*{Sample 4}
+
+See the files \texttt{polygon/polygon4.in} and
+\texttt{polygon/polygon4.ans} in the contestant's directory.
+
+This sample satisfies the constraints of test cases $11 \sim 14$.
+
+\subsection*{Constraints}
+
+For all test data it is guaranteed that:
+\begin{itemize}
+\item $3 \leq n \leq 5\,000$;
+\item for all $1 \leq i \leq n$ we have $1 \leq a_i \leq 5\,000$.
+\end{itemize}
+
+\begin{center}
+\begin{tabular}{ccc}
+\toprule
+Test case & $n \leq$ & $\max_{i=1}^{n} a_i \leq$ \\
+\midrule
+$1 \sim 3$ & $3$ & $10$ \\
+$4 \sim 6$ & $10$ & $10^2$ \\
+$7 \sim 10$ & $20$ & as above \\
+$11 \sim 14$ & $500$ & as above \\
+$15 \sim 17$ & as above & $1$ \\
+$18 \sim 20$ & $5\,000$ & as above \\
+$21 \sim 25$ & as above & $5\,000$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section*{Source}
+
+The statements were translated from the official problems as published
+on Luogu (CSP-J 2025, second round, held on 2025-10-25):
+\begin{itemize}
+\item Problem 1: \texttt{https://www.luogu.com.cn/problem/P14357}
+\item Problem 2: \texttt{https://www.luogu.com.cn/problem/P14358}
+\item Problem 3: \texttt{https://www.luogu.com.cn/problem/P14359}
+\item Problem 4: \texttt{https://www.luogu.com.cn/problem/P14360}
+\end{itemize}
+
+\end{document}
