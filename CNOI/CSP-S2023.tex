@@ -13,12 +13,14 @@
 \maketitle
 
 \noindent
+This file is tailored to QOJ: every problem reads from standard input and
+writes to standard output (the original paper used the files
+\texttt{<code>.in} / \texttt{<code>.out} named after each problem).
+
+\noindent
 Translated from the official Chinese problem booklet
 (2023 CCF CSP-J/S second round, senior level).
 All four problems: time limit 1 s, memory limit 512 MB, 100 points each.
-Input is read from the file \texttt{<name>.in} and output is written to
-\texttt{<name>.out}, where \texttt{<name>} is the problem code shown in
-each heading.
 
 \clearpage
 \section*{Problem 1: Combination Lock
@@ -60,8 +62,6 @@ described above.
 
 \subsection*{Input}
 
-Read the input from the file \texttt{lock.in}.
-
 The first line contains a positive integer $n$, the number of states of
 the lock after locking.
 
@@ -69,8 +69,6 @@ Each of the next $n$ lines contains five integers describing one state of
 the lock.
 
 \subsection*{Output}
-
-Write the output to the file \texttt{lock.out}.
 
 Output one line containing one integer: the number of correct
 combinations that correspond to these $n$ states of the lock under the
@@ -97,8 +95,8 @@ turning two dials.
 
 \subsection*{Sample 2}
 
-See the files \texttt{lock/lock2.in} and \texttt{lock/lock2.ans} in the
-contestant's directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{lock/lock2.in} and \texttt{lock/lock2.ans}.
 
 \subsection*{Constraints}
 
@@ -121,7 +119,7 @@ Special property A: it is guaranteed that every correct combination can
 produce the $n$ given states by turning only one dial.
 
 \clearpage
-\section*{Problem 2: Match-Three (\begin{CJK}{UTF8}{gbsn}消消乐\end{CJK}, game)
+\section*{Problem 2: Match-Three (\begin{CJK}{UTF8}{gbsn}消消乐\end{CJK})
   \hfill{\normalsize\href{https://qoj.ac/problem/7814}{QOJ 7814}}}
 
 \noindent
@@ -144,16 +142,12 @@ this string are erasable.
 
 \subsection*{Input}
 
-Read the input from the file \texttt{game.in}.
-
 The first line contains a positive integer $n$, the length of the string.
 
 The second line contains a string of length $n$ consisting only of
 lowercase letters, the string asked about in the problem.
 
 \subsection*{Output}
-
-Write the output to the file \texttt{game.out}.
 
 Output one line containing one integer, the answer to the question.
 
@@ -178,18 +172,18 @@ There are 5 erasable contiguous substrings in total, namely
 
 \subsection*{Sample 2}
 
-See the files \texttt{game/game2.in} and \texttt{game/game2.ans} in the
-contestant's directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{game/game2.in} and \texttt{game/game2.ans}.
 
 \subsection*{Sample 3}
 
-See the files \texttt{game/game3.in} and \texttt{game/game3.ans} in the
-contestant's directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{game/game3.in} and \texttt{game/game3.ans}.
 
 \subsection*{Sample 4}
 
-See the files \texttt{game/game4.in} and \texttt{game/game4.ans} in the
-contestant's directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{game/game4.in} and \texttt{game/game4.ans}.
 
 \subsection*{Constraints}
 
@@ -219,7 +213,7 @@ Special property B: the string consists only of \texttt{a} and
 \texttt{b}.
 
 \clearpage
-\section*{Problem 3: Structs (\begin{CJK}{UTF8}{gbsn}结构体\end{CJK}, struct)
+\section*{Problem 3: Structs (\begin{CJK}{UTF8}{gbsn}结构体\end{CJK})
   \hfill{\normalsize\href{https://qoj.ac/problem/7815}{QOJ 7815}}}
 
 \noindent
@@ -326,8 +320,6 @@ four kinds:
 
 \subsection*{Input}
 
-Read the input from the file \texttt{struct.in}.
-
 Line 1: a positive integer $n$, the number of operations.
 
 The following lines describe the operations in order; the first positive
@@ -345,8 +337,6 @@ integer $op$ on each line denotes the type of the operation:
 \end{itemize}
 
 \subsection*{Output}
-
-Write the output to the file \texttt{struct.out}.
 
 Output $n$ lines, the results of the operations in order; the required
 output is as described in the problem description.
@@ -393,8 +383,8 @@ whereas the sample input declares \texttt{short aa} and \texttt{int ab}.)
 
 \subsection*{Sample 2}
 
-See the files \texttt{struct/struct2.in} and \texttt{struct/struct2.ans}
-in the contestant's directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{struct/struct2.in} and \texttt{struct/struct2.ans}.
 
 \subsection*{Explanation of sample 2}
 
@@ -404,8 +394,8 @@ basic type occupies it.
 
 \subsection*{Sample 3}
 
-See the files \texttt{struct/struct3.in} and \texttt{struct/struct3.ans}
-in the contestant's directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{struct/struct3.in} and \texttt{struct/struct3.ans}.
 
 \subsection*{Constraints}
 
@@ -487,7 +477,7 @@ The memory layout of defined elements is formally defined as follows.
 \end{itemize}
 
 \clearpage
-\section*{Problem 4: Planting Trees (\begin{CJK}{UTF8}{gbsn}种树\end{CJK}, tree)
+\section*{Problem 4: Planting Trees (\begin{CJK}{UTF8}{gbsn}种树\end{CJK})
   \hfill{\normalsize\href{https://qoj.ac/problem/7816}{QOJ 7816}}}
 
 \noindent
@@ -526,8 +516,6 @@ your task?
 
 \subsection*{Input}
 
-Read the input from the file \texttt{tree.in}.
-
 The first line contains a positive integer $n$, the number of plots in
 the forest.
 
@@ -538,8 +526,6 @@ Each of the next $n - 1$ lines contains two positive integers $u_i, v_i$
 denoting a road connecting plots $u_i$ and $v_i$.
 
 \subsection*{Output}
-
-Write the output to the file \texttt{tree.out}.
 
 Output one line containing one positive integer, the minimum number of
 days needed to complete the task.
@@ -581,18 +567,18 @@ respectively.
 
 \subsection*{Sample 2}
 
-See the files \texttt{tree/tree2.in} and \texttt{tree/tree2.ans} in the
-contestant's directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{tree/tree2.in} and \texttt{tree/tree2.ans}.
 
 \subsection*{Sample 3}
 
-See the files \texttt{tree/tree3.in} and \texttt{tree/tree3.ans} in the
-contestant's directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{tree/tree3.in} and \texttt{tree/tree3.ans}.
 
 \subsection*{Sample 4}
 
-See the files \texttt{tree/tree4.in} and \texttt{tree/tree4.ans} in the
-contestant's directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{tree/tree4.in} and \texttt{tree/tree4.ans}.
 
 \subsection*{Constraints}
 

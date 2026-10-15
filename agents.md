@@ -229,7 +229,14 @@ file: `\documentclass[11pt]{article}`, never `\usepackage[T1]{fontenc}`,
 problem starts on a new page (`\clearpage` before its heading) with
 `\section*{Problem k: Title (中文) \hfill{\normalsize\href{<problem URL>}{QOJ <id>}}}`
 (`Luogu P<id>` for papers not on QOJ), i.e. the source link sits beside the
-title (Chinese only inside `CJK`); subsections Input / Output /
+title (Chinese only inside `CJK`; no file code in the heading); the
+statements use standard input/output throughout — every "read from the file
+`X.in` / write to `X.out`" sentence, file-code line and `.in`/`.out`
+preamble note of the original is dropped, and a `\noindent` paragraph right
+after `\maketitle` says the file is tailored to QOJ (Luogu for the three
+papers not on QOJ) with standard I/O; large samples that are only
+downloadable are referred to as "Large sample, not printed here; provided as
+the downloadable files `X/X3.in` and `X/X3.ans`"; subsections Input / Output /
 Sample k input / Sample k output / Explanation / Constraints, samples
 verbatim, subtask tables as `tabular`; sentence-per-line source. Build with
 `pdflatex` twice (`texlive-lang-chinese` for `CJKutf8`).

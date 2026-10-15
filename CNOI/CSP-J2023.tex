@@ -14,14 +14,14 @@
 \maketitle
 
 \noindent
+This file is tailored to QOJ: every problem reads from standard input and
+writes to standard output (the original paper used the files
+\texttt{<code>.in} / \texttt{<code>.out} named after each problem).
+
+\noindent
 Second round of the 2023 CCF Certified Software Professional (CSP-J/S 2023),
 junior level (CSP-J).
 Four problems; each problem is worth 100 points.
-In the original contest every problem reads its input from a file
-(\texttt{apple.in}, \texttt{road.in}, \texttt{uqe.in}, \texttt{bus.in})
-and writes its output to a file
-(\texttt{apple.out}, \texttt{road.out}, \texttt{uqe.out}, \texttt{bus.out});
-the sentences stating this are kept in the translation below.
 Time limit and memory limit are those shown on QOJ.
 
 \clearpage
@@ -32,8 +32,6 @@ Time limit and memory limit are those shown on QOJ.
 Time limit: 1 s.
 Memory limit: 512 MB.
 Total points: 100.
-Code name: \texttt{apple}.
-
 \subsection*{Problem description}
 
 There are $n$ apples on Little Y's table, arranged in a row from left to
@@ -50,13 +48,11 @@ and on which day the apple numbered $n$ is taken away.
 
 \subsection*{Input}
 
-Read the input from the file \texttt{apple.in}.
 The first line of the input contains one positive integer $n$,
 the total number of apples.
 
 \subsection*{Output}
 
-Write the output to the file \texttt{apple.out}.
 Output one line containing two positive integers separated by a single
 space:
 the number of days Little Bao needs to take away all the apples,
@@ -85,8 +81,8 @@ On the fifth day, Little Bao takes away the apple numbered $8$.
 
 \subsection*{Sample 2}
 
-See the files \texttt{apple/apple2.in} and \texttt{apple/apple2.ans}
-in the contestant's directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{apple/apple2.in} and \texttt{apple/apple2.ans}.
 (This sample is given only as downloadable files; it is not printed in the
 statement.)
 
@@ -119,8 +115,6 @@ day.
 Time limit: 1 s.
 Memory limit: 512 MB.
 Total points: 100.
-Code name: \texttt{road}.
-
 \subsection*{Problem description}
 
 Little Bao is going on a self-driving trip along a highway.
@@ -139,7 +133,6 @@ from station $1$ to station $n$?
 
 \subsection*{Input}
 
-Read the input from the file \texttt{road.in}.
 The first line of the input contains two positive integers $n$ and $d$,
 the number of stations on the highway and the distance the car can travel per
 litre of fuel.
@@ -152,7 +145,6 @@ lines; the prices are on the third line.)
 
 \subsection*{Output}
 
-Write the output to the file \texttt{road.out}.
 Output one line containing a single positive integer:
 the minimum amount of money Little Bao has to spend on fuel to drive from
 station $1$ to station $n$.
@@ -164,6 +156,12 @@ station $1$ to station $n$.
 10 10 10 10
 9 8 9 6 5
 \end{verbatim}
+
+\noindent\textbf{ERRATA: the English (AI) translation of this problem on QOJ
+(\href{https://qoj.ac/problem/7810/statement/en}{7810/statement/en}) prints the
+second line of this sample as \texttt{2 10 10 10 10}, i.e.\ with an extra
+\texttt{2} ($5$ numbers instead of $n-1=4$); the official statement and the
+attached \texttt{road1.in} read \texttt{10 10 10 10} as above.}
 
 \subsection*{Sample 1 output}
 
@@ -178,8 +176,8 @@ $5$ litres of fuel at station $2$, and $2$ litres of fuel at station $4$.
 
 \subsection*{Sample 2}
 
-See the files \texttt{road/road2.in} and \texttt{road/road2.ans}
-in the contestant's directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{road/road2.in} and \texttt{road/road2.ans}.
 (This sample is given only as downloadable files; it is not printed in the
 statement.)
 
@@ -215,8 +213,6 @@ Special property B: for all $1 \le i < n$, $v_i$ is a multiple of $d$.
 Time limit: 1 s.
 Memory limit: 512 MB.
 Total points: 100.
-Code name: \texttt{uqe}.
-
 \subsection*{Background}
 
 As is well known, the real solutions of a quadratic equation
@@ -321,7 +317,6 @@ Otherwise, if the equation has no real solution, print \texttt{NO}.
 
 \subsection*{Input}
 
-Read the input from the file \texttt{uqe.in}.
 The first line of the input contains two positive integers $T$ and $M$,
 the number of equations and an upper bound on the absolute values of the
 coefficients.
@@ -329,7 +324,6 @@ Each of the next $T$ lines contains three integers $a, b, c$.
 
 \subsection*{Output}
 
-Write the output to the file \texttt{uqe.out}.
 Output $T$ lines, each containing one string: the answer to the
 corresponding query, in the format described in the statement.
 \emph{The string printed on each line must not contain any space.}
@@ -365,8 +359,8 @@ NO
 
 \subsection*{Sample 2}
 
-See the files \texttt{uqe/uqe2.in} and \texttt{uqe/uqe2.ans}
-in the contestant's directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{uqe/uqe2.in} and \texttt{uqe/uqe2.ans}.
 (This sample is given only as downloadable files; it is not printed in the
 statement.)
 
@@ -409,8 +403,6 @@ Here:
 Time limit: 1 s.
 Memory limit: 512 MB.
 Total points: 100.
-Code name: \texttt{bus}.
-
 \subsection*{Problem description}
 
 Little Z plans to take a tour bus during the National Day holiday to visit a
@@ -442,7 +434,6 @@ the scenic area by tour bus is as early as possible.
 
 \subsection*{Input}
 
-Read the input from the file \texttt{bus.in}.
 The first line of the input contains $3$ positive integers $n, m, k$:
 the number of places in the scenic area, the number of roads, and the
 interval between tour buses.
@@ -452,7 +443,6 @@ $v_i$ and has ``opening time'' $a_i$.
 
 \subsection*{Output}
 
-Write the output to the file \texttt{bus.out}.
 Output one line containing a single integer: the earliest time at which
 Little Z can leave the scenic area by tour bus.
 If no tour plan satisfying the requirements exists, output \texttt{-1}.
@@ -485,8 +475,8 @@ and leave at time $6$.
 
 \subsection*{Sample 2}
 
-See the files \texttt{bus/bus2.in} and \texttt{bus/bus2.ans}
-in the contestant's directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{bus/bus2.in} and \texttt{bus/bus2.ans}.
 (This sample is given only as downloadable files; it is not printed in the
 statement.)
 
