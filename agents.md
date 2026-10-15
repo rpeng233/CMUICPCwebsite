@@ -225,8 +225,11 @@ from the problem pages on qoj.ac (problem ids in the `Source` section of
 each file); CSP-J 2022/2024/2025 are not on QOJ and come from Luogu. Each
 file: `\documentclass[11pt]{article}`, never `\usepackage[T1]{fontenc}`,
 `\title{CSP-S 2023 (Senior)}` on one line, no `\author`,
-`\date{<day>, <hours> (<duration>)}`, one `\section*{Problem k: Title (中文)}`
-per problem (Chinese only inside `CJK`), subsections Input / Output /
+`\date{<day>, <hours> (<duration>)}`, `\usepackage[hidelinks]{hyperref}`; every
+problem starts on a new page (`\clearpage` before its heading) with
+`\section*{Problem k: Title (中文) \hfill{\normalsize\href{<problem URL>}{QOJ <id>}}}`
+(`Luogu P<id>` for papers not on QOJ), i.e. the source link sits beside the
+title (Chinese only inside `CJK`); subsections Input / Output /
 Sample k input / Sample k output / Explanation / Constraints, samples
 verbatim, subtask tables as `tabular`; sentence-per-line source. Build with
 `pdflatex` twice (`texlive-lang-chinese` for `CJKutf8`).
