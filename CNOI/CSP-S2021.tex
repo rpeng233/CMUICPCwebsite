@@ -11,12 +11,16 @@
 \begin{document}
 \maketitle
 
+\noindent
+This file is tailored to QOJ: every problem reads from standard input and
+writes to standard output (the original paper used the files
+\texttt{<code>.in} / \texttt{<code>.out} named after each problem).
+
 \clearpage
 \section*{Problem 1: Jet Bridge Allocation
   (\begin{CJK}{UTF8}{gbsn}廊桥分配\end{CJK})
   \hfill{\normalsize\href{https://qoj.ac/problem/1768}{QOJ 1768}}}
 
-Problem file name: \texttt{airport}.
 Time limit: 1 s.
 Memory limit: 512 MB.
 
@@ -53,8 +57,6 @@ that park at a jet bridge is maximized.
 
 \subsection*{Input}
 
-Read the input from the file \texttt{airport.in}.
-
 The first line of the input contains 3 positive integers $n, m_1, m_2$,
 denoting the number of jet bridges, the number of domestic flights and the
 number of international flights, respectively.
@@ -72,8 +74,6 @@ flight, respectively.
 The integers on each line are separated by spaces.
 
 \subsection*{Output}
-
-Write the output to the file \texttt{airport.out}.
 
 Output one positive integer, the maximum number of airplanes that can park
 at a jet bridge.
@@ -198,8 +198,8 @@ airplanes $(3, 4)$, $(5, 6)$, $(7, 8)$, $(9, 10)$.
 
 \subsection*{Sample 3}
 
-See \texttt{airport/airport3.in} and \texttt{airport/airport3.ans} in the
-contestant directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{airport/airport3.in} and \texttt{airport/airport3.ans}.
 On QOJ this sample is provided as the downloadable files
 \texttt{ex\_airport3.in} and \texttt{ex\_airport3.ans}.
 
@@ -223,7 +223,6 @@ $a_{2,i} < b_{2,i}$.
   (\begin{CJK}{UTF8}{gbsn}括号序列\end{CJK})
   \hfill{\normalsize\href{https://qoj.ac/problem/1769}{QOJ 1769}}}
 
-Problem file name: \texttt{bracket}.
 Time limit: 1 s.
 Memory limit: 512 MB.
 
@@ -276,16 +275,12 @@ Poor little c cannot solve this problem, so he has to ask you for help.
 
 \subsection*{Input}
 
-Read the input from the file \texttt{bracket.in}.
-
 Line 1: 2 positive integers $n, k$.
 
 Line 2: a string $S$ of length $n$ consisting only of
 \texttt{(}, \texttt{)}, \texttt{*}, \texttt{?}.
 
 \subsection*{Output}
-
-Write the output to the file \texttt{bracket.out}.
 
 Output one non-negative integer, the answer modulo $10^9 + 7$.
 
@@ -328,15 +323,15 @@ The following ways are valid:
 
 \subsection*{Sample 3}
 
-See \texttt{bracket/bracket3.in} and \texttt{bracket/bracket3.ans} in the
-contestant directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{bracket/bracket3.in} and \texttt{bracket/bracket3.ans}.
 On QOJ this sample is provided as the downloadable files
 \texttt{ex\_bracket3.in} and \texttt{ex\_bracket3.ans}.
 
 \subsection*{Sample 4}
 
-See \texttt{bracket/bracket4.in} and \texttt{bracket/bracket4.ans} in the
-contestant directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{bracket/bracket4.in} and \texttt{bracket/bracket4.ans}.
 On QOJ this sample is provided as the downloadable files
 \texttt{ex\_bracket4.in} and \texttt{ex\_bracket4.ans}.
 
@@ -367,7 +362,6 @@ For 100\% of the data, $1 \le k \le n \le 500$.
   (\begin{CJK}{UTF8}{gbsn}回文\end{CJK})
   \hfill{\normalsize\href{https://qoj.ac/problem/1770}{QOJ 1770}}}
 
-Problem file name: \texttt{palin}.
 Time limit: 1 s.
 Memory limit: 512 MB.
 
@@ -394,8 +388,6 @@ specified in the section ``Output''.
 
 \subsection*{Input}
 
-Read the input from the file \texttt{palin.in}.
-
 Each test case contains multiple test data sets.
 
 The first line of the input contains an integer $T$, the number of test
@@ -406,8 +398,6 @@ the second line contains $2n$ space-separated integers
 $a_1, a_2, \ldots, a_{2n}$.
 
 \subsection*{Output}
-
-Write the output to the file \texttt{palin.out}.
 
 For each test data set output one line with the answer.
 
@@ -453,8 +443,8 @@ lexicographically larger than the answer scheme.
 
 \subsection*{Sample 2}
 
-See \texttt{palin/palin2.in} and \texttt{palin/palin2.ans} in the
-contestant directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{palin/palin2.in} and \texttt{palin/palin2.ans}.
 On QOJ this sample is provided as the downloadable files
 \texttt{ex\_palin2.in} and \texttt{ex\_palin2.ans}.
 
@@ -498,7 +488,6 @@ way to delete the whole sequence (for example $a = [1, 2, 2, 1]$).
   (\begin{CJK}{UTF8}{gbsn}交通规划\end{CJK})
   \hfill{\normalsize\href{https://qoj.ac/problem/1771}{QOJ 1771}}}
 
-Problem file name: \texttt{traffic}.
 Time limit: 3 s.
 Memory limit: 512 MB.
 
@@ -550,8 +539,6 @@ Please output this minimum sum of edge weights.
 
 \subsection*{Input}
 
-Read the input from the file \texttt{traffic.in}.
-
 The first line contains 3 positive integers $n, m, T$, denoting the
 numbers of horizontal and vertical lines, and the number of queries,
 respectively.
@@ -578,8 +565,6 @@ distinct.
 The integers on each line are separated by spaces.
 
 \subsection*{Output}
-
-Write the output to the file \texttt{traffic.out}.
 
 Output $T$ lines.
 The $i$-th line contains one non-negative integer, the minimum sum of
@@ -612,29 +597,29 @@ $(1, 1), (2, 1), (2, 2)$ are white.
 
 \subsection*{Sample 2}
 
-See \texttt{traffic/traffic2.in} and \texttt{traffic/traffic2.ans} in the
-contestant directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{traffic/traffic2.in} and \texttt{traffic/traffic2.ans}.
 On QOJ this sample is provided as the downloadable files
 \texttt{ex\_traffic2.in} and \texttt{ex\_traffic2.ans}.
 
 \subsection*{Sample 3}
 
-See \texttt{traffic/traffic3.in} and \texttt{traffic/traffic3.ans} in the
-contestant directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{traffic/traffic3.in} and \texttt{traffic/traffic3.ans}.
 On QOJ this sample is provided as the downloadable files
 \texttt{ex\_traffic3.in} and \texttt{ex\_traffic3.ans}.
 
 \subsection*{Sample 4}
 
-See \texttt{traffic/traffic4.in} and \texttt{traffic/traffic4.ans} in the
-contestant directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{traffic/traffic4.in} and \texttt{traffic/traffic4.ans}.
 On QOJ this sample is provided as the downloadable files
 \texttt{ex\_traffic4.in} and \texttt{ex\_traffic4.ans}.
 
 \subsection*{Sample 5}
 
-See \texttt{traffic/traffic5.in} and \texttt{traffic/traffic5.ans} in the
-contestant directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{traffic/traffic5.in} and \texttt{traffic/traffic5.ans}.
 On QOJ this sample is provided as the downloadable files
 \texttt{ex\_traffic5.in} and \texttt{ex\_traffic5.ans}.
 

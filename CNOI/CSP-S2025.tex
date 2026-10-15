@@ -15,14 +15,18 @@
 \maketitle
 
 \noindent
+This file is tailored to QOJ: every problem reads from standard input and
+writes to standard output (the original paper used the files
+\texttt{<code>.in} / \texttt{<code>.out} named after each problem).
+
+\noindent
 2025 CCF Certified Software Professional, CSP-J/S 2025, second round,
 Senior level (CSP-S).
 Four problems, in contest order.
-Each problem reads from and writes to the named files.
 Time and memory limits are those shown on the QOJ problem pages.
 
 \clearpage
-\section*{Problem 1: Club Recruitment (\cn{社团招新}, \texttt{club})
+\section*{Problem 1: Club Recruitment (\cn{社团招新})
   \hfill{\normalsize\href{https://qoj.ac/problem/14597}{QOJ 14597}}}
 
 \noindent
@@ -52,8 +56,6 @@ that satisfies his requirement.
 
 \subsection*{Input}
 
-Read the data from the file \texttt{club.in}.
-
 \textbf{This problem contains multiple test cases.}
 
 The first line of the input contains a positive integer $t$, the number of
@@ -70,8 +72,6 @@ For each test case:
 \end{itemize}
 
 \subsection*{Output}
-
-Write the output to the file \texttt{club.out}.
 
 For each test case, output one line containing one non-negative integer,
 the maximum satisfaction of an assignment that satisfies Little L's
@@ -127,29 +127,29 @@ none exceeding $\frac{2}{2} = 1$, and the satisfaction is $9 + 4 = 13$.
 
 \subsection*{Sample 2}
 
-See \texttt{club/club2.in} and \texttt{club/club2.ans} in the contestant's
-directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{club/club2.in} and \texttt{club/club2.ans}.
 
 This sample satisfies the constraints of test cases $3, 4$.
 
 \subsection*{Sample 3}
 
-See \texttt{club/club3.in} and \texttt{club/club3.ans} in the contestant's
-directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{club/club3.in} and \texttt{club/club3.ans}.
 
 This sample satisfies the constraints of test cases $5 \sim 8$.
 
 \subsection*{Sample 4}
 
-See \texttt{club/club4.in} and \texttt{club/club4.ans} in the contestant's
-directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{club/club4.in} and \texttt{club/club4.ans}.
 
 This sample satisfies the constraints of test case $9$.
 
 \subsection*{Sample 5}
 
-See \texttt{club/club5.in} and \texttt{club/club5.ans} in the contestant's
-directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{club/club5.in} and \texttt{club/club5.ans}.
 
 This sample satisfies the constraints of test cases $15, 16$.
 
@@ -200,7 +200,7 @@ is generated \textbf{independently and uniformly at random} in
 $[0, 2 \times 10^4]$.
 
 \clearpage
-\section*{Problem 2: Road Repair (\cn{道路修复}, \texttt{road})
+\section*{Problem 2: Road Repair (\cn{道路修复})
   \hfill{\normalsize\href{https://qoj.ac/problem/14598}{QOJ 14598}}}
 
 \noindent
@@ -236,8 +236,6 @@ cities pairwise.
 
 \subsection*{Input}
 
-Read the data from the file \texttt{road.in}.
-
 The first line of the input contains three non-negative integers $n, m, k$,
 the number of original cities, the number of roads, and the number of towns
 prepared to undergo urbanization, respectively.
@@ -252,8 +250,6 @@ the $j$-th town and the costs of building roads between this town and the
 original cities, respectively.
 
 \subsection*{Output}
-
-Write the output to the file \texttt{road.out}.
 
 Output one line containing one non-negative integer, the minimum cost of
 connecting the original $n$ cities pairwise.
@@ -287,22 +283,22 @@ original $4$ cities pairwise.
 
 \subsection*{Sample 2}
 
-See \texttt{road/road2.in} and \texttt{road/road2.ans} in the contestant's
-directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{road/road2.in} and \texttt{road/road2.ans}.
 
 This sample satisfies the constraints of test cases $11, 12$.
 
 \subsection*{Sample 3}
 
-See \texttt{road/road3.in} and \texttt{road/road3.ans} in the contestant's
-directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{road/road3.in} and \texttt{road/road3.ans}.
 
 This sample satisfies the constraints of test cases $13, 14$.
 
 \subsection*{Sample 4}
 
-See \texttt{road/road4.in} and \texttt{road/road4.ans} in the contestant's
-directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{road/road4.in} and \texttt{road/road4.ans}.
 
 This sample satisfies the constraints of test cases $15, 16$.
 
@@ -353,7 +349,7 @@ Special property A: for all $1 \le j \le k$, we have $c_j = 0$, and there
 exists $1 \le i \le n$ such that $a_{j,i} = 0$.
 
 \clearpage
-\section*{Problem 3: Homophonic Replacement (\cn{谐音替换}, \texttt{replace})
+\section*{Problem 3: Homophonic Replacement (\cn{谐音替换})
   \hfill{\normalsize\href{https://qoj.ac/problem/14599}{QOJ 14599}}}
 
 \noindent
@@ -394,8 +390,6 @@ You need to answer all the questions posed by Little W.
 
 \subsection*{Input}
 
-Read the data from the file \texttt{replace.in}.
-
 The first line of the input contains two positive integers $n, q$, the
 number of pairs of strings and the number of questions posed by Little W,
 respectively.
@@ -407,8 +401,6 @@ Line $j+n+1$ ($1 \le j \le q$) of the input contains two strings
 $t_{j,1}, t_{j,2}$, the $j$-th question posed by Little W.
 
 \subsection*{Output}
-
-Write the output to the file \texttt{replace.out}.
 
 Output $q$ lines, where the $j$-th ($1 \le j \le q$) line contains one
 non-negative integer, the number of replacements of the string $t_{j,1}$
@@ -468,15 +460,15 @@ b a
 
 \subsection*{Sample 3}
 
-See \texttt{replace/replace3.in} and \texttt{replace/replace3.ans} in the
-contestant's directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{replace/replace3.in} and \texttt{replace/replace3.ans}.
 
 This sample satisfies the constraints of test cases $11, 12$.
 
 \subsection*{Sample 4}
 
-See \texttt{replace/replace4.in} and \texttt{replace/replace4.ans} in the
-contestant's directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{replace/replace4.in} and \texttt{replace/replace4.ans}.
 
 This sample satisfies the constraints of test cases $15, 16$.
 
@@ -529,7 +521,7 @@ For all $1 \le i \le n$, $s_{i,1}, s_{i,2}$ are special, and for all
 $1 \le j \le q$, $t_{j,1}, t_{j,2}$ are special.
 
 \clearpage
-\section*{Problem 4: Employee Recruitment (\cn{员工招聘}, \texttt{employ})
+\section*{Problem 4: Employee Recruitment (\cn{员工招聘})
   \hfill{\normalsize\href{https://qoj.ac/problem/14600}{QOJ 14600}}}
 
 \noindent
@@ -578,8 +570,6 @@ $998{,}244{,}353$.
 
 \subsection*{Input}
 
-Read the data from the file \texttt{employ.in}.
-
 The first line of the input contains two positive integers $n, m$, the
 number of applicants and the number of people they want to hire,
 respectively.
@@ -591,8 +581,6 @@ The third line of the input contains $n$ non-negative integers
 $c_1, c_2, \dots, c_n$, the patience limit of each person.
 
 \subsection*{Output}
-
-Write the output to the file \texttt{employ.out}.
 
 Output one line containing one non-negative integer, the number of
 permutations $p$ for which at least $m$ people are hired, modulo
@@ -639,22 +627,22 @@ Little H to hire at least $2$ people:
 
 \subsection*{Sample 3}
 
-See \texttt{employ/employ3.in} and \texttt{employ/employ3.ans} in the
-contestant's directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{employ/employ3.in} and \texttt{employ/employ3.ans}.
 
 This sample satisfies the constraints of test cases $6 \sim 8$.
 
 \subsection*{Sample 4}
 
-See \texttt{employ/employ4.in} and \texttt{employ/employ4.ans} in the
-contestant's directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{employ/employ4.in} and \texttt{employ/employ4.ans}.
 
 This sample satisfies the constraints of test cases $12 \sim 14$.
 
 \subsection*{Sample 5}
 
-See \texttt{employ/employ5.in} and \texttt{employ/employ5.ans} in the
-contestant's directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{employ/employ5.in} and \texttt{employ/employ5.ans}.
 
 This sample satisfies the constraints of test cases $18 \sim 21$.
 

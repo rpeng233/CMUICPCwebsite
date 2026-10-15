@@ -12,13 +12,18 @@
 \maketitle
 
 \noindent
+This file is tailored to QOJ: every problem reads from standard input and
+writes to standard output (the original paper used the files
+\texttt{<code>.in} / \texttt{<code>.out} named after each problem).
+
+\noindent
 Problems of the second round of the 2020 CCF Certified Software Professional
 (Junior group), in contest order.
 Every problem has time limit 1 s and memory limit 256 MB (as shown on QOJ),
 and is worth 100 points.
 
 \clearpage
-\section*{Problem 1: Excellent Split (\begin{CJK}{UTF8}{gbsn}优秀的拆分\end{CJK}, power)
+\section*{Problem 1: Excellent Split (\begin{CJK}{UTF8}{gbsn}优秀的拆分\end{CJK})
   \hfill{\normalsize\href{https://qoj.ac/problem/18071}{QOJ 18071}}}
 
 \noindent
@@ -48,14 +53,10 @@ If one exists, please give the concrete split.
 
 \subsection*{Input}
 
-The input file is named \texttt{power.in}.
-
 The input file has only one line, containing a positive integer $n$,
 the number to be examined.
 
 \subsection*{Output}
-
-The output file is named \texttt{power.out}.
 
 If, among all splits of this number, there exists an excellent split, then
 you need to output every number in this split from largest to smallest,
@@ -99,8 +100,8 @@ pairwise distinct.
 
 \subsection*{Sample 3}
 
-See \texttt{power/power3.in} and \texttt{power/power3.ans} in the
-contestant's directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{power/power3.in} and \texttt{power/power3.ans}.
 
 \subsection*{Constraints}
 
@@ -116,7 +117,7 @@ For $80\%$ of the data, $n \le 1024$.
 For $100\%$ of the data, $1 \le n \le 1 \times 10^7$.
 
 \clearpage
-\section*{Problem 2: Live Awards (\begin{CJK}{UTF8}{gbsn}直播获奖\end{CJK}, live)
+\section*{Problem 2: Live Awards (\begin{CJK}{UTF8}{gbsn}直播获奖\end{CJK})
   \hfill{\normalsize\href{https://qoj.ac/problem/18072}{QOJ 18072}}}
 
 \noindent
@@ -146,8 +147,6 @@ live-broadcast program.
 
 \subsection*{Input}
 
-The input file is named \texttt{live.in}.
-
 Line $1$ contains two positive integers $n, w$, the total number of
 contestants and the award rate, respectively.
 
@@ -155,8 +154,6 @@ Line $2$ contains $n$ non-negative integers, the contestants' scores in
 the order in which they are announced one by one.
 
 \subsection*{Output}
-
-The output file is named \texttt{live.out}.
 
 Only one line, containing $n$ non-negative integers, which are, in order,
 the real-time award cutoff scores after each contestant's score is
@@ -230,8 +227,8 @@ actually receive awards.
 
 \subsection*{Sample 3}
 
-See \texttt{live/live3.in} and \texttt{live/live3.ans} in the contestant's
-directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{live/live3.in} and \texttt{live/live3.ans}.
 
 \subsection*{Constraints}
 
@@ -267,7 +264,7 @@ Therefore, it is recommended to use only integer variables, so as to
 compute the exact value.
 
 \clearpage
-\section*{Problem 3: Expression (\begin{CJK}{UTF8}{gbsn}表达式\end{CJK}, expr)
+\section*{Problem 3: Expression (\begin{CJK}{UTF8}{gbsn}表达式\end{CJK})
   \hfill{\normalsize\href{https://qoj.ac/problem/18073}{QOJ 18073}}}
 
 \noindent
@@ -337,8 +334,6 @@ Also, for convenience, in the input:
 
 \subsection*{Input}
 
-The input file is named \texttt{expr.in}.
-
 The first line contains a string $s$, the expression described above.
 
 The second line contains a positive integer $n$, the number of variables in
@@ -359,8 +354,6 @@ It is guaranteed that the input expression is valid.
 The initial value of each variable is $0$ or $1$.
 
 \subsection*{Output}
-
-The output file is named \texttt{expr.out}.
 
 The output consists of $q$ lines, each containing a $0$ or a $1$, the value
 of the expression under the corresponding query.
@@ -434,8 +427,8 @@ $(\texttt{!}\, x_1) \;\texttt{\&}\;
 
 \subsection*{Sample 3}
 
-See \texttt{expr/expr3.in} and \texttt{expr/expr3.ans} in the contestant's
-directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{expr/expr3.in} and \texttt{expr/expr3.ans}.
 
 \subsection*{Constraints}
 
@@ -454,7 +447,7 @@ $1 \le q \le 1 \times 10^5$, $2 \le n \le 1 \times 10^5$.
 Here $|s|$ denotes the length of the string $s$.
 
 \clearpage
-\section*{Problem 4: Taking Numbers on a Grid (\begin{CJK}{UTF8}{gbsn}方格取数\end{CJK}, number)
+\section*{Problem 4: Taking Numbers on a Grid (\begin{CJK}{UTF8}{gbsn}方格取数\end{CJK})
   \hfill{\normalsize\href{https://qoj.ac/problem/18074}{QOJ 18074}}}
 
 \noindent
@@ -473,16 +466,12 @@ Find the maximum possible sum of the integers it takes.
 
 \subsection*{Input}
 
-The input file is named \texttt{number.in}.
-
 Line $1$ contains two positive integers $n, m$.
 
 Each of the next $n$ lines contains $m$ integers, the integers in the
 cells, in order.
 
 \subsection*{Output}
-
-The input file [sic] is named \texttt{number.out}.
 
 One integer, the maximum possible sum of the integers the bear can take.
 
@@ -584,8 +573,8 @@ be negative.
 
 \subsection*{Sample 3}
 
-See \texttt{number/number3.in} and \texttt{number/number3.ans} in the
-contestant's directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{number/number3.in} and \texttt{number/number3.ans}.
 
 \subsection*{Constraints}
 

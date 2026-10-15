@@ -11,11 +11,15 @@
 \begin{document}
 \maketitle
 
+\noindent
+This file is tailored to QOJ: every problem reads from standard input and
+writes to standard output (the original paper used the files
+\texttt{<code>.in} / \texttt{<code>.out} named after each problem).
+
 \clearpage
 \section*{Problem 1: Holiday Plan (\begin{CJK}{UTF8}{gbsn}假期计划\end{CJK})
   \hfill{\normalsize\href{https://qoj.ac/problem/5025}{QOJ 5025}}}
 
-Input file \texttt{holiday.in}, output file \texttt{holiday.out}.
 Time limit: 2 s. Memory limit: 512 MB.
 
 Little Bear's map has $n$ points.
@@ -48,8 +52,6 @@ the four \emph{distinct} scenic spots it visits is as large as possible.
 
 \subsection*{Input}
 
-Read the input from the file \texttt{holiday.in}.
-
 The first line contains $3$ positive integers $n, m, k$,
 which are the number of points on the map,
 the number of pairs of points joined by a direct bidirectional line,
@@ -64,8 +66,6 @@ It is guaranteed that $1 \le x, y \le n$,
 and that there are no multiple edges and no self-loops.
 
 \subsection*{Output}
-
-Write the output to the file \texttt{holiday.out}.
 
 Output one positive integer:
 the maximum possible sum of the scores of the $4$ distinct scenic spots that
@@ -134,8 +134,8 @@ so it does not satisfy the requirements either.
 
 \subsection*{Sample 3}
 
-See \texttt{holiday/holiday3.in} and \texttt{holiday/holiday3.ans}
-in the contestant's directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{holiday/holiday3.in} and \texttt{holiday/holiday3.ans}.
 
 \subsection*{Constraints}
 
@@ -165,7 +165,6 @@ $18 \sim 20$ & $2500$ & $10000$ & $100$ \\
 \section*{Problem 2: Strategy Game (\begin{CJK}{UTF8}{gbsn}策略游戏\end{CJK})
   \hfill{\normalsize\href{https://qoj.ac/problem/5026}{QOJ 5026}}}
 
-Input file \texttt{game.in}, output file \texttt{game.out}.
 Time limit: 1 s. Memory limit: 512 MB.
 
 Little L and Little Q are playing a strategy game.
@@ -192,8 +191,6 @@ what is the score of each round?
 
 \subsection*{Input}
 
-Read the input from the file \texttt{game.in}.
-
 The first line contains $3$ positive integers $n, m, q$,
 which are the length of array $A$, the length of array $B$,
 and the number of rounds, respectively.
@@ -206,8 +203,6 @@ Each of the next $q$ lines contains $4$ positive integers,
 the values $l_1, r_1, l_2, r_2$ of that round.
 
 \subsection*{Output}
-
-Write the output to the file \texttt{game.out}.
 
 Output $q$ lines, each containing one integer:
 the score of Little L and Little Q in that round under optimal play.
@@ -272,13 +267,13 @@ Little Q can only choose $y = 2$, and the score is $4$.
 
 \subsection*{Sample 3}
 
-See \texttt{game/game3.in} and \texttt{game/game3.ans}
-in the contestant's directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{game/game3.in} and \texttt{game/game3.ans}.
 
 \subsection*{Sample 4}
 
-See \texttt{game/game4.in} and \texttt{game/game4.ans}
-in the contestant's directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{game/game4.in} and \texttt{game/game4.ans}.
 
 \subsection*{Constraints}
 
@@ -317,7 +312,6 @@ either $l_1 = r_1$ or $l_2 = r_2$.
 \section*{Problem 3: Star War (\begin{CJK}{UTF8}{gbsn}星战\end{CJK})
   \hfill{\normalsize\href{https://qoj.ac/problem/5027}{QOJ 5027}}}
 
-Input file \texttt{galaxy.in}, output file \texttt{galaxy.out}.
 Time limit: 2 s. Memory limit: 512 MB.
 
 In this round of the interstellar war,
@@ -388,8 +382,6 @@ the current moment.
 
 \subsection*{Input}
 
-Read the input from the file \texttt{galaxy.in}.
-
 The first line of the input contains two positive integers $n, m$.
 
 Each of the next $m$ lines contains two numbers $u, v$,
@@ -422,8 +414,6 @@ you need to decide whether a counteroffensive can be carried out.
 If so, output \texttt{YES}, otherwise output \texttt{NO}.
 
 \subsection*{Output}
-
-Write the output to the file \texttt{galaxy.out}.
 
 Output $q$ lines in total.
 For each instruction, output whether a counteroffensive can be carried
@@ -479,18 +469,18 @@ destroyed.
 
 \subsection*{Sample 2}
 
-See \texttt{galaxy/galaxy2.in} and \texttt{galaxy/galaxy2.ans}
-in the contestant's directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{galaxy/galaxy2.in} and \texttt{galaxy/galaxy2.ans}.
 
 \subsection*{Sample 3}
 
-See \texttt{galaxy/galaxy3.in} and \texttt{galaxy/galaxy3.ans}
-in the contestant's directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{galaxy/galaxy3.in} and \texttt{galaxy/galaxy3.ans}.
 
 \subsection*{Sample 4}
 
-See \texttt{galaxy/galaxy4.in} and \texttt{galaxy/galaxy4.ans}
-in the contestant's directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{galaxy/galaxy4.in} and \texttt{galaxy/galaxy4.ans}.
 
 \subsection*{Constraints}
 
@@ -521,7 +511,6 @@ Test cases & $n$ & $m$ & $q$ & Special restrictions \\
 \section*{Problem 4: Data Transmission (\begin{CJK}{UTF8}{gbsn}数据传输\end{CJK})
   \hfill{\normalsize\href{https://qoj.ac/problem/5028}{QOJ 5028}}}
 
-Input file \texttt{transmit.in}, output file \texttt{transmit.out}.
 Time limit: 3 s. Memory limit: 1024 MB.
 
 Little C is designing the routing system of a computer network.
@@ -560,8 +549,6 @@ the minimum number of units of time needed to complete the transmission.
 
 \subsection*{Input}
 
-Read the input from the file \texttt{transmit.in}.
-
 The first line of the input contains three positive integers $n, Q, k$,
 which are the number of hosts in the network, the number of requests,
 and the transmission parameter, respectively.
@@ -582,8 +569,6 @@ meaning a request to send data from host $s_i$ to host $t_i$.
 It is guaranteed that $1 \le s_i, t_i \le n$ and $s_i \ne t_i$.
 
 \subsection*{Output}
-
-Write the output to the file \texttt{transmit.out}.
 
 $Q$ lines, each containing one positive integer:
 the minimum number of units of time needed by the $i$-th request during
@@ -633,22 +618,22 @@ and the minimum transmission time is $1 + 2 = 3$.
 
 \subsection*{Sample 2}
 
-See \texttt{transmit/transmit2.in} and \texttt{transmit/transmit2.ans}
-in the contestant's directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{transmit/transmit2.in} and \texttt{transmit/transmit2.ans}.
 
 This sample satisfies the restrictions of test case 2.
 
 \subsection*{Sample 3}
 
-See \texttt{transmit/transmit3.in} and \texttt{transmit/transmit3.ans}
-in the contestant's directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{transmit/transmit3.in} and \texttt{transmit/transmit3.ans}.
 
 This sample satisfies the restrictions of test case 3.
 
 \subsection*{Sample 4}
 
-See \texttt{transmit/transmit4.in} and \texttt{transmit/transmit4.ans}
-in the contestant's directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{transmit/transmit4.in} and \texttt{transmit/transmit4.ans}.
 
 This sample satisfies the restrictions of test case 20.
 

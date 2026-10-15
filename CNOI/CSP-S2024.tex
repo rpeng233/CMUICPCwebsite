@@ -12,11 +12,14 @@
 \maketitle
 
 \noindent
+This file is tailored to QOJ: every problem reads from standard input and
+writes to standard output (the original paper used the files
+\texttt{<code>.in} / \texttt{<code>.out} named after each problem).
+
+\noindent
 Translated from the official Chinese statements of the second round of the
 2024 CCF Certified Software Professional (CSP-J/S 2024), Senior level.
 The problems are given in contest order.
-File names in parentheses are the official problem code names.
-Each problem reads from \texttt{<name>.in} and writes to \texttt{<name>.out}.
 Merged cells of the original subtask tables are reproduced by an entry
 in the first row of the merged block and empty cells below it.
 
@@ -25,7 +28,6 @@ in the first row of the merged block and empty cells below it.
   \hfill{\normalsize\href{https://qoj.ac/problem/10194}{QOJ 10194}}}
 
 \noindent
-Problem code name: \texttt{duel}.
 Time limit: 1 s.
 Memory limit: 512 MB.
 Total points: 100.
@@ -54,8 +56,6 @@ possible.
 
 \subsection*{Input}
 
-Read the input from the file \texttt{duel.in}.
-
 The first line of the input contains a positive integer $n$, the number of
 cards.
 
@@ -63,8 +63,6 @@ The second line of the input contains $n$ positive integers, the $i$-th of
 which is the attack and defense power $r_i$ of the $i$-th monster.
 
 \subsection*{Output}
-
-Write the output to the file \texttt{duel.out}.
 
 Output one line containing one integer, the minimum possible number of
 monsters that have not left the game when the game ends.
@@ -107,8 +105,8 @@ It can be shown that no attack order does better.
 
 \subsection*{Sample 3}
 
-See the files \texttt{duel/duel3.in} and \texttt{duel/duel3.ans} in the
-contestant's directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{duel/duel3.in} and \texttt{duel/duel3.ans}.
 On QOJ these are the downloadable attachment files \texttt{ex\_duel3.in}
 and \texttt{ex\_duel3.ans}.
 
@@ -116,8 +114,8 @@ This sample satisfies $\forall 1 \le i \le n,\ r_i \le 2$.
 
 \subsection*{Sample 4}
 
-See the files \texttt{duel/duel4.in} and \texttt{duel/duel4.ans} in the
-contestant's directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{duel/duel4.in} and \texttt{duel/duel4.ans}.
 On QOJ these are the downloadable attachment files \texttt{ex\_duel4.in}
 and \texttt{ex\_duel4.ans}.
 
@@ -151,7 +149,6 @@ independently and uniformly at random from its possible range of values.
   \hfill{\normalsize\href{https://qoj.ac/problem/10195}{QOJ 10195}}}
 
 \noindent
-Problem code name: \texttt{detect}.
 Time limit: 2 s.
 Memory limit: 512 MB.
 Total points: 100.
@@ -205,8 +202,6 @@ formulas about acceleration in the ``Hint'' section of this problem.
 
 \subsection*{Input}
 
-Read the input from the file \texttt{detect.in}.
-
 \emph{This problem has multiple test cases.}
 
 The first line of the input contains a positive integer $T$, the number of
@@ -226,8 +221,6 @@ The last line contains $m$ integers $p_1, p_2, \cdots, p_m$ describing the
 positions of all speed cameras on the road.
 
 \subsection*{Output}
-
-Write the output to the file \texttt{detect.out}.
 
 For each test case, output one line containing two integers.
 The first integer is the number of cars judged to be speeding when all
@@ -303,8 +296,8 @@ output is $3$.
 
 \subsection*{Sample 2}
 
-See the files \texttt{detect/detect2.in} and \texttt{detect/detect2.ans}
-in the contestant's directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{detect/detect2.in} and \texttt{detect/detect2.ans}.
 On QOJ these are the downloadable attachment files
 \texttt{ex\_detect2.in} and \texttt{ex\_detect2.ans}.
 
@@ -312,8 +305,8 @@ This sample satisfies $n, m \le 10$.
 
 \subsection*{Sample 3}
 
-See the files \texttt{detect/detect3.in} and \texttt{detect/detect3.ans}
-in the contestant's directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{detect/detect3.in} and \texttt{detect/detect3.ans}.
 On QOJ these are the downloadable attachment files
 \texttt{ex\_detect3.in} and \texttt{ex\_detect3.ans}.
 
@@ -322,8 +315,8 @@ satisfy $n, m \le 3000$.
 
 \subsection*{Sample 4}
 
-See the files \texttt{detect/detect4.in} and \texttt{detect/detect4.ans}
-in the contestant's directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{detect/detect4.in} and \texttt{detect/detect4.ans}.
 On QOJ these are the downloadable attachment files
 \texttt{ex\_detect4.in} and \texttt{ex\_detect4.ans}.
 
@@ -332,8 +325,8 @@ satisfy $n, m \le 3000$.
 
 \subsection*{Sample 5}
 
-See the files \texttt{detect/detect5.in} and \texttt{detect/detect5.ans}
-in the contestant's directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{detect/detect5.in} and \texttt{detect/detect5.ans}.
 On QOJ these are the downloadable attachment files
 \texttt{ex\_detect5.in} and \texttt{ex\_detect5.ans}.
 
@@ -412,7 +405,6 @@ problems.
   \hfill{\normalsize\href{https://qoj.ac/problem/10196}{QOJ 10196}}}
 
 \noindent
-Problem code name: \texttt{color}.
 Time limit: 1 s.
 Memory limit: 512 MB.
 Total points: 100.
@@ -442,8 +434,6 @@ Find the maximum possible final score.
 
 \subsection*{Input}
 
-Read the input from the file \texttt{color.in}.
-
 \emph{This problem has multiple test cases.}
 
 The first line of the input contains a positive integer $T$, the number of
@@ -457,8 +447,6 @@ The second line contains $n$ positive integers $A_1, A_2, \ldots, A_n$,
 the elements of the array $A$.
 
 \subsection*{Output}
-
-Write the output to the file \texttt{color.out}.
 
 For each test case, output one line containing a non-negative integer, the
 maximum possible value of the final score.
@@ -532,8 +520,8 @@ score is $8$.
 
 \subsection*{Sample 2}
 
-See the files \texttt{color/color2.in} and \texttt{color/color2.ans} in
-the contestant's directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{color/color2.in} and \texttt{color/color2.ans}.
 On QOJ these are the downloadable attachment files \texttt{ex\_color2.in}
 and \texttt{ex\_color2.ans}.
 
@@ -568,7 +556,6 @@ $16 \sim 20$ & & $\le 10^6$ \\
   \hfill{\normalsize\href{https://qoj.ac/problem/10197}{QOJ 10197}}}
 
 \noindent
-Problem code name: \texttt{arena}.
 Time limit: 1 s.
 Memory limit: 512 MB.
 Total points: 100.
@@ -625,8 +612,6 @@ only the registrations of the first $c_i$ players have been received.
 
 \subsection*{Input}
 
-Read the input from the file \texttt{arena.in}.
-
 \emph{Each test file of this problem contains multiple test cases}, but the
 different test cases are obtained only by modifying
 $a_1, a_2, \cdots, a_n$, while everything else stays the same.
@@ -661,8 +646,6 @@ The ability values of this test case are
 $a_i = a'_i \oplus X_{i \bmod 4}$, where $1 \le i \le n$.
 
 \subsection*{Output}
-
-Write the output to the file \texttt{arena.out}.
 
 Output $T$ lines in total.
 For each test case, let $A_i$ be the answer to the $i$-th query
@@ -729,8 +712,8 @@ $(1 \times 19) \oplus (2 \times 4) \oplus (3 \times 1) \oplus (4 \times 1)
 
 \subsection*{Sample 2}
 
-See the files \texttt{arena/arena2.in} and \texttt{arena/arena2.ans} in
-the contestant's directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{arena/arena2.in} and \texttt{arena/arena2.ans}.
 On QOJ these are the downloadable attachment files \texttt{ex\_arena2.in}
 and \texttt{ex\_arena2.ans}.
 
@@ -738,8 +721,8 @@ This sample satisfies special property A.
 
 \subsection*{Sample 3}
 
-See the files \texttt{arena/arena3.in} and \texttt{arena/arena3.ans} in
-the contestant's directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{arena/arena3.in} and \texttt{arena/arena3.ans}.
 On QOJ these are the downloadable attachment files \texttt{ex\_arena3.in}
 and \texttt{ex\_arena3.ans}.
 
@@ -747,15 +730,15 @@ This sample satisfies special property B.
 
 \subsection*{Sample 4}
 
-See the files \texttt{arena/arena4.in} and \texttt{arena/arena4.ans} in
-the contestant's directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{arena/arena4.in} and \texttt{arena/arena4.ans}.
 On QOJ these are the downloadable attachment files \texttt{ex\_arena4.in}
 and \texttt{ex\_arena4.ans}.
 
 \subsection*{Sample 5}
 
-See the files \texttt{arena/arena5.in} and \texttt{arena/arena5.ans} in
-the contestant's directory.
+Large sample, not printed here;
+provided as the downloadable files \texttt{arena/arena5.in} and \texttt{arena/arena5.ans}.
 On QOJ these are the downloadable attachment files \texttt{ex\_arena5.in}
 and \texttt{ex\_arena5.ans}.
 
