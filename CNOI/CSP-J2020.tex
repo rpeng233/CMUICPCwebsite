@@ -1,0 +1,613 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,booktabs,geometry,verbatim}
+\usepackage{CJKutf8}
+\geometry{margin=1in}
+\usepackage[hidelinks]{hyperref}
+
+\title{CSP-J 2020 (Junior)}
+\date{2020-11-07, 8:30--12:00 (3.5 hours)}
+
+\begin{document}
+\maketitle
+
+\noindent
+Problems of the second round of the 2020 CCF Certified Software Professional
+(Junior group), in contest order.
+Every problem has time limit 1 s and memory limit 256 MB (as shown on QOJ),
+and is worth 100 points.
+
+\clearpage
+\section*{Problem 1: Excellent Split (\begin{CJK}{UTF8}{gbsn}优秀的拆分\end{CJK}, power)
+  \hfill{\normalsize\href{https://qoj.ac/problem/18071}{QOJ 18071}}}
+
+\noindent
+Time limit: 1 s.
+Memory limit: 256 MB.
+
+\subsection*{Problem description}
+
+In general, a positive integer can be split into a sum of several positive
+integers.
+For example, $1 = 1$, $10 = 1 + 2 + 3 + 4$, and so on.
+
+A particular split of a positive integer $n$ is called \emph{excellent}
+if and only if, in this split, $n$ is decomposed into several distinct
+positive-integer powers of $2$.
+Note that a number $x$ can be expressed as a positive-integer power of $2$
+if and only if $x$ can be obtained by multiplying a positive number of $2$s
+together.
+
+For example, $10 = 8 + 2 = 2^3 + 2^1$ is an excellent split.
+However, $7 = 4 + 2 + 1 = 2^2 + 2^1 + 2^0$ is not an excellent split,
+because $1$ is not a positive-integer power of $2$.
+
+Now, given a positive integer $n$, you need to determine whether, among all
+splits of this number, there exists an excellent split.
+If one exists, please give the concrete split.
+
+\subsection*{Input}
+
+The input file is named \texttt{power.in}.
+
+The input file has only one line, containing a positive integer $n$,
+the number to be examined.
+
+\subsection*{Output}
+
+The output file is named \texttt{power.out}.
+
+If, among all splits of this number, there exists an excellent split, then
+you need to output every number in this split from largest to smallest,
+with adjacent numbers separated by a single space.
+It can be proved that, once the order of the numbers in the split is fixed,
+the split is unique.
+
+If no excellent split exists, output ``\texttt{-1}'' (without the quotation
+marks).
+
+\subsection*{Sample 1 input}
+
+\begin{verbatim}
+6
+\end{verbatim}
+
+\subsection*{Sample 1 output}
+
+\begin{verbatim}
+4 2
+\end{verbatim}
+
+\subsection*{Explanation of sample 1}
+
+$6 = 4 + 2 = 2^2 + 2^1$ is an excellent split.
+Note that $6 = 2 + 2 + 2$ is not an excellent split, because the $3$
+numbers in the split do not satisfy the requirement that all numbers be
+pairwise distinct.
+
+\subsection*{Sample 2 input}
+
+\begin{verbatim}
+7
+\end{verbatim}
+
+\subsection*{Sample 2 output}
+
+\begin{verbatim}
+-1
+\end{verbatim}
+
+\subsection*{Sample 3}
+
+See \texttt{power/power3.in} and \texttt{power/power3.ans} in the
+contestant's directory.
+
+\subsection*{Constraints}
+
+For $20\%$ of the data, $n \le 10$.
+
+For another $20\%$ of the data, $n$ is guaranteed to be odd.
+
+For another $20\%$ of the data, $n$ is guaranteed to be a positive-integer
+power of $2$.
+
+For $80\%$ of the data, $n \le 1024$.
+
+For $100\%$ of the data, $1 \le n \le 1 \times 10^7$.
+
+\clearpage
+\section*{Problem 2: Live Awards (\begin{CJK}{UTF8}{gbsn}直播获奖\end{CJK}, live)
+  \hfill{\normalsize\href{https://qoj.ac/problem/18072}{QOJ 18072}}}
+
+\noindent
+Time limit: 1 s.
+Memory limit: 256 MB.
+
+\subsection*{Problem description}
+
+NOI2130 is about to be held.
+To make it more entertaining, CCF has decided to announce the contestants'
+scores one by one and to broadcast the real-time award cutoff score live.
+The award rate of this competition is $w\%$, that is, the lowest score among
+the contestants currently ranked in the top $w\%$ is the real-time cutoff
+score.
+
+More specifically, if the scores of $p$ contestants have been announced so
+far, then the current planned number of award winners is
+$\max(1, \lfloor p \times w\% \rfloor)$,
+where $w$ is the award percentage, $\lfloor x \rfloor$ denotes $x$ rounded
+down to an integer, and $\max(x, y)$ denotes the larger of $x$ and $y$.
+If some contestants have equal scores, then all contestants tied at that
+score receive an award, so the actual number of award winners may be larger
+than planned.
+
+As a technical staff member of the judging team, please help CCF write a
+live-broadcast program.
+
+\subsection*{Input}
+
+The input file is named \texttt{live.in}.
+
+Line $1$ contains two positive integers $n, w$, the total number of
+contestants and the award rate, respectively.
+
+Line $2$ contains $n$ non-negative integers, the contestants' scores in
+the order in which they are announced one by one.
+
+\subsection*{Output}
+
+The output file is named \texttt{live.out}.
+
+Only one line, containing $n$ non-negative integers, which are, in order,
+the real-time award cutoff scores after each contestant's score is
+announced one by one.
+Adjacent integers are separated by a single space.
+
+\subsection*{Sample 1 input}
+
+\begin{verbatim}
+10 60
+200 300 400 500 600 600 0 300 200 100
+\end{verbatim}
+
+\subsection*{Sample 1 output}
+
+\begin{verbatim}
+200 300 400 400 400 500 400 400 300 300
+\end{verbatim}
+
+\subsection*{Explanation of sample 1}
+
+\begin{center}
+\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|}
+\hline
+Number of contestants judged & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+\hline
+Planned number of award winners & 1 & 1 & 1 & 2 & 3 & 3 & 4 & 4 & 5 & 6 \\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|}
+\hline
+Scores of the judged contestants,
+  & \textbf{200} & \textbf{300} & \textbf{400} & 500 & 600 & 600
+  & 600 & 600 & 600 & 600 \\
+sorted from high to low
+  &  & 200 & 300 & \textbf{400} & 500 & 600 & 600 & 600 & 600 & 600 \\
+(the cutoff score is marked
+  &  &  & 200 & 300 & \textbf{400} & 500 & 500 & 500 & 500 & 500 \\
+in \textbf{bold})
+  &  &  &  & 200 & 300 & \textbf{400} & \textbf{400} & \textbf{400}
+  & 400 & 400 \\
+  &  &  &  &  & 200 & 300 & 300 & 300 & \textbf{300} & 300 \\
+  &  &  &  &  &  & 200 & 200 & 300 & 300 & \textbf{300} \\
+  &  &  &  &  &  &  & 0 & 200 & 200 & 200 \\
+  &  &  &  &  &  &  &  & 0 & 200 & 200 \\
+  &  &  &  &  &  &  &  &  & 0 & 100 \\
+  &  &  &  &  &  &  &  &  &  & 0 \\
+\hline
+\end{tabular}
+\end{center}
+
+Note that after the score of the 9th contestant is announced, the planned
+number of award winners is $5$, but because of ties, $6$ contestants
+actually receive awards.
+
+\subsection*{Sample 2 input}
+
+\begin{verbatim}
+10 30
+100 100 600 100 100 100 100 100 100 100
+\end{verbatim}
+
+\subsection*{Sample 2 output}
+
+\begin{verbatim}
+100 100 600 600 600 600 100 100 100 100
+\end{verbatim}
+
+\subsection*{Sample 3}
+
+See \texttt{live/live3.in} and \texttt{live/live3.ans} in the contestant's
+directory.
+
+\subsection*{Constraints}
+
+\begin{center}
+\begin{tabular}{|c|l|}
+\hline
+Test case number & $n$ \\
+\hline
+1$\sim$3 & $= 10$ \\
+\hline
+4$\sim$6 & $= 500$ \\
+\hline
+7$\sim$10 & $= 2000$ \\
+\hline
+11$\sim$17 & $= 10000$ \\
+\hline
+18$\sim$20 & $= 100000$ \\
+\hline
+\end{tabular}
+\end{center}
+
+For all test cases, every contestant's score is a non-negative integer not
+exceeding $600$, and the award percentage $w$ is a positive integer with
+$1 \le w \le 99$.
+
+When computing the planned number of award winners, if a floating-point
+variable (such as \texttt{float} or \texttt{double} in C/C++, or
+\texttt{real}, \texttt{double}, \texttt{extended}, etc.\ in Pascal) is used
+to store the award ratio $w\%$, then the result of computing
+$5 \times 60\%$ may be $3.000001$ or may be $2.999999$, and the result
+after rounding down is not determined.
+Therefore, it is recommended to use only integer variables, so as to
+compute the exact value.
+
+\clearpage
+\section*{Problem 3: Expression (\begin{CJK}{UTF8}{gbsn}表达式\end{CJK}, expr)
+  \hfill{\normalsize\href{https://qoj.ac/problem/18073}{QOJ 18073}}}
+
+\noindent
+Time limit: 1 s.
+Memory limit: 256 MB.
+
+\subsection*{Problem description}
+
+Little C is keen on studying mathematical logic.
+One day, he discovered a special kind of logical expression.
+In this kind of logical expression, all operands are variables, their values
+can only be $0$ or $1$, and the operations are carried out from left to
+right.
+If the expression contains parentheses, the value of the sub-expression
+inside the parentheses is computed first.
+In particular, this kind of expression has exactly the following
+operations:
+\begin{enumerate}
+\item AND: $a$ \texttt{\&} $b$.
+  The value of this expression is $1$ if and only if the values of both
+  $a$ and $b$ are $1$.
+  In all other cases the value of this expression is $0$.
+\item OR: $a$ \texttt{|} $b$.
+  The value of this expression is $0$ if and only if the values of both
+  $a$ and $b$ are $0$.
+  In all other cases the value of this expression is $1$.
+\item NOT: \texttt{!} $a$.
+  The value of this expression is $1$ if and only if the value of $a$ is
+  $0$.
+  In all other cases the value of this expression is $0$.
+\end{enumerate}
+
+Little C wants to know: given a logical expression and the initial value of
+each of its operands, what is the value of the original expression after
+the value of one particular operand is negated?
+
+To simplify the processing of the expression, we make the following
+conventions.
+
+The expression is given in postfix notation.
+Postfix notation is defined as follows:
+\begin{enumerate}
+\item If $E$ is an operand, then the postfix expression of $E$ is $E$
+  itself.
+\item If $E$ is an expression of the form $E_1 \; op \; E_2$, where $op$
+  is any binary operator whose precedence is not higher than that of the
+  operators outside parentheses in $E_1$ and $E_2$, then the postfix form
+  of $E$ is $E_1' \; E_2' \; op$,
+  where $E_1'$ and $E_2'$ are the postfix forms of $E_1$ and $E_2$,
+  respectively.
+\item If $E$ is an expression of the form $(E_1)$, then the postfix form of
+  $E_1$ is the postfix form of $E$.
+\end{enumerate}
+
+Also, for convenience, in the input:
+\begin{enumerate}
+\item[a)] There is one space on each side of the AND operator (\texttt{\&}),
+  the OR operator (\texttt{|}) and the NOT operator (\texttt{!}), but
+  there is no space at the end of the expression.
+\item[b)] An operand consists of the lowercase letter \texttt{x} followed
+  by a positive integer, the positive integer being the index of the
+  variable.
+  For example, \texttt{x10} denotes the variable $x_{10}$ with index $10$.
+  It is guaranteed that every variable appears exactly once in the
+  expression.
+\end{enumerate}
+
+\subsection*{Input}
+
+The input file is named \texttt{expr.in}.
+
+The first line contains a string $s$, the expression described above.
+
+The second line contains a positive integer $n$, the number of variables in
+the expression.
+The indices of the variables in the expression are $1, 2, \ldots, n$.
+
+The third line contains $n$ integers, the $i$-th of which is the initial
+value of the variable $x_i$.
+
+The fourth line contains a positive integer $q$, the number of queries.
+
+Each of the next $q$ lines contains a positive integer, the index of the
+variable to be negated.
+Note that the modification in each query is temporary, that is, the
+modification in an earlier query has no effect on later queries.
+
+It is guaranteed that the input expression is valid.
+The initial value of each variable is $0$ or $1$.
+
+\subsection*{Output}
+
+The output file is named \texttt{expr.out}.
+
+The output consists of $q$ lines, each containing a $0$ or a $1$, the value
+of the expression under the corresponding query.
+
+\subsection*{Sample 1 input}
+
+\begin{verbatim}
+x1 x2 & x3 |
+3
+101
+3
+1
+2
+3
+\end{verbatim}
+
+\subsection*{Sample 1 output}
+
+\begin{verbatim}
+1
+1
+0
+\end{verbatim}
+
+\subsection*{Explanation of sample 1}
+
+The infix form of this postfix expression is
+$(x_1 \;\texttt{\&}\; x_2) \;\texttt{|}\; x_3$.
+
+For the first query, the value of $x_1$ is negated.
+Then the values of the three operands are, in order, $0$, $0$, $1$.
+The value of the original expression is
+$(0 \;\texttt{\&}\; 0) \;\texttt{|}\; 1 = 1$.
+
+For the second query, the value of $x_2$ is negated.
+Then the values of the three operands are, in order, $1$, $1$, $1$.
+The value of the original expression is
+$(1 \;\texttt{\&}\; 1) \;\texttt{|}\; 1 = 1$.
+
+For the third query, the value of $x_3$ is negated.
+Then the values of the three operands are, in order, $1$, $0$, $0$.
+The value of the original expression is
+$(1 \;\texttt{\&}\; 0) \;\texttt{|}\; 0 = 0$.
+
+\subsection*{Sample 2 input}
+
+\begin{verbatim}
+x1 ! x2 x4 | x3 x5 ! & & ! &
+5
+01011
+3
+1
+3
+5
+\end{verbatim}
+
+\subsection*{Sample 2 output}
+
+\begin{verbatim}
+0
+1
+1
+\end{verbatim}
+
+\subsection*{Explanation of sample 2}
+
+The infix form of this expression is
+$(\texttt{!}\, x_1) \;\texttt{\&}\;
+ (\texttt{!}\, ((x_2 \;\texttt{|}\; x_4) \;\texttt{\&}\;
+ (x_3 \;\texttt{\&}\; (\texttt{!}\, x_5))))$.
+
+\subsection*{Sample 3}
+
+See \texttt{expr/expr3.in} and \texttt{expr/expr3.ans} in the contestant's
+directory.
+
+\subsection*{Constraints}
+
+For $20\%$ of the data, the expression contains only AND operations
+(\texttt{\&}) or only OR operations (\texttt{|}).
+
+For another $30\%$ of the data, $|s| \le 1000$, $q \le 1000$,
+$n \le 1000$.
+
+For another $20\%$ of the data, the initial values of the variables are all
+$0$ or all $1$.
+
+For $100\%$ of the data, $1 \le |s| \le 1 \times 10^6$,
+$1 \le q \le 1 \times 10^5$, $2 \le n \le 1 \times 10^5$.
+
+Here $|s|$ denotes the length of the string $s$.
+
+\clearpage
+\section*{Problem 4: Taking Numbers on a Grid (\begin{CJK}{UTF8}{gbsn}方格取数\end{CJK}, number)
+  \hfill{\normalsize\href{https://qoj.ac/problem/18074}{QOJ 18074}}}
+
+\noindent
+Time limit: 1 s.
+Memory limit: 256 MB.
+
+\subsection*{Problem description}
+
+There is an $n \times m$ grid, and every cell contains an integer.
+A little bear wants to walk from the top-left corner of the grid to the
+bottom-right corner.
+In each step it may move only one cell up, down or right, it may not pass
+through a cell it has already visited, and it may not leave the grid.
+The bear takes the integers in all cells it passes through.
+Find the maximum possible sum of the integers it takes.
+
+\subsection*{Input}
+
+The input file is named \texttt{number.in}.
+
+Line $1$ contains two positive integers $n, m$.
+
+Each of the next $n$ lines contains $m$ integers, the integers in the
+cells, in order.
+
+\subsection*{Output}
+
+The input file [sic] is named \texttt{number.out}.
+
+One integer, the maximum possible sum of the integers the bear can take.
+
+\subsection*{Sample 1 input}
+
+\begin{verbatim}
+3 4
+1 -1 3 2
+2 -1 4 -1
+-2 2 -3 -1
+\end{verbatim}
+
+\subsection*{Sample 1 output}
+
+\begin{verbatim}
+9
+\end{verbatim}
+
+\subsection*{Explanation of sample 1}
+
+In the figures below, the cells on the path are shown in bold and the
+arrows show the direction of each step.
+
+\begin{center}
+\begin{tabular}{ccccccc}
+\textbf{1} & & $-1$ & & \textbf{3} & $\rightarrow$ & \textbf{2} \\
+$\downarrow$ & & & & $\uparrow$ & & $\downarrow$ \\
+\textbf{2} & $\rightarrow$ & $\mathbf{-1}$ & $\rightarrow$ & \textbf{4}
+  & & $\mathbf{-1}$ \\
+ & & & & & & $\downarrow$ \\
+$-2$ & & 2 & & $-3$ & & $\mathbf{-1}$ \\
+\end{tabular}
+\end{center}
+
+With the walk shown above, the sum of the numbers taken is
+$1 + 2 + (-1) + 4 + 3 + 2 + (-1) + (-1) = 9$,
+and it can be proved that this is the maximum.
+
+\begin{center}
+\begin{tabular}{ccccccc}
+\textbf{1} & & $-1$ & & \textbf{3} & $\rightarrow$ & \textbf{2} \\
+$\downarrow$ & & & & $\uparrow$ & & $\downarrow$ \\
+\textbf{2} & $\rightarrow$ & $\mathbf{-1}$ & $\rightarrow$ & \textbf{4}
+  & & $\mathbf{-1}$ \\
+ & & $\downarrow\uparrow$ & & & & $\downarrow$ \\
+$-2$ & & \textbf{2} & & $-3$ & & $\mathbf{-1}$ \\
+\end{tabular}
+\end{center}
+
+Note that the walk shown above is invalid, because the cell in row $2$,
+column $2$ is visited twice, and according to the problem statement a cell
+that has already been visited may not be passed through again.
+
+\begin{center}
+\begin{tabular}{ccccccc}
+\textbf{1} & & $-1$ & & \textbf{3} & $\rightarrow$ & \textbf{2} \\
+$\downarrow$ & & & & $\uparrow$ & & \\
+\textbf{2} & $\rightarrow$ & $\mathbf{-1}$ & $\rightarrow$ & \textbf{4}
+  & & $-1$ \\
+ & & & & & & \\
+$-2$ & & 2 & & $-3$ & & $-1$ \\
+\end{tabular}
+\end{center}
+
+Moreover, the walk shown above is also invalid, because it does not reach
+the end point at the bottom-right corner.
+
+\subsection*{Sample 2 input}
+
+\begin{verbatim}
+2 5
+-1 -1 -3 -2 -7
+-2 -1 -4 -1 -2
+\end{verbatim}
+
+\subsection*{Sample 2 output}
+
+\begin{verbatim}
+-10
+\end{verbatim}
+
+\subsection*{Explanation of sample 2}
+
+\begin{center}
+\begin{tabular}{ccccccccc}
+$\mathbf{-1}$ & $\rightarrow$ & $\mathbf{-1}$ & $\rightarrow$
+  & $\mathbf{-3}$ & $\rightarrow$ & $\mathbf{-2}$ & & $-7$ \\
+ & & & & & & $\downarrow$ & & \\
+$-2$ & & $-1$ & & $-4$ & & $\mathbf{-1}$ & $\rightarrow$
+  & $\mathbf{-2}$ \\
+\end{tabular}
+\end{center}
+
+With the walk shown above, the sum of the numbers taken is
+$(-1) + (-1) + (-3) + (-2) + (-1) + (-2) = -10$,
+and it can be proved that this is the maximum.
+Therefore, please note that the maximum sum of the numbers taken may also
+be negative.
+
+\subsection*{Sample 3}
+
+See \texttt{number/number3.in} and \texttt{number/number3.ans} in the
+contestant's directory.
+
+\subsection*{Constraints}
+
+For $20\%$ of the data, $n, m \le 5$.
+
+For $40\%$ of the data, $n, m \le 50$.
+
+For $70\%$ of the data, $n, m \le 300$.
+
+For $100\%$ of the data, $1 \le n, m \le 1000$.
+The absolute value of every integer in the grid does not exceed $10^4$.
+
+\section*{Source}
+
+The statements were taken from the official CSP-J 2020 problem PDFs served
+by QOJ (problem pages, ``Statement'' tab):
+\begin{itemize}
+\item Problem 1: \texttt{https://qoj.ac/problem/18071}
+\item Problem 2: \texttt{https://qoj.ac/problem/18072}
+\item Problem 3: \texttt{https://qoj.ac/problem/18073}
+\item Problem 4: \texttt{https://qoj.ac/problem/18074}
+\end{itemize}
+Contest page: \texttt{https://qoj.ac/contest/2860} (CSP-J 2020).
+
+\end{document}

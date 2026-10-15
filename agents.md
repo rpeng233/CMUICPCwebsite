@@ -214,3 +214,22 @@ displayed ranks 49/50, 69/70 and 80/81); prelim1 = `9 (54+), 7 (142+), 7 (142+)`
 (QOJ ranks 55 — tied with the row above at 55 —, 144 and 145; the 145 team has
 one non-CMU team fewer ahead than its QOJ rank suggests because rank 55 was CMU,
 and the CMU team at 144 is not counted).
+
+## CNOI/ — translated problem sets
+
+`CNOI/` holds English translations of Chinese OI papers, one LaTeX file plus
+its committed PDF per paper (`CNOI/CSP-S2023.tex`/`.pdf`, `CNOI/CSP-J2023.tex`/`.pdf`;
+CSP-S = senior, CSP-J = junior, 2020–2025), listed in `CNOI/index.html` and
+linked from the "Practice material" list of `index.html`. Statements come
+from the problem pages on qoj.ac (problem ids in the `Source` section of
+each file); CSP-J 2022/2024/2025 are not on QOJ and come from Luogu. Each
+file: `\documentclass[11pt]{article}`, never `\usepackage[T1]{fontenc}`,
+`\title{CSP-S 2023 (Senior)}` on one line, no `\author`,
+`\date{<day>, <hours> (<duration>)}`, `\usepackage[hidelinks]{hyperref}`; every
+problem starts on a new page (`\clearpage` before its heading) with
+`\section*{Problem k: Title (中文) \hfill{\normalsize\href{<problem URL>}{QOJ <id>}}}`
+(`Luogu P<id>` for papers not on QOJ), i.e. the source link sits beside the
+title (Chinese only inside `CJK`); subsections Input / Output /
+Sample k input / Sample k output / Explanation / Constraints, samples
+verbatim, subtask tables as `tabular`; sentence-per-line source. Build with
+`pdflatex` twice (`texlive-lang-chinese` for `CJKutf8`).

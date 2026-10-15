@@ -1,0 +1,517 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,booktabs,geometry,verbatim}
+\usepackage{CJKutf8}
+\geometry{margin=1in}
+\usepackage[hidelinks]{hyperref}
+
+\title{CSP-J 2022 (Junior)}
+\date{2022-10-29, 8:30--12:00 (3.5 hours)}
+
+\begin{document}
+\maketitle
+
+\clearpage
+\section*{Problem 1: Exponentiation
+(\begin{CJK}{UTF8}{gbsn}乘方\end{CJK})
+  \hfill{\normalsize\href{https://www.luogu.com.cn/problem/P8813}{Luogu P8813}}}
+
+\noindent Time limit: 500 ms.\quad Memory limit: 128.00 MB.
+
+\subsection*{Background}
+To reproduce the scoring conditions during the contest, the time limit
+for this problem has been reduced by 50\%.
+
+\subsection*{Problem description}
+Xiaowen has just started taking part in informatics competitions.
+One day, she encounters the following problem: given positive integers
+$a$ and
+$b$, find the value of
+$a^b$.
+
+$a^b$ is the product of
+$b$ copies of
+$a$; for example,
+$2^3$ is the product of three copies of 2, giving
+$2\times 2\times 2=8$.
+
+``Easy!'' Xiaowen thinks, and quickly writes a program, but it produces
+an error during testing.
+
+Xiaowen soon realizes that all the variables in her program have type
+\texttt{int}.
+On most machines, the largest number that \texttt{int} can represent is
+$2^{31}-1$, so her program will produce an error whenever the result of
+the calculation exceeds this number.
+
+Since Xiaowen has only just learned to program, she is worried that
+calculating with \texttt{int} may cause problems.
+She therefore wants you to output \texttt{-1} as a warning if the value of
+$a^b$ exceeds
+$10^9$, and otherwise output the correct value of
+$a^b$.
+
+However, Xiaowen still does not know how to implement this program,
+so she would like your help.
+
+\subsection*{Input}
+The input consists of one line containing two positive integers
+$a,b$.
+
+\subsection*{Output}
+Output one line: if the value of
+$a^b$ does not exceed
+$10^9$, output the value of
+$a^b$; otherwise, output \texttt{-1}.
+
+\subsection*{Sample 1 input}
+\begin{verbatim}
+10 9
+\end{verbatim}
+
+\subsection*{Sample 1 output}
+\begin{verbatim}
+1000000000
+\end{verbatim}
+
+\subsection*{Sample 2 input}
+\begin{verbatim}
+23333 66666
+\end{verbatim}
+
+\subsection*{Sample 2 output}
+\begin{verbatim}
+-1
+\end{verbatim}
+
+\subsection*{Constraints}
+For 10\% of the data, it is guaranteed that $b=1$.
+
+For 30\% of the data, it is guaranteed that $b\leq 2$.
+
+For 60\% of the data, it is guaranteed that $b\leq 30$ and
+$a^b\leq 10^{18}$.
+
+For 100\% of the data, it is guaranteed that $1\leq a,b\leq 10^9$.
+
+Update 2022.11.14/2025.04.02: one additional hack test case was added
+on each of these dates.
+
+\subsection*{Downloadable attachment}
+The problem page provides the archive \texttt{pow.zip}.
+
+\clearpage
+\section*{Problem 2: Decryption
+(\begin{CJK}{UTF8}{gbsn}解密\end{CJK})
+  \hfill{\normalsize\href{https://www.luogu.com.cn/problem/P8814}{Luogu P8814}}}
+
+\noindent Time limit: 1.00 s.\quad Memory limit: 512.00 MB.
+
+\subsection*{Problem description}
+Given a positive integer $k$, there are
+$k$ queries, each giving three positive integers
+$n_i,e_i,d_i$ and asking for two positive integers
+$p_i,q_i$ such that
+\[
+  n_i=p_i\times q_i,
+  \qquad e_i\times d_i=(p_i-1)(q_i-1)+1.
+\]
+
+\subsection*{Input}
+The first line contains a positive integer $k$, indicating that there are
+$k$ queries.
+
+The next $k$ lines contain the queries; the
+$i$-th line contains three positive integers
+$n_i,d_i,e_i$.
+
+\subsection*{Output}
+Output $k$ lines, each containing two positive integers
+$p_i,q_i$ representing the answer.
+
+To make the output consistent, you must ensure that $p_i\leq q_i$.
+
+If there is no solution, output \texttt{NO}.
+
+\subsection*{Sample 1 input}
+\begin{verbatim}
+10
+770 77 5
+633 1 211
+545 1 499
+683 3 227
+858 3 257
+723 37 13
+572 26 11
+867 17 17
+829 3 263
+528 4 109
+\end{verbatim}
+
+\subsection*{Sample 1 output}
+\begin{verbatim}
+2 385
+NO
+NO
+NO
+11 78
+3 241
+2 286
+NO
+NO
+6 88
+\end{verbatim}
+
+\subsection*{Sample 2 input}
+Provided as the downloadable file \texttt{decode/decode2.in}
+in the attachment \texttt{decode.zip}.
+
+\subsection*{Sample 2 output}
+Provided as the downloadable file \texttt{decode/decode2.ans}
+in the attachment \texttt{decode.zip}.
+
+\subsection*{Sample 3 input}
+Provided as the downloadable file \texttt{decode/decode3.in}
+in the attachment \texttt{decode.zip}.
+
+\subsection*{Sample 3 output}
+Provided as the downloadable file \texttt{decode/decode3.ans}
+in the attachment \texttt{decode.zip}.
+
+\subsection*{Sample 4 input}
+Provided as the downloadable file \texttt{decode/decode4.in}
+in the attachment \texttt{decode.zip}.
+
+\subsection*{Sample 4 output}
+Provided as the downloadable file \texttt{decode/decode4.ans}
+in the attachment \texttt{decode.zip}.
+
+\subsection*{Constraints}
+In the following, let $m=n-e\times d+2$.
+
+For 100\% of the data, it is guaranteed that $1\leq k\leq 10^5$ and,
+for every $1\leq i\leq k$,
+\[
+  1\leq n_i\leq 10^{18},\qquad
+  1\leq e_i\times d_i\leq 10^{18},\qquad
+  1\leq m\leq 10^9.
+\]
+
+\begin{center}
+\begin{tabular}{ccccc}
+\toprule
+Test case & $k\leq$ & $n\leq$ & $m\leq$ & Special property \\
+\midrule
+1 & $10^3$ & $10^3$ & $10^3$ & A solution is guaranteed \\
+2 & $10^3$ & $10^3$ & $10^3$ & None \\
+3 & $10^3$ & $10^9$ & $6\times 10^4$ & A solution is guaranteed \\
+4 & $10^3$ & $10^9$ & $6\times 10^4$ & None \\
+5 & $10^3$ & $10^9$ & $10^9$ & A solution is guaranteed \\
+6 & $10^3$ & $10^9$ & $10^9$ & None \\
+7 & $10^5$ & $10^{18}$ & $10^9$ & If a solution exists, $p=q$ \\
+8 & $10^5$ & $10^{18}$ & $10^9$ & A solution is guaranteed \\
+9 & $10^5$ & $10^{18}$ & $10^9$ & None \\
+10 & $10^5$ & $10^{18}$ & $10^9$ & None \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\clearpage
+\section*{Problem 3: Logical Expressions
+(\begin{CJK}{UTF8}{gbsn}逻辑表达式\end{CJK})
+  \hfill{\normalsize\href{https://www.luogu.com.cn/problem/P8815}{Luogu P8815}}}
+
+\noindent Time limit: 1.00 s.\quad Memory limit: 512.00 MB.
+
+\subsection*{Problem description}
+Logical expressions are an important concept and tool in computer science,
+involving logical values, logical operations, and the precedence of
+logical operations.
+
+In a logical expression, an element can have only two possible values:
+0 (representing false) and 1 (representing true).
+There are various possible logical operations between elements, but in
+this problem you need to consider only two: AND (denoted by \verb|&|)
+and OR (denoted by \verb!|!).
+Their rules are as follows:
+\[
+  0\mathbin{\&}0=0\mathbin{\&}1=1\mathbin{\&}0=0,
+  \qquad 1\mathbin{\&}1=1;
+\]
+\[
+  0\mathbin{|}0=0,
+  \qquad 0\mathbin{|}1=1\mathbin{|}0=1\mathbin{|}1=1.
+\]
+
+A logical expression may also contain parentheses.
+During evaluation, the part inside parentheses is evaluated first;
+when the two types of operations occur at the same level,
+\verb|&| takes precedence over \verb!|!;
+operations of the same type at the same level are evaluated from
+left to right.
+
+For example, the evaluation order of \verb!0|1&0! is the same as that of
+\verb!0|(1&0)!; the evaluation order of \verb!0&1&0|1! is the same as that of
+\verb!((0&1)&0)|1!.
+
+In addition, some compilers for languages such as C++ use a strategy
+called ``short-circuiting'' to evaluate logical expressions: in an
+expression of the form \verb|a&b|, the value of part \texttt{a} is evaluated
+first; if $a=0$, the value of the entire logical expression must be 0,
+so there is no need to evaluate part \texttt{b}; similarly, in an expression
+of the form \verb!a|b!, the value of part \texttt{a} is evaluated first;
+if $a=1$, the value of the entire logical expression must be 1,
+so there is no need to evaluate part \texttt{b}.
+
+You are given a logical expression and must compute its value and count
+how many times each of the two types of short-circuiting occurs during
+its evaluation.
+Note that a short circuit is not counted if it is contained within a part
+skipped by an outer short circuit: for example, in \verb!1|(0&1)!,
+although \verb|0&1| is a short circuit, the outer expression
+\verb!1|(0&1)! itself short-circuits, so the value of \verb|0&1| need not
+be computed, and this \verb|0&1| must not be counted as a short circuit.
+
+\subsection*{Input}
+The input consists of one line containing a nonempty string $s$
+representing the logical expression to evaluate.
+
+\subsection*{Output}
+Output two lines: the first line contains a character \texttt{0} or
+\texttt{1}, representing the value of the logical expression;
+the second line contains two nonnegative integers, giving respectively
+the number of short circuits of the forms \verb|a&b| and \verb!a|b!
+that occur while evaluating the expression.
+
+\subsection*{Sample 1 input}
+\begin{verbatim}
+0&(1|0)|(1|1|1&0)
+\end{verbatim}
+
+\subsection*{Sample 1 output}
+\begin{verbatim}
+1
+1 2
+\end{verbatim}
+
+\subsection*{Sample 2 input}
+\begin{verbatim}
+(0|1&0|1|1|(1|1))&(0&1&(1|0)|0|1|0)&0
+\end{verbatim}
+
+\subsection*{Sample 2 output}
+\begin{verbatim}
+0
+2 3
+\end{verbatim}
+
+\subsection*{Explanation of sample 1}
+The evaluation of this logical expression proceeds as follows;
+the comment on each line explains the operation on the preceding line:
+\begin{verbatim}
+0&(1|0)|(1|1|1&0)
+=(0&(1|0))|((1|1)|(1&0)) // Parentheses show the evaluation order.
+=0|((1|1)|(1&0))   // Evaluate the leftmost &: an a&b short circuit.
+=0|(1|(1&0))       // Evaluate the middle |: an a|b short circuit.
+=0|1               // Evaluate the middle |: an a|b short circuit.
+=1
+\end{verbatim}
+
+\subsection*{Sample 3 input}
+Provided as the downloadable file \texttt{expr/expr3.in}
+in the attachment \texttt{expr.zip}.
+
+\subsection*{Sample 3 output}
+Provided as the downloadable file \texttt{expr/expr3.ans}
+in the attachment \texttt{expr.zip}.
+
+\subsection*{Sample 4 input}
+Provided as the downloadable file \texttt{expr/expr4.in}
+in the attachment \texttt{expr.zip}.
+
+\subsection*{Sample 4 output}
+Provided as the downloadable file \texttt{expr/expr4.ans}
+in the attachment \texttt{expr.zip}.
+
+\subsection*{Constraints}
+Let $|s|$ denote the length of the string
+$s$.
+
+For all data, $1\leq |s|\leq 10^6$.
+It is guaranteed that $s$ contains only the characters
+\texttt{0}, \texttt{1}, \verb|&|, \verb!|!, \texttt{(}, and \texttt{)},
+and is a well-formed logical expression.
+It is guaranteed that there are no extra spaces at the beginning,
+in the middle, or at the end of the input string.
+It is guaranteed that $s$ contains no redundant nested parentheses
+(that is, no substring of the form \texttt{((a))}, where \texttt{a}
+is a well-formed logical expression).
+
+\begin{center}
+\begin{tabular}{ccc}
+\toprule
+Test case & $|s|\leq$ & Special condition \\
+\midrule
+$1\sim 2$ & 3 & None \\
+$3\sim 4$ & 5 & None \\
+5 & 2000 & 1 \\
+6 & 2000 & 2 \\
+7 & 2000 & 3 \\
+$8\sim 10$ & 2000 & None \\
+$11\sim 12$ & $10^6$ & 1 \\
+$13\sim 14$ & $10^6$ & 2 \\
+$15\sim 17$ & $10^6$ & 3 \\
+$18\sim 20$ & $10^6$ & None \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Here the special properties are as follows:
+\begin{itemize}
+\item Special property 1: $s$ is guaranteed not to contain \verb|&|.
+\item Special property 2: $s$ is guaranteed not to contain \verb!|!.
+\item Special property 3: $s$ is guaranteed not to contain
+\texttt{(} or \texttt{)}.
+\end{itemize}
+
+\subsection*{Note}
+The following is a formal definition of a ``well-formed logical
+expression'':
+\begin{itemize}
+\item The strings \texttt{0} and \texttt{1} are well-formed.
+\item If the string \texttt{s} is well-formed, and \texttt{s} is not a
+string of the form \texttt{(t)} (where \texttt{t} is well-formed),
+then the string \texttt{(s)} is also well-formed.
+\item If the strings \texttt{a} and \texttt{b} are both well-formed,
+then the strings \verb|a&b| and \verb!a|b! are both well-formed.
+\item Every well-formed logical expression can be generated using
+the methods above.
+\end{itemize}
+
+\clearpage
+\section*{Problem 4: Increasing Point Sequence
+(\begin{CJK}{UTF8}{gbsn}上升点列\end{CJK})
+  \hfill{\normalsize\href{https://www.luogu.com.cn/problem/P8816}{Luogu P8816}}}
+
+\noindent Time limit: 1.00 s.\quad Memory limit: 512.00 MB.
+
+\subsection*{Problem description}
+On a two-dimensional plane, you are given $n$ integer-coordinate points
+$(x_i,y_i)$, and you may freely add
+$k$ more integer-coordinate points.
+
+After freely adding $k$ points, you must select some of the
+$n+k$ points and arrange them into a sequence such that the Euclidean
+distance between every two consecutive points is exactly 1, and both
+their horizontal and vertical coordinates are monotonically
+nondecreasing; that is,
+\[
+  x_{i+1}-x_i=1,\quad y_{i+1}=y_i,
+\]
+or
+\[
+  y_{i+1}-y_i=1,\quad x_{i+1}=x_i.
+\]
+Determine the maximum length of a sequence satisfying these conditions.
+
+\subsection*{Input}
+The first line contains two positive integers $n,k$, representing,
+respectively, the number of given integer-coordinate points and
+the number of integer-coordinate points that may be freely added.
+
+The next $n$ lines describe the points; the
+$i$-th line contains two positive integers
+$x_i,y_i$, giving the horizontal and vertical coordinates of the
+$i$-th given point.
+
+\subsection*{Output}
+Output one integer: the maximum length of a sequence satisfying
+the requirements.
+
+\subsection*{Sample 1 input}
+\begin{verbatim}
+8 2
+3 1
+3 2
+3 3
+3 6
+1 2
+2 2
+5 5
+5 3
+\end{verbatim}
+
+\subsection*{Sample 1 output}
+\begin{verbatim}
+8
+\end{verbatim}
+
+\subsection*{Sample 2 input}
+\begin{verbatim}
+4 100
+10 10
+15 25
+20 20
+30 30
+\end{verbatim}
+
+\subsection*{Sample 2 output}
+\begin{verbatim}
+103
+\end{verbatim}
+
+\subsection*{Sample 3 input}
+Provided as the downloadable file \texttt{point/point3.in}
+in the attachment \texttt{point.zip}.
+
+\subsection*{Sample 3 output}
+Provided as the downloadable file \texttt{point/point3.ans}
+in the attachment \texttt{point.zip}.
+
+The third sample satisfies $k=0$.
+
+\subsection*{Sample 4 input}
+Provided as the downloadable file \texttt{point/point4.in}
+in the attachment \texttt{point.zip}.
+
+\subsection*{Sample 4 output}
+Provided as the downloadable file \texttt{point/point4.ans}
+in the attachment \texttt{point.zip}.
+
+\subsection*{Constraints}
+For all data, it is guaranteed that $1\leq n\leq 500$ and
+$0\leq k\leq 100$.
+The horizontal and vertical coordinates of every given
+integer-coordinate point satisfy $1\leq x_i,y_i\leq 10^9$,
+and all given points are guaranteed to be distinct.
+The horizontal and vertical coordinates of the freely added
+integer-coordinate points are unrestricted.
+
+\begin{center}
+\begin{tabular}{cccc}
+\toprule
+Test case & $n\leq$ & $k\leq$ & $x_i,y_i\leq$ \\
+\midrule
+$1\sim 2$ & 10 & 0 & 10 \\
+$3\sim 4$ & 10 & 100 & 100 \\
+$5\sim 7$ & 500 & 0 & 100 \\
+$8\sim 10$ & 500 & 0 & $10^9$ \\
+$11\sim 15$ & 500 & 100 & 100 \\
+$16\sim 20$ & 500 & 100 & $10^9$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section*{Source}
+Translated from the following Luogu problem pages, in contest order:
+\begin{enumerate}
+\item \texttt{https://www.luogu.com.cn/problem/P8813}
+\item \texttt{https://www.luogu.com.cn/problem/P8814}
+\item \texttt{https://www.luogu.com.cn/problem/P8815}
+\item \texttt{https://www.luogu.com.cn/problem/P8816}
+\end{enumerate}
+The downloadable sample filenames above are those listed on these pages.
+The page headers do not display the contest date or sitting hours;
+the date and hours in this document follow the supplied contest details.
+
+\end{document}

@@ -1,0 +1,531 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,booktabs,geometry,verbatim}
+\usepackage{CJKutf8}
+\geometry{margin=1in}
+\usepackage[hidelinks]{hyperref}
+\newcommand{\lbr}{\char`\{}
+\newcommand{\rbr}{\char`\}}
+
+\title{CSP-J 2023 (Junior)}
+\date{2023-10-21, 8:30--12:00 (3.5 hours)}
+
+\begin{document}
+\maketitle
+
+\noindent
+Second round of the 2023 CCF Certified Software Professional (CSP-J/S 2023),
+junior level (CSP-J).
+Four problems; each problem is worth 100 points.
+In the original contest every problem reads its input from a file
+(\texttt{apple.in}, \texttt{road.in}, \texttt{uqe.in}, \texttt{bus.in})
+and writes its output to a file
+(\texttt{apple.out}, \texttt{road.out}, \texttt{uqe.out}, \texttt{bus.out});
+the sentences stating this are kept in the translation below.
+Time limit and memory limit are those shown on QOJ.
+
+\clearpage
+\section*{Problem 1: Small Apples (\begin{CJK}{UTF8}{gbsn}小苹果\end{CJK})
+  \hfill{\normalsize\href{https://qoj.ac/problem/7809}{QOJ 7809}}}
+
+\noindent
+Time limit: 1 s.
+Memory limit: 512 MB.
+Total points: 100.
+Code name: \texttt{apple}.
+
+\subsection*{Problem description}
+
+There are $n$ apples on Little Y's table, arranged in a row from left to
+right and numbered from $1$ to $n$.
+Little Bao is a good friend of Little Y, and every day she takes away some of
+the apples.
+Every day, when taking apples, Little Bao starts from the first apple on the
+left and takes away one apple after every two apples that she skips
+(that is, she takes the first apple, then skips two, takes one, and so on).
+Afterwards, Little Bao arranges the remaining apples into a row again in
+their original order.
+Little Bao wants to know how many days it takes to take away all the apples,
+and on which day the apple numbered $n$ is taken away.
+
+\subsection*{Input}
+
+Read the input from the file \texttt{apple.in}.
+The first line of the input contains one positive integer $n$,
+the total number of apples.
+
+\subsection*{Output}
+
+Write the output to the file \texttt{apple.out}.
+Output one line containing two positive integers separated by a single
+space:
+the number of days Little Bao needs to take away all the apples,
+and the day on which the apple numbered $n$ is taken away.
+
+\subsection*{Sample 1 input}
+
+\begin{verbatim}
+8
+\end{verbatim}
+
+\subsection*{Sample 1 output}
+
+\begin{verbatim}
+5 5
+\end{verbatim}
+
+\subsection*{Explanation of sample 1}
+
+There are $8$ apples on the table in total.
+On the first day, Little Bao takes away the apples numbered $1$, $4$, $7$.
+On the second day, Little Bao takes away the apples numbered $2$, $6$.
+On the third day, Little Bao takes away the apple numbered $3$.
+On the fourth day, Little Bao takes away the apple numbered $5$.
+On the fifth day, Little Bao takes away the apple numbered $8$.
+
+\subsection*{Sample 2}
+
+See the files \texttt{apple/apple2.in} and \texttt{apple/apple2.ans}
+in the contestant's directory.
+(This sample is given only as downloadable files; it is not printed in the
+statement.)
+
+\subsection*{Constraints}
+
+For all test data: $1 \le n \le 10^9$.
+
+\begin{center}
+\begin{tabular}{ccc}
+\toprule
+Test cases & $n \le$ & Special property \\
+\midrule
+$1 \sim 2$ & $10$ & None \\
+$3 \sim 5$ & $10^3$ & None \\
+$6 \sim 7$ & $10^6$ & Yes \\
+$8 \sim 9$ & $10^6$ & None \\
+$10$ & $10^9$ & None \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Special property: Little Bao takes away the apple numbered $n$ on the first
+day.
+
+\clearpage
+\section*{Problem 2: Highway (\begin{CJK}{UTF8}{gbsn}公路\end{CJK})
+  \hfill{\normalsize\href{https://qoj.ac/problem/7810}{QOJ 7810}}}
+
+\noindent
+Time limit: 1 s.
+Memory limit: 512 MB.
+Total points: 100.
+Code name: \texttt{road}.
+
+\subsection*{Problem description}
+
+Little Bao is going on a self-driving trip along a highway.
+There are $n$ stations on the highway, numbered from $1$ to $n$.
+The distance between station $i$ and station $i+1$ is $v_i$ kilometres.
+Fuel can be bought at every station on the highway.
+At the station numbered $i$ one litre of fuel costs $a_i$ yuan,
+and every station sells only whole litres of fuel.
+Little Bao wants to drive from station $1$ to station $n$.
+At the beginning Little Bao is at station $1$ and the fuel tank of the car is
+empty.
+It is known that the fuel tank is large enough to hold any amount of fuel,
+and that every litre of fuel lets the car travel $d$ kilometres.
+What is the minimum amount of money Little Bao has to spend on fuel to drive
+from station $1$ to station $n$?
+
+\subsection*{Input}
+
+Read the input from the file \texttt{road.in}.
+The first line of the input contains two positive integers $n$ and $d$,
+the number of stations on the highway and the distance the car can travel per
+litre of fuel.
+The second line of the input contains $n-1$ positive integers
+$v_1, v_2, \dots, v_{n-1}$, the distances between consecutive stations.
+The third line of the input contains $n$ positive integers
+$a_1, a_2, \dots, a_n$, the fuel prices at the stations.
+(The original statement says ``the second line'' for both of the last two
+lines; the prices are on the third line.)
+
+\subsection*{Output}
+
+Write the output to the file \texttt{road.out}.
+Output one line containing a single positive integer:
+the minimum amount of money Little Bao has to spend on fuel to drive from
+station $1$ to station $n$.
+
+\subsection*{Sample 1 input}
+
+\begin{verbatim}
+5 4
+10 10 10 10
+9 8 9 6 5
+\end{verbatim}
+
+\subsection*{Sample 1 output}
+
+\begin{verbatim}
+79
+\end{verbatim}
+
+\subsection*{Explanation of sample 1}
+
+In an optimal plan, Little Bao buys $3$ litres of fuel at station $1$,
+$5$ litres of fuel at station $2$, and $2$ litres of fuel at station $4$.
+
+\subsection*{Sample 2}
+
+See the files \texttt{road/road2.in} and \texttt{road/road2.ans}
+in the contestant's directory.
+(This sample is given only as downloadable files; it is not printed in the
+statement.)
+
+\subsection*{Constraints}
+
+For all test data it is guaranteed that
+$1 \le n \le 10^5$, $1 \le d \le 10^5$, $1 \le v_i \le 10^5$,
+$1 \le a_i \le 10^5$.
+
+\begin{center}
+\begin{tabular}{ccc}
+\toprule
+Test cases & $n \le$ & Special property \\
+\midrule
+$1 \sim 5$ & $8$ & None \\
+$6 \sim 10$ & $10^3$ & None \\
+$11 \sim 13$ & $10^5$ & A \\
+$14 \sim 16$ & $10^5$ & B \\
+$17 \sim 20$ & $10^5$ & None \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Special property A: the fuel price at station $1$ is the lowest.
+Special property B: for all $1 \le i < n$, $v_i$ is a multiple of $d$.
+
+\clearpage
+\section*{Problem 3: Quadratic Equation
+  (\begin{CJK}{UTF8}{gbsn}一元二次方程\end{CJK})
+  \hfill{\normalsize\href{https://qoj.ac/problem/7811}{QOJ 7811}}}
+
+\noindent
+Time limit: 1 s.
+Memory limit: 512 MB.
+Total points: 100.
+Code name: \texttt{uqe}.
+
+\subsection*{Background}
+
+As is well known, the real solutions of a quadratic equation
+$ax^2 + bx + c = 0$ ($a \ne 0$) can be found as follows.
+\begin{itemize}
+\item Compute $\Delta = b^2 - 4ac$; then:
+  \begin{enumerate}
+  \item if $\Delta < 0$, the quadratic equation has no real solution;
+  \item otherwise $\Delta \ge 0$, and the quadratic equation has the two
+    real solutions
+    \[
+      x_{1,2} = \frac{-b \pm \sqrt{\Delta}}{2a};
+    \]
+    \begin{itemize}
+    \item here $\sqrt{\Delta}$ denotes the arithmetic square root of
+      $\Delta$, that is, the unique non-negative real number $s$ with
+      $s^2 = \Delta$;
+    \item in particular, when $\Delta = 0$ the two real solutions are
+      equal, and when $\Delta > 0$ the two real solutions are distinct.
+    \end{itemize}
+  \end{enumerate}
+\end{itemize}
+For example:
+\begin{itemize}
+\item $x^2 + x + 1 = 0$ has no real solution, because
+  $\Delta = 1^2 - 4 \times 1 \times 1 = -3 < 0$;
+\item $x^2 - 2x + 1 = 0$ has two equal real solutions $x_{1,2} = 1$;
+\item $x^2 - 3x + 2 = 0$ has two distinct real solutions $x_1 = 1$,
+  $x_2 = 2$.
+\end{itemize}
+In the statement, the greatest common divisor of $a$ and $b$ is denoted by
+$\gcd(a, b)$.
+For example, the greatest common divisor of $12$ and $18$ is $6$,
+that is, $\gcd(12, 18) = 6$.
+
+\subsection*{Problem description}
+
+You are given the coefficients $a, b, c$ of a quadratic equation, where
+$a, b, c$ are \emph{all integers and $a \ne 0$}.
+You need to decide whether the quadratic equation $ax^2 + bx + c = 0$ has
+real solutions, and print the answer in the required format.
+
+\emph{In this problem, when a rational number $v$ is printed, the following
+rules must be followed}:
+\begin{itemize}
+\item by the definition of a rational number, there exist \emph{unique}
+  integers $p$ and $q$ with $q > 0$, $\gcd(p, q) = 1$ and $v = \frac{p}{q}$;
+\item \emph{if $q = 1$, print} \texttt{\lbr{}p\rbr{}}; \emph{otherwise print}
+  \texttt{\lbr{}p\rbr{}/\lbr{}q\rbr{}},
+  where \texttt{\lbr{}n\rbr{}} stands for the value of the integer $n$;
+\item for example:
+  \begin{itemize}
+  \item when $v = -0.5$, the values of $p$ and $q$ are $-1$ and $2$,
+    so \texttt{-1/2} should be printed;
+  \item when $v = 0$, the values of $p$ and $q$ are $0$ and $1$,
+    so \texttt{0} should be printed.
+  \end{itemize}
+\end{itemize}
+
+\emph{For solving the equation, two cases are distinguished}:
+\begin{enumerate}
+\item If $\Delta = b^2 - 4ac < 0$, the equation has no real solution,
+  and you should print \texttt{NO}.
+\item Otherwise $\Delta \ge 0$, and the equation has two solutions
+  (possibly equal); let the \emph{larger} one be $x$. Then:
+  \begin{enumerate}
+  \item[(1)] if $x$ is a rational number, print $x$ in the format for
+    rational numbers;
+  \item[(2)] otherwise, by the formula above, $x$ can be written
+    \emph{uniquely} in the form $x = q_1 + q_2 \sqrt{r}$, where
+    \begin{itemize}
+    \item $q_1, q_2$ are rational numbers and $q_2 > 0$;
+    \item $r$ is a positive integer with $r > 1$, and there is no positive
+      integer $d > 1$ with $d^2 \mid r$ (that is, $r$ must not be a
+      multiple of $d^2$);
+    \end{itemize}
+    in this case:
+    \begin{enumerate}
+    \item if $q_1 \ne 0$, print $q_1$ in the format for rational numbers,
+      followed by a plus sign \texttt{+};
+    \item otherwise skip this step;
+    \end{enumerate}
+    and then:
+    \begin{enumerate}
+    \item if $q_2 = 1$, print \texttt{sqrt(\lbr{}r\rbr{})};
+    \item otherwise, if $q_2$ is an integer, print
+      \texttt{\lbr{}q2\rbr{}*sqrt(\lbr{}r\rbr{})};
+    \item otherwise, if $q_3 = \frac{1}{q_2}$ is an integer, print
+      \texttt{sqrt(\lbr{}r\rbr{})/\lbr{}q3\rbr{}};
+    \item otherwise, it can be shown that there exist unique integers
+      $c, d$ with $c, d > 1$, $\gcd(c, d) = 1$ and $q_2 = \frac{c}{d}$;
+      in this case print
+      \texttt{\lbr{}c\rbr{}*sqrt(\lbr{}r\rbr{})/\lbr{}d\rbr{}}.
+    \end{enumerate}
+    In the notation above, \texttt{\lbr{}n\rbr{}} stands for the value of the
+    integer $n$; see the samples for details.
+  \end{enumerate}
+\end{enumerate}
+If the equation has real solutions, print the larger of the two real
+solutions in the required format.
+Otherwise, if the equation has no real solution, print \texttt{NO}.
+
+\subsection*{Input}
+
+Read the input from the file \texttt{uqe.in}.
+The first line of the input contains two positive integers $T$ and $M$,
+the number of equations and an upper bound on the absolute values of the
+coefficients.
+Each of the next $T$ lines contains three integers $a, b, c$.
+
+\subsection*{Output}
+
+Write the output to the file \texttt{uqe.out}.
+Output $T$ lines, each containing one string: the answer to the
+corresponding query, in the format described in the statement.
+\emph{The string printed on each line must not contain any space.}
+
+\subsection*{Sample 1 input}
+
+\begin{verbatim}
+9 1000
+1 -1 0
+-1 -1 -1
+1 -2 1
+1 5 4
+4 4 1
+1 0 -432
+1 -3 1
+2 -4 1
+1 7 1
+\end{verbatim}
+
+\subsection*{Sample 1 output}
+
+\begin{verbatim}
+1
+NO
+1
+-1
+-1/2
+12*sqrt(3)
+3/2+sqrt(5)/2
+1+sqrt(2)/2
+-7/2+3*sqrt(5)/2
+\end{verbatim}
+
+\subsection*{Sample 2}
+
+See the files \texttt{uqe/uqe2.in} and \texttt{uqe/uqe2.ans}
+in the contestant's directory.
+(This sample is given only as downloadable files; it is not printed in the
+statement.)
+
+\subsection*{Constraints}
+
+For all test data: $1 \le T \le 5000$, $1 \le M \le 10^3$,
+$|a|, |b|, |c| \le M$, $a \ne 0$.
+
+\begin{center}
+\begin{tabular}{ccccc}
+\toprule
+Test case & $M \le$ & Special property A & Special property B &
+Special property C \\
+\midrule
+$1$ & $1$ & Yes & Yes & Yes \\
+$2$ & $20$ & No & No & No \\
+$3$ & $10^3$ & Yes & No & Yes \\
+$4$ & $10^3$ & Yes & No & No \\
+$5$ & $10^3$ & No & Yes & Yes \\
+$6$ & $10^3$ & No & Yes & No \\
+$7, 8$ & $10^3$ & No & No & Yes \\
+$9, 10$ & $10^3$ & No & No & No \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Here:
+\begin{itemize}
+\item Special property A: it is guaranteed that $b = 0$;
+\item Special property B: it is guaranteed that $c = 0$;
+\item Special property C: if the equation has solutions, then both solutions
+  are integers.
+\end{itemize}
+
+\clearpage
+\section*{Problem 4: Tour Bus (\begin{CJK}{UTF8}{gbsn}旅游巴士\end{CJK})
+  \hfill{\normalsize\href{https://qoj.ac/problem/7812}{QOJ 7812}}}
+
+\noindent
+Time limit: 1 s.
+Memory limit: 512 MB.
+Total points: 100.
+Code name: \texttt{bus}.
+
+\subsection*{Problem description}
+
+Little Z plans to take a tour bus during the National Day holiday to visit a
+scenic area he has long wanted to see.
+The map of the scenic area has $n$ places, connected by $m$ roads.
+Place number $1$ is the entrance of the scenic area and place number $n$ is
+its exit.
+We call the time at which the scenic area opens for the day time $0$;
+starting from time $0$, every $k$ units of time a tour bus arrives at the
+entrance of the scenic area, and at the same moment a tour bus leaves the
+scenic area from the exit.
+All roads are \emph{one-way}.
+For every road, a visitor needs \emph{exactly} $1$ unit of time to walk
+through it.
+Little Z wants to arrive at the entrance by tour bus, walk to the exit along
+any path of his choice, and then leave by tour bus;
+this means that both the time he arrives at and the time he leaves the scenic
+area must be \emph{non-negative integer multiples} of $k$.
+Because of the holiday crowds, \emph{before leaving the scenic area by tour
+bus, Little Z wants to keep moving along the roads of the scenic area all the
+time, and does not want to stay at any place (including the entrance and the
+exit) or on any road.}
+Before setting off, Little Z suddenly learns that the scenic area has adopted
+a crowd-control measure: every road has been given an ``opening time'' $a_i$,
+and visitors may pass through the road only at a time \emph{not earlier than}
+$a_i$.
+Please help Little Z design a tour plan so that the time at which he leaves
+the scenic area by tour bus is as early as possible.
+
+\subsection*{Input}
+
+Read the input from the file \texttt{bus.in}.
+The first line of the input contains $3$ positive integers $n, m, k$:
+the number of places in the scenic area, the number of roads, and the
+interval between tour buses.
+Each of the next $m$ lines of the input contains $3$ non-negative integers
+$u_i, v_i, a_i$, meaning that the $i$-th road goes from place $u_i$ to place
+$v_i$ and has ``opening time'' $a_i$.
+
+\subsection*{Output}
+
+Write the output to the file \texttt{bus.out}.
+Output one line containing a single integer: the earliest time at which
+Little Z can leave the scenic area by tour bus.
+If no tour plan satisfying the requirements exists, output \texttt{-1}.
+
+\subsection*{Sample 1 input}
+
+\begin{verbatim}
+5 5 3
+1 2 0
+2 5 1
+1 3 0
+3 4 3
+4 5 1
+\end{verbatim}
+
+\subsection*{Sample 1 output}
+
+\begin{verbatim}
+6
+\end{verbatim}
+
+\subsection*{Explanation of sample 1}
+
+(The original statement contains a figure, ``Figure 1: illustration of
+sample 1'', drawing the five places and the five roads with their opening
+times; it is not reproduced here.)
+Little Z can arrive at the entrance of the scenic area at time $3$,
+walk to the exit in the order $1 \to 3 \to 4 \to 5$,
+and leave at time $6$.
+
+\subsection*{Sample 2}
+
+See the files \texttt{bus/bus2.in} and \texttt{bus/bus2.ans}
+in the contestant's directory.
+(This sample is given only as downloadable files; it is not printed in the
+statement.)
+
+\subsection*{Constraints}
+
+For all test data: $2 \le n \le 10^4$, $1 \le m \le 2 \times 10^4$,
+$1 \le k \le 100$, $1 \le u_i, v_i \le n$, $0 \le a_i \le 10^6$.
+
+\begin{center}
+\begin{tabular}{ccccc}
+\toprule
+Test case & $n \le$ & $m \le$ & $k \le$ & Special property \\
+\midrule
+$1 \sim 2$ & $10$ & $15$ & $100$ & $a_i = 0$ \\
+$3 \sim 5$ & $10$ & $15$ & $100$ & None \\
+$6 \sim 7$ & $10^4$ & $2 \times 10^4$ & $1$ & $a_i = 0$ \\
+$8 \sim 10$ & $10^4$ & $2 \times 10^4$ & $1$ & None \\
+$11 \sim 13$ & $10^4$ & $2 \times 10^4$ & $100$ & $a_i = 0$ \\
+$14 \sim 15$ & $10^4$ & $2 \times 10^4$ & $100$ & $u_i < v_i$ \\
+$16 \sim 20$ & $10^4$ & $2 \times 10^4$ & $100$ & None \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section*{Source}
+
+Problems of CSP-J 2023 (CCF CSP-J/S 2023 second round, junior level,
+2023-10-21) as hosted on QOJ, in contest order:
+\begin{itemize}
+\item Problem 1: \texttt{https://qoj.ac/problem/7809}
+\item Problem 2: \texttt{https://qoj.ac/problem/7810}
+\item Problem 3: \texttt{https://qoj.ac/problem/7811}
+\item Problem 4: \texttt{https://qoj.ac/problem/7812}
+\end{itemize}
+The translation follows the official Chinese statement PDF embedded in each
+QOJ problem page (``Statement'' tab);
+the QOJ English statement pages (\texttt{/statement/en}) were used as a
+cross-check.
+In the original tables, equal consecutive cells are merged;
+here every row is filled in.
+
+\end{document}
