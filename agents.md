@@ -32,7 +32,10 @@ rather than saved as raw QOJ pages (a raw save is ~3.5 MB; compact is ~0.1–0.3
 - only the top of the ranklist is kept: cut at a solve-count boundary so
   that every team within one solve of the weakest CMU team is included
   (prelim1: all teams with >= 6 solves, 613 of 2643 rows), and say so in the
-  footnote (`Rows shown: QOJ ranks 1–N ...`).
+  footnote (`Rows shown: QOJ ranks 1–N ...`); small ranklists (UCup
+  Semifinals, 144 teams) are kept whole (`Rows shown: ... (all 144 teams)`).
+  `qoj.ac` blocks curl but the same ranklist is served from
+  `contest.ucup.ac/results/<id>` (UCup contests) and can be fetched directly.
 
 ### Scoreboards that come as official + unofficial PDFs (BOCA, e.g. LAC)
 
@@ -113,13 +116,13 @@ Reference implementation: `20260912ECprelim2.html` (also applied to
 ## Team index (`CHNTeamIndex26.html`) and team labels on scoreboards
 
 `CHNTeamIndex26.html` is one table of all teams from Chinese universities that
-appear on any of the four 2026 scoreboards (EC prelim 1/2, CCPC prelim,
-UCup 5-3): GeoMeanRank (geometric mean of the team's ranks over the
+appear on any of the five 2026 scoreboards (EC prelim 1/2, CCPC prelim,
+UCup 5-3, UCup 4 Semifinals `20261011UCupSemi4.html`): GeoMeanRank (geometric mean of the team's ranks over the
 contests it appears in, 3 decimals), team label (one line, column wide
 enough for the longest label), members, Chinese university name in grey
 followed by the registered/displayed name(s), English translation, and one
 rank column per contest (EC1/EC2 = official rank in
-`2026090[7|12]ECprelim[1|2]official.pdf`, CCPC/UCup = QOJ rank; linked to
+`2026090[7|12]ECprelim[1|2]official.pdf`, CCPC/UCup/Semi = QOJ rank; linked to
 the team's row, `†` when the row is below the compact scoreboard's cut);
 members stay on one line (`td.mb` nowrap) and every member with an OIerDb
 record links to their row in `OIERindex.html`
