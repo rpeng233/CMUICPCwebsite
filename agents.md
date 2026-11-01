@@ -37,6 +37,17 @@ rather than saved as raw QOJ pages (a raw save is ~3.5 MB; compact is ~0.1–0.3
   `qoj.ac` blocks curl but the same ranklist is served from
   `contest.ucup.ac/results/<id>` (UCup contests) and can be fetched directly.
 
+### Scoreboards that come as a screenshot (Codeforces gym, e.g. the MIT team contests)
+
+Transcribe the standings into the same compact markup (`20261031MITTeam2.html`):
+Codeforces `+k hh:mm` -> `td.ac` `+k<br>h:mm`, `-k` -> `td.wa` `-k`; MIT teams
+are anonymised to the bare name `MIT` (no rank gaps, no roster — as in the
+2025/26 PDF `20251026MITTeam2.pdf`), CMU teams are `CMU-Team N (First Last, ...)`
+and keep their rank when official; first-solve marks, header `solved/submits`
+and dirt (wrong attempts on solved problems / submissions on solved problems,
+QOJ's definition) are computed from the rows shown — say so in the footnote
+together with the source and the number of teams shown.
+
 ### Scoreboards that come as official + unofficial PDFs (BOCA, e.g. LAC)
 
 Merge both into one file (`20260307LAC26.html`) in the same compact markup and
