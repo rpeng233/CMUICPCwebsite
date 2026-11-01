@@ -234,7 +234,7 @@ and the CMU team at 144 is not counted).
 `CNOI/` holds English translations of Chinese OI papers, one LaTeX file plus
 its committed PDF per paper (`CNOI/CSP-S2023.tex`/`.pdf`, `CNOI/CSP-J2023.tex`/`.pdf`;
 CSP-S = senior, CSP-J = junior, 2020–2025), listed in `CNOI/index.html` and
-linked from the "Practice material" list of `index.html`. Statements come
+linked (the GitHub `CNOI/` folder) from the "Participating" list of `index.html`. Statements come
 from the problem pages on qoj.ac (problem ids in the `Source` section of
 each file); CSP-J 2022/2024/2025 are not on QOJ and come from Luogu. Each
 file: `\documentclass[11pt]{article}`, never `\usepackage[T1]{fontenc}`,
